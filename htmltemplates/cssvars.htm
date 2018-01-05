@@ -1,0 +1,245 @@
+<div class="content">
+    <div class="buttons__directives">
+        <label for="selector__existing">Select shape: </label>
+        <select class="selector__existing" name="selector__existing" id="selectorExisting" onchange="setCurrentShape(this.value);">
+            <option class="selector__existingOption" value="shape1" id="dropdown1">Shape 1</option>
+        </select>
+        <button class="button__directive button__viewInputs">Hide|View Inputs</button>
+        <button class="button__directive button__addShape">Add Shape</button>
+        <button class="button__directive button__removeShape">Remove Active Shape</button>
+        <button class="button__directive button__clearShapes">Clear All Shapes</button>
+        <button class="button__directive button__yesDelete button--redButton confirmDeleteContent hidden">YES</button>
+        <button class="button__directive button__noDelete confirmDeleteContent hidden">NO</button>
+    </div>
+    <div class="inputs__wrap hidden">
+        <div class="controls">
+            <div class="controls__buttonCategories">
+                <button class="button__category button__category--size button__category--selected" data-category="size">Size</button>
+                <button class="button__category button__category--border" data-category="border">Border</button>
+                <!--<button class="button__category button__category--shadow" data-category="shadow">Shadow</button>-->
+                <button class="button__category button__category--Animation" data-category="animation">Animation</button>
+                <button class="button__category button__category--Base Color" data-category="borderColor">Color</button>
+            </div>
+
+            <!-- Size Inputs -->
+
+            <div class="inputs__container inputs__container--size" data-category="size">
+                <div class="inputBox">
+                    <label for="height">Height</label>
+                    <div class="inputFields">
+                        <input id="heightRange" type="range" name="height" min="0" max="100" value="5" data-suffix="em">
+                        <input id="heightText" type="text" name="height" min="0" max="100" value="5" data-suffix="em">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="width">Width</label>
+                    <div class="inputFields">
+                        <input id="widthRange" type="range" name="width" min="0" max="100" value="5" data-suffix="em">
+                        <input id="widthText" type="text" name="width" min="0" max="100" value="5" data-suffix="em">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Border Style Inputs -->
+            <div class="inputs__container inputs__container--border inputs__container--hidden" data-category="border">
+                <div class="inputBox">
+                    <label for="base">Border Color</label>
+                    <div class="inputFields">
+                        <input id="base" type="color" name="borderColor" value="#000000">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderTopWidth">Top Width</label>
+                    <div class="inputFields">
+                        <input id="borderTopWidthRange" type="range" name="borderTopWidth" min="0" max="100" value="2" data-suffix="px">
+                        <input id="borderTopWidthText" type="text" name="borderTopWidth" min="0" max="100" value="2" data-suffix="px">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderTopColor">Top Color</label>
+                    <div class="inputFields">
+                        <input id="borderTopColor" type="color" name="borderTopColor" value="#3c3a3a">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderTopLeftRadius">Top Left Radius</label>
+                    <div class="inputFields">
+                        <input id="borderTopLeftRadiusRange" type="range" name="borderTopLeftRadius" min="0" max="100" value="0" data-suffix="%">
+                        <input id="borderTopLeftRadiusText" type="text" name="borderTopLeftRadius" min="0" max="100" value="0" data-suffix="%">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderTopRightRadius">Top Right Radius</label>
+                    <div class="inputFields">
+                        <input id="borderTopRightRadiusRange" type="range" name="borderTopRightRadius" min="0" max="100" value="0" data-suffix="%">
+                        <input id="borderTopRightRadiusText" type="text" name="borderTopRightRadius" min="0" max="100" value="0" data-suffix="%">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderBottomWidth">Bottom Width</label>
+                    <div class="inputFields">
+                        <input id="borderBottomWidthRange" type="range" name="borderBottomWidth" min="0" max="100" value="2" data-suffix="px">
+                        <input id="borderBottomWidthText" type="text" name="borderBottomWidth" min="0" max="100" value="2" data-suffix="px">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderBottomColor">Bottom Color</label>
+                    <div class="inputFields">
+                        <input id="borderBottomColor" type="color" name="borderBottomColor" value="#3c3a3a">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderBottomLeftRadius">Bottom Left Radius</label>
+                    <div class="inputFields">
+                        <input id="borderBottomLeftRadiusRange" type="range" name="borderBottomLeftRadius" min="0" max="100" value="0" data-suffix="%">
+                        <input id="borderBottomLeftRadiusText" type="text" name="borderBottomLeftRadius" min="0" max="100" value="0" data-suffix="%">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderBottomRightRadius">Bottom Right Radius</label>
+                    <div class="inputFields">
+                        <input id="borderBottomRightRadiusRange" type="range" name="borderBottomRightRadius" min="0" max="100" value="0" data-suffix="%">
+                        <input id="borderBottomRightRadiusText" type="text" name="borderBottomRightRadius" min="0" max="100" value="0" data-suffix="%">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderRightWidth">Right Width</label>
+                    <div class="inputFields">
+                        <input id="borderRightWidthRange" type="range" name="borderRightWidth" min="0" max="100" value="2" data-suffix="px">
+                        <input id="borderRightWidthText" type="text" name="borderRightWidth" min="0" max="100" value="2" data-suffix="px">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderRightColor">Right Color</label>
+                    <div class="inputFields">
+                        <input id="borderRightColor" type="color" name="borderRightColor" value="#3c3a3a">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderLeftWidth">Left Width</label>
+                    <div class="inputFields">
+                        <input id="borderLeftWidthRange" type="range" name="borderLeftWidth" min="0" max="100" value="2" data-suffix="px">
+                        <input id="borderLeftWidthText" type="text" name="borderLeftWidth" min="0" max="100" value="2" data-suffix="px">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="borderLeftColor">Left Color</label>
+                    <div class="inputFields">
+                        <input id="borderLeftColor" type="color" name="borderLeftColor" value="#3c3a3a">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Box Shadow Inputs
+            <div class="inputs__container inputs__container--shadow inputs__container--hidden" data-category="shadow">
+                <div class="inputBox">
+                    <label for="shadowX">Shadow-X</label>
+                    <div class="inputFields">
+                        <input id="shadowXRange" type="range" name="shadowX" min="-100" max="100" value="0" data-suffix="px">
+                        <input id="shadowXText" type="text" name="shadowX" min="-100" max="100" value="0" data-suffix="px">
+                    </div>
+                </div>
+
+                <div class="inputBox">
+                    <label for="shadowY">Shadow-Y</label>
+                    <div class="inputFields">
+                        <input id="shadowYRange" type="range" name="shadowY" min="-100" max="100" value="0" data-suffix="px">
+                        <input id="shadowYText" type="text" name="shadowY" min="-100" max="100" value="0" data-suffix="px">
+                    </div>
+                </div>
+
+                <div class="inputBox">
+                    <label for="shadowBlur">Shadow-Blur</label>
+                    <div class="inputFields">
+                        <input id="shadowBlurRange" type="range" name="shadowBlur" min="0" max="100" value="0" data-suffix="px">
+                        <input id="shadowBlurText" type="text" name="shadowBlur" min="0" max="100" value="0" data-suffix="px">
+                    </div>
+                </div>
+
+                <div class="inputBox">
+                    <label for="shadowSpread">Shadow-Spread</label>
+                    <div class="inputFields">
+                        <input id="shadowSpreadRange" type="range" name="shadowSpread" min="-100" max="100" value="0" data-suffix="px">
+                        <input id="shadowSpreadText" type="text" name="shadowSpread" min="-100" max="100" value="0" data-suffix="px">
+                    </div>
+                </div>
+
+                <div class="inputBox">
+                    <label for="shadowColor">Shadow Color:</label>
+                    <div class="inputFields">
+                        <input id="shadowColor" type="color" name="shadowColor" value="#3c3a3a">
+                    </div>
+                </div>
+            </div>
+             -->
+
+            <!-- Animation Speed Throttle -->
+            <div class="inputs__container inputs__container--animation inputs__container--hidden" data-category="animation">
+                <div class="inputBox">
+                    <label for="rotate">Rotate</label>
+                    <div class="inputFields">
+                        <input type="range" id="rotateRange" name="rotate" min="-180" max="180" value="0" data-suffix="deg">
+                        <input type="text" id="rotateText" name="rotate" min="-180" max="180" value="0" data-suffix="deg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Base Color Style -->
+            <div class="inputs__container inputs__container--baseStyles inputs__container--hidden" data-category="borderColor">
+                <div class="inputBox">
+                    <label for="backgroundColor">Background Color</label>
+                    <div class="inputFields">
+                        <input id="backgroundColor" type="color" name="backgroundColor" value="#000000">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="opacity">Opacity</label>
+                    <div class="inputFields">
+                        <input id="opacityRange" type="range" name="opacity" min="0" max="1" value="1" step="0.05">
+                        <input id="opacityText" type="text" name="opacity" min="0" max="1" value="1" step="0.05">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <label for="zIndex">Z-Index</label>
+                    <div class="inputFields">
+                        <input id="zIndexRange" type="range" name="zIndex" min="1" max="100" step="1" value="1" data-suffix="">
+                        <input id="zIndexText" type="text" name="zIndex" min="1" max="100" step="1" value="1" data-suffix="">
+                    </div>
+                </div>
+                <!--
+                <div class="inputBox inputBox__checkBox inputBox__checkbox--borderCheckbox">
+                    <label for="borderTopTransparent">Border Top Transparent</label>
+                    <div class="inputFields">
+                        <input id="borderTopTransparent" type="checkbox" name="borderTopTransparent" value="">
+                    </div>
+                </div>
+                <div class="inputBox inputBox__checkBox inputBox__checkbox--borderCheckbox">
+                    <label for="borderBottomTransparent">Border Bottom Transparent</label>
+                    <div class="inputFields">
+                        <input id="borderBottomTransparent" type="checkbox" name="borderBottomTransparent" value="">
+                    </div>
+                </div>
+                <div class="inputBox inputBox__checkBox inputBox__checkbox--borderCheckbox">
+                    <label for="borderRightTransparent">Border Right Transparent</label>
+                    <div class="inputFields">
+                        <input id="borderRightTransparent" type="checkbox" name="borderRightTransparent" value="">
+                    </div>
+                </div>
+                <div class="inputBox inputBox__checkBox inputBox__checkbox--borderCheckbox">
+                    <label for="borderLeftTransparent">Border Left Transparent</label>
+                    <div class="inputFields">
+                        <input id="borderLeftTransparent" type="checkbox" name="borderLeftTransparent" value="">
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="shapeContainer">
+    <div class="shape" id="shape1"></div>
+</div>
+</div>

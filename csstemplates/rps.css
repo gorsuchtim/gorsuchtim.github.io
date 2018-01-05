@@ -1,0 +1,309 @@
+.rps__mainContainer {
+    width: 80%;
+    margin: 1em auto;
+    position: relative;
+    -webkit-display: flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.rps__gameBoard {
+    width: 100%;
+    transition: all 0.25s linear;
+}
+/*----------------------
+Welcome Card Container
+--------------------*/
+
+.rps__welcomeCard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(80, 80, 80, 0.9);
+    border-radius: 5px;
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.rps__welcomeCard h3 {
+    padding: 0 1em;
+    margin: 1em;
+}
+
+.welcomeCard__button {
+    padding: 0.5em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 0.25em;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+    margin: 0.5em;
+}
+
+.welcomeCard__button--container {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+}
+/*-------------------------
+Tooltip Container
+------------------------*/
+
+.rps__tooltip {
+    width: 0%;
+    padding: 1em;
+    border-left: 1px solid rgba(80, 80, 80, 0.25);
+    transition: all 0.25s linear;
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: left;
+    display: none;
+}
+
+.walkthroughButtons {
+    -webkit-display: flex;
+    display: flex;
+}
+
+.button__rps {
+    padding: 0.5em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 0.25em;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+    margin-top: 1em;
+    transition: all 0.25s linear;
+}
+
+.rps__walkthroughButton {
+    padding: 0.5em;
+}
+
+.continueWalkthrough {
+    margin-right: 0.25em;
+}
+
+.rps__flexContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.withTooltip {
+    width: 70%;
+}
+
+.tooltip__on {
+    width: 30%;
+}
+/*----------------------
+Game Board Container
+--------------------*/
+
+.answerContainer {
+    -webkit-display: flex;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.answerContainer__category {
+    margin: 1em 2em;
+}
+
+.option {
+    margin-top: 1em;
+}
+
+.optionContainer {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.optionContainer h3 {
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    padding: 1em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 50%;
+    -webkit-display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s linear;
+}
+
+.userOption h3 {
+    transition: all 0.2s linear;
+}
+
+.result {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.result>h2 {
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid rgba(80, 80, 80, 0.25);
+}
+
+#viewWalkthrough {
+    display: none;
+}
+
+.grayBackground {
+    background-color: rgba(80, 80, 80, 0.8);
+    color: white;
+    border-color: white;
+    width: 75%;
+}
+
+.dataContainer {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-left: 1em;
+    border: 1px solid rgba(80, 80, 80, 0.25);
+    background-color: rgba(255, 255, 255, 0.95);
+    -webkit-display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.closeDataContainer {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dataContainer .col {
+    margin: 1.5em 0;
+}
+/*--------------------------
+Responsive styles
+---------------------*/
+
+@media only screen and (max-width: 768px) {
+    .rps__mainContainer {
+        width: 80%;
+        margin: 1em auto;
+        position: relative;
+        -webkit-display: flex;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .rps__welcomeCard h3 {
+        font-size: 1em;
+    }
+    .answerContainer__category {
+        margin: 1em;
+    }
+    .rps__tooltip {
+        width: 0%;
+        padding: 1em;
+        border-left: none;
+        transition: all 0.25s linear;
+        -webkit-display: flex;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: left;
+        display: none;
+    }
+    .tooltip__on {
+        width: 100%;
+        text-align: center;
+    }
+    .walkthroughButtons {
+        justify-content: center;
+    }
+    .optionContainer h3 {
+        cursor: pointer;
+        width: 1.5em;
+        height: 1.5em;
+        padding: 1em;
+    }
+}
+/*------------------
+Utility Classes
+------------------*/
+
+.hidden {
+    opacity: 0;
+}
+
+.rps__selected {
+    background-color: white;
+}
+
+.win {
+    background-color: green;
+    color: white;
+}
+
+.lose {
+    background-color: red;
+    color: white;
+}
+
+.tie {
+    background-color: blue;
+    color: white;
+}
+
+.highlightContinue {
+    background-color: rgba(80, 80, 80, 0.5);
+    color: white;
+}
+
+.highlightUserAnswer {
+    background-color: rgba(80, 80, 80, 0.5);
+    color: white;
+    border-radius: 5px;
+}
+
+.pulse {
+    -webkit-animation: pulse 0.5s 1 ease-in-out;
+    animation: pulse 0.5s 1 ease-in-out;
+}
+
+-webkit-@keyframes pulse {
+    from {
+        -webkit-transform: scale(1.25);
+    }
+    to {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1.25);
+    }
+    to {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="New-Video-Player" transform="translate(-938.000000, -1170.000000)" fill="#44464A">
+            <g id="Default-Play" transform="translate(380.000000, 747.000000)">
+                <g id="Player-UI" transform="translate(0.000000, 404.000000)">
+                    <g id="Volume" transform="translate(558.000000, 19.000000)">
+                        <path d="M0,5.82236032 L0,11.6376397 L3.87685291,11.6376397 L8.72291904,16.4837058 L8.72291904,0.976294185 L3.87685291,5.82236032 L0,5.82236032 L0,5.82236032 Z M13.0843786,8.73 C13.0843786,7.01449259 12.0957811,5.54128848 10.6613455,4.8240707 L10.6613455,12.6262372 C12.0957811,11.9187115 13.0843786,10.4455074 13.0843786,8.73 L13.0843786,8.73 Z M10.6613455,0.23 L10.6613455,2.22657925 C13.4623717,3.06010262 15.5074116,5.65759407 15.5074116,8.73 C15.5074116,11.8024059 13.4623717,14.3998974 10.6613455,15.2334208 L10.6613455,17.23 C14.5478905,16.348016 17.4458381,12.8782326 17.4458381,8.73 C17.4458381,4.58176739 14.5478905,1.11198404 10.6613455,0.23 L10.6613455,0.23 Z" id="Icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

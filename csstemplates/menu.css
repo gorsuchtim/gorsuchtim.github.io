@@ -1,0 +1,329 @@
+.menuWrap {
+    height: 100%;
+    margin-left: 5%;
+    width: 95%;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mobileInfo {
+    padding: 2em;
+    font-size: 0.85em;
+}
+
+button.navItem,
+a.navItem {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+    /*-------------------
+Meganav Desktop
+------------------*/
+    .meganav__desktop--wrap {
+        position: relative;
+        -webkit-display: flex;
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+        margin-left: 1em;
+        padding: 0;
+    }
+    .navItem {
+        padding-bottom: 0.5em;
+        transition: 0.4s all;
+    }
+    .navItem__button>img {
+        display: inline-block;
+        margin-left: 0.35em;
+        margin-top: 0.5em;
+        width: 0.85em;
+        transition: all 0.2s ease-in-out;
+    }
+    .navItem:hover:not(.navItem__button--main) {
+        color: rgba(0, 255, 0, 0.8);
+    }
+    .submenu .navItem:not(.subheading) {
+        margin-left: 0.25em;
+    }
+    .navItem__button--main {
+        width: 100%;
+        padding: 1em;
+        text-align: left;
+        background: none;
+        border: none;
+        font-size: inherit;
+        box-shadow: inset 0px -5px 0px white;
+    }
+    .submenu {
+        padding-left: 1em;
+    }
+    .submenu__level--1 {
+        position: absolute;
+        padding: 0em 0.5em 4.8em 0.5em;
+        -webkit-display: flex;
+        display: flex;
+        box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.28);
+        width: auto;
+        z-index: 500;
+        background-color: white;
+    }
+    .submenu>.submenu__col {
+        min-width: 11.5em;
+        padding: 1.25em;
+    }
+    .submenu__col:not(:nth-child(1)):before {
+        content: "";
+        background: rgba(235, 235, 235, 0.95);
+        position: absolute;
+        top: 12%;
+        margin-left: -1em;
+        height: 75%;
+        width: 1px;
+    }
+    .submenu__cols--4>.submenu__col {
+        padding-right: 0.5em;
+    }
+    .submenu__cols--4>.submenu__col:not(:nth-child(2)):before {
+        content: "";
+        background: rgba(235, 235, 235, 0.95);
+        position: absolute;
+        top: 30%;
+        margin-left: -1em;
+        height: 30%;
+        width: 1px;
+    }
+    .navItem__noLink {
+        padding-bottom: 0.5em;
+    }
+    .spacerBar__nav--topSpace {
+        padding-top: 1.862em
+    }
+    .hover--gray {
+        box-shadow: inset 0px -5px 0px rgba(128, 128, 128, 1);
+    }
+    .current--section {
+        box-shadow: inset 0px -5px 0px rgba(0, 255, 0, 0.8);
+    }
+    .meganav__text--gold {
+        color: #8e6b38;
+    }
+    .submenu__bottomImage {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 60px;
+    }
+    .submenu__pulled--left {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /*----------------
+Meganav Mobile
+------------------*/
+    .meganav__mobile {
+        position: absolute;
+        top: 0.75em;
+        right: 0;
+    }
+    .meganav__mobile--right {
+        -webkit-display: flex;
+        display: flex;
+        margin-top: 0.5em;
+    }
+    .meganav__mobile--right>ul {
+        margin: 0;
+    }
+    .meganav__mobile li {
+        padding-top: 0.0275em;
+        padding-bottom: 0.0275em;
+        transition: .4s, max-height;
+    }
+    .navItem {
+        text-align: left;
+        width: 100%;
+        transition: all 0.4s ease;
+        padding: 0.5em 1em;
+    }
+    .navItem:hover:not(.green) {
+        color: rgba(0, 255, 0, 0.8);
+    }
+    .navItem__noLink {
+        margin: 0.5em 1em;
+    }
+    .meganav__mobile--signon {
+        font-family: Tahoma;
+        padding-top: 25.5px;
+        margin-right: 1.5em;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-image: url(/images/mvp/sitewide/lock.svg);
+        background-size: 17px 24px;
+        background-repeat: no-repeat;
+    }
+    .meganav__mobile--wrap {
+        position: absolute;
+        width: 70vw;
+        margin-top: 1em;
+        padding-left: 0;
+        padding-bottom: 4em;
+        right: 0;
+        background-color: white;
+        z-index: 500;
+        transition: all 0.4s ease;
+        box-shadow: -10px 10px 17px 0px rgba(0, 0, 0, 0.28);
+    }
+    .offScreen--right {
+        right: -85vw;
+    }
+    .navItem__button,
+    .navItem__button--mobileMenuButton {
+        background-color: transparent;
+        padding: 0.5em 1.5em;
+        border: none;
+    }
+    .navItem__button--mobileMenuButton {
+        margin-top: 0.12em;
+        margin-right: 1em;
+        padding-top: 24px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('../images/portfolioIcons/menu.png');
+        background-size: 28px 19px;
+    }
+    .navItem__button>img {
+        display: inline-block;
+        width: 0.85em;
+        float: right;
+        transition: all 0.2s ease-in-out;
+    }
+    .openAccount__phone--mobile {
+        color: rgba(0, 255, 0, 0.8);
+    }
+    .submenu {
+        padding-left: 0;
+    }
+    .current--section,
+    .current--subsection {
+        font-weight: bold;
+        padding-left: 1.25em;
+        border-left: 4px solid rgba(0, 255, 0, 0.8);
+    }
+    .green {
+        background-color: rgba(0, 255, 0, 0.8);
+        border-top: 0.5px solid rgba(128, 128, 128, 0.75);
+        color: rgba(80, 80, 80, 0.8);
+    }
+    button.gray {
+        background-color: #44464a;
+        color: white;
+        border-left: none;
+    }
+    .gray,
+    .green {
+        padding: 1.2em 1em;
+    }
+    .mainMenu {
+        margin-bottom: -0.15em;
+    }
+    .submenu__level--1 .navItem {
+        padding-left: 1.75em;
+    }
+    .submenu__level--2 .navItem {
+        padding-left: 2.25em;
+    }
+    .meganav__text--alignLeft {
+        padding-left: 1em;
+    }
+    .meganav__text--gold {
+        color: #775b30;
+    }
+    .submenu__bottomImage {
+        position: relative;
+    }
+}
+
+.meganav__logo {
+    width: 132px;
+    height: 54px;
+}
+
+.subheading {
+    font-weight: 900;
+    width: 99%;
+}
+
+.meganav li {
+    list-style: none;
+}
+
+.navItem {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navItem:focus {
+    outline: 1px solid #0589db;
+    outline-offset: -1px;
+}
+
+.navItem__noLink {
+    font-family: Archer, Georgia, serif;
+    font-weight: bold;
+}
+
+.submenu__bottomImage {
+    /*background: url(https://www.wellsfargoadvisors.com/images/mvp/sitewide/bg-fat-nav.png) repeat-x;*/
+    width: 100%;
+}
+
+a.current--page {
+    color: rgba(0, 255, 0, 0.8);
+    font-style: italic;
+}
+
+.current--srtext {
+    position: absolute;
+    right: 1000px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.meganav__arrow--rotate {
+    transform: rotate(180deg);
+}
+
+.showOnFocus {
+    margin-top: 1em;
+    width: 4em;
+    height: 5em;
+}
+
+
+/* ----------------------
+High contrast styles
+------------------------*/
+
+@media screen and (-ms-high-contrast: active) {
+    .current--section,
+    .current--subsection {
+        box-shadow: none;
+        border: 2px solid #BB0826;
+    }
+    .current--page {
+        color: #BB0826;
+    }
+    .loginButton--navigationMenu {
+        border: 1px solid white;
+    }
+}

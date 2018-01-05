@@ -1,0 +1,20 @@
+.container__cookieCheck {    
+    position: absolute;
+    left: 5%;
+    width: 95%;
+    height: 100%;    
+    background-color: rgba(255,255,255,0.8);
+    -webkit-display: flex;
+    display: flex;
+    justify-content: center;    
+}
+.cookieCheck__container {
+    display: none;
+    padding: 2em;
+}
+.howToSeeCookie {
+    display: none;
+}
+.cookieDeletedContent {
+    display: none;
+}

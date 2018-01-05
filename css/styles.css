@@ -1,0 +1,663 @@
+/*-----------------------
+Global styles
+-------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.portfolio__wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio__container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.25s linear;
+}
+
+.portfolio__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: all 0.5s linear;
+}
+
+.portfolio__overlay--loader {
+    -webkit-display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.loader {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 3px inset rgba(0, 255, 0, 1);
+    border-right: 3px solid white;
+}
+
+.spin {
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*----------------------
+Background Image Info
+-------------------------*/
+
+.portfolio__container--dynamicBackground {
+    -webkit-display: flex;
+    display: flex;
+    z-index: 5;
+    position: absolute;
+    top: 1em;
+    right: 1.5em;
+}
+
+.dynamicBackground__text {
+    margin-top: -0.15em;
+    color: rgba(80, 80, 80, 0.35);
+    font-size: 0.8em;
+}
+
+.dynamicBackground__button {
+    background-color: transparent;
+    margin-top: -0.21em;
+    margin-left: 0.25em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(80, 80, 80, 0.35);
+}
+
+
+/*----------------------
+Title container styles
+------------------------*/
+
+.portfolio__container--title {
+    top: 0;
+    left: 0;
+    z-index: 3;
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.25s linear;
+}
+
+.portfolio__text--title {
+    font-size: 1.28em;
+}
+
+
+/*--------------------------
+Profile container styles
+----------------------------*/
+
+.portfolio__container--profile {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 2em;
+    left: 5.5em;
+    z-index: 3;
+    transition: all 0.25s linear;
+}
+
+.profile__categories--list {
+    -webkit-display: flex;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.profile__categories--item {
+    list-style: none;
+    margin-right: 1em;
+    font-size: 1em;
+    padding-bottom: 0.25em;
+    cursor: pointer;
+}
+
+.profile__categories--active {
+    border-bottom: 3px solid rgba(0, 255, 0, 0.8);
+}
+
+.profile__list {
+    display: none;
+    flex-flow: column nowrap;
+}
+
+.profile__list--item {
+    opacity: 0;
+    list-style: none;
+    margin-bottom: 1em;
+    transition: all 0.25s linear;
+}
+
+.profile__list--item h4 {
+    border-bottom: 2px solid rgba(80, 80, 80, 0.15);
+    font-size: 1.1em;
+}
+
+.profile__list--item p {
+    margin-bottom: 0.25em;
+    font-size: 0.9em;
+}
+
+.emailAddress {
+    font-size: 1.15em;
+}
+
+.showList {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/*-------------------------
+Projects container styles
+----------------------------*/
+
+.portfolio__container--projects {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: row wrap;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: all 0.25s linear;
+}
+
+.portfolio__projectCard {
+    opacity: 0;
+    width: 33%;
+    height: 33.5%;
+    box-shadow: 0px 1px 8px rgba(80, 80, 80, 0.15);
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: all 0.25s linear;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+}
+
+figure {
+    margin: 0;
+    display: block;
+    position: absolute;
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.fullCard {
+    width: 100%;
+    height: 100%;
+}
+
+.projectCard__frontButton {
+    height: 95%;
+    width: 95%;
+    border: none;
+    background-size: 8%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.projectCard__buttonContainer {
+    display: flex;
+    margin-top: 0.5em;
+    width: 20%;
+    justify-content: space-around;
+}
+
+.projectCard__frontButton--accordion {
+    background-image: url('../images/portfolioIcons/accordionIcon.svg');
+}
+
+.projectCard__frontButton--memory {
+    background-image: url('../images/portfolioIcons/memoryIcon.svg');
+}
+
+.projectCard__frontButton--rps {
+    background-image: url('../images/portfolioIcons/predictiveIcon.svg');
+}
+
+.projectCard__frontButton--videoPlayer {
+    background-image: url('../images/portfolioIcons/videoPlayerIcon.svg');
+}
+
+.projectCard__frontButton--menu {
+    background-image: url('../images/portfolioIcons/menuIcon.svg');
+}
+
+.projectCard__frontButton--math {
+    background-image: url('../images/portfolioIcons/mathIcon.svg');
+}
+
+.projectCard__frontButton--cssVars {
+    background-image: url('../images/portfolioIcons/cssVariableIcon.svg');
+}
+
+.projectCard__frontButton--cookieCheck {
+    background-image: url('../images/portfolioIcons/cookieIcon.svg');
+}
+
+.projectCard__frontButton--bakery {
+    background-image: url('../images/portfolioIcons/bakeryIcon.svg');
+}
+
+.portfolio__projectCard--back {
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* Special class to show back of card on flip in IE.  Click event on .portfolio__projectCard toggles this class on/off */
+
+.ieBackface {
+    -ms-backface-visibility: visible;
+}
+
+.portfolio__projectCard--backp:first-child {
+    font-weight: bold;
+}
+
+.portfolio__projectCard--backp {
+    margin-bottom: 0.5em;
+    padding: 0 1em;
+    text-align: center;
+}
+
+
+/*-------------------------
+Demo container styles
+-------------------------*/
+
+.portfolio__container--demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/portfolioIcons/stlskyline.jpg');
+    background-position: center center;
+    background-size: cover;
+    filter: grayscale(100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: all 0.25s linear;
+}
+
+
+/*----------------------------
+Code Container
+-----------------------------*/
+
+.portfolio__container--code {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+    transition: all 0.25s ease;
+    z-index: 10;
+}
+
+.codeWrap {
+    height: 100%;
+    margin-left: 3em;
+    background-color: rgba(80, 80, 80, 0.97);
+}
+
+.codeChoiceTabs {
+    padding: 1em 0 0 0.5em;
+    list-style: none;
+    display: flex;
+    margin-left: 0.5em;
+}
+
+.codeChoice {
+    background-color: transparent;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    font-size: 0.85em;
+    cursor: pointer;
+    padding: 1em 3em;
+    color: white;
+    transition: all 0.25s ease-in-out;
+}
+
+.codeChoice:hover {
+    background-color: white;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.mobileCodeClose {
+    display: none;
+}
+
+
+/*-----------------
+Source Code Textarea
+---------------------*/
+
+.sourceCode {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 1em 1em;
+}
+
+.sourceCode textarea {
+    width: 80%;
+    height: 60%;
+    border: none;
+    padding: 0.5em 2em;
+    resize: none;
+    color: black;
+    font-size: 1em;
+    overflow: scroll;
+}
+
+.codeChoice__highlight {
+    background-color: white;
+    cursor: default;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+
+/*-------------------------
+Menu styles
+-----------------------*/
+
+.portfolio__menu {
+    display: none;
+}
+
+.portfolio__control {
+    position: fixed;
+    left: 0.25em;
+    opacity: 1;
+    cursor: pointer;
+    padding: 1.25em;
+    background-color: transparent;
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid rgba(80, 80, 80, 0.5);
+    z-index: 3;
+    transition: all 0.25s ease;
+}
+
+.portfolio__control--mobile {
+    display: none;
+    top: 0.75em;
+    background-image: url('../images/portfolioIcons/menu.png');
+    transition: all 0.25s linear;
+}
+
+.portfolio__control--home {
+    top: 1.5em;
+    background-image: url('../images/portfolioIcons/control_home.svg');
+}
+
+.portfolio__control--profile {
+    top: 4.5em;
+    background-image: url('../images/portfolioIcons/control_profile.svg');
+}
+
+.portfolio__control--projects {
+    top: 7.5em;
+    background-image: url('../images/portfolioIcons/control_grid.svg');
+}
+
+.portfolio__control--source {
+    top: 10.5em;
+    background-image: url('../images/portfolioIcons/control_source.svg');
+}
+
+
+/*--------------------------
+Responsive styles
+---------------------*/
+
+@media only screen and (max-width: 768px) {
+    .portfolio__button,
+    .projectCard__demoButton {
+        font-size: 1em;
+    }
+    .projectCard__demoButton {
+        margin-top: 0.5em;
+    }
+    .dynamicBackground__text {
+        font-size: 0.75em;
+    }
+    .portfolio__container--profile {
+        width: 70%;
+        left: 4.5em;
+    }
+    .showList {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+    }
+    .profile__list--item:not(:first-child) {
+        margin-top: 1.5em;
+    }
+    .projectCard__frontButton {
+        background-size: 25%;
+    }
+    .portfolio__control {
+        opacity: 0;
+        padding: 1.5em;
+    }
+    .portfolio__control--mobile {
+        display: block;
+        opacity: 1;
+    }
+    .portfolio__control--home {
+        top: 4.5em;
+        background-image: url('../images/portfolioIcons/control_home.svg');
+    }
+    .portfolio__control--profile {
+        top: 8.25em;
+        background-image: url('../images/portfolioIcons/control_profile.svg');
+    }
+    .portfolio__control--projects {
+        top: 12em;
+        background-image: url('../images/portfolioIcons/control_grid.svg');
+    }
+    .portfolio__control--source {
+        top: 15.75em;
+        background-image: url('../images/portfolioIcons/control_source.svg');
+    }
+    .sourceCode textarea {
+        height: 80%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .portfolio__container--projects {
+        width: 100%;
+        height: 100%;
+        left: 0.75em;
+    }
+    .portfolio__projectCard--front img {
+        width: 1.75em;
+        height: 1.75em;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    /* Looks good when resizing browser - tablet emulation on chrome looks bad  */
+    /*--------------
+    Title Screen
+    ----------------*/
+    .dynamicBackground__text {
+        margin-top: -0.15em;
+    }
+    .portfolio__button {
+        padding: 1em;
+        font-size: 0.8em;
+    }
+    /*-------------------
+    Projects Container
+    ------------------*/
+    .portfolio__container--projects {
+        left: 0em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /*--------------
+    Title Container
+    ----------------*/
+    .dynamicBackground__text {
+        font-size: 0.9em;
+        margin-top: -0.15em;
+    }
+    /*-----------------
+    Profile Container
+    ------------------*/
+    .profileCategory {
+        font-size: 1em;
+        margin-right: 0.75em;
+    }
+    .profile__list--item:not(:first-child) {
+        margin-top: 1em;
+    }
+    .profile__list--item h4 {
+        font-size: 1em;
+    }
+    .profile__list--item p {
+        font-size: 0.9em;
+    }
+}
+
+
+/*-------------------------
+Utility classes
+-------------------------*/
+
+.portfolio__button {
+    padding: 0.75em;
+    border-width: 1.5px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-radius: 0.25em;
+    background-color: transparent;
+    margin: 1em 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.portfolio__button:hover {
+    background-color: white;
+    border-color: rgba(0, 255, 0, 0.8);
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.portfolio__container--projects button {
+    padding: 0.5em;
+    border-width: 1.5px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-radius: 0.25em;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.backgroundLeft {
+    background-position: 0% center;
+}
+
+.backgroundRight {
+    background-position: 100% center;
+}
+
+.portfolio__container--projects button:hover {
+    border-color: rgba(0, 255, 0, 0.8);
+}
+
+.offScreenTop {
+    top: -200%;
+    display: none;
+}
+
+.highlightText {
+    color: rgba(0, 255, 0, 0.8);
+}
+
+.portfolio__text--italic {
+    font-style: italic;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.showing {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}

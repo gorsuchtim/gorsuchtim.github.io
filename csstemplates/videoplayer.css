@@ -1,0 +1,220 @@
+/*-------------------------------------
+Video content and controls
+----------------------------------------*/
+.video-container {
+    width: 90%;
+    margin-top: 2em;
+    margin-left: 4em;    
+    -webkit-display: flex;
+    display: flex;
+}
+@media only screen and (max-width: 768px) {
+    .video-container {
+        flex-flow: column nowrap;
+    }
+    .video-wrapper {
+        margin-bottom: 1em;
+    }
+}
+
+.video-wrapper {
+    width: 50%;
+    height: 100%;    
+    position: relative;
+    max-width: 840px;
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+.video-content {
+    max-width: 100%;
+    display: block;
+}
+
+.video-controls {
+    -webkit-display: flex;
+    display: flex;
+    background-color: #F3F3F3;
+    height: 31px;
+    width: 100%;
+    max-width: 1000px;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-in;
+}
+
+.video-controls--hidden {
+    opacity: 0;
+}
+
+.video-controls__button {
+    background-color: #F3F3F3;
+    border: none;
+    cursor: pointer;
+    margin: 0 0.5em;
+    padding: 0;
+}
+
+.video-controls__button>img {
+    width: 0.75em;
+    height: 0.75em;
+}
+
+.bufferBar {
+    position: absolute;
+    background-color: #7F7F7F;
+    opacity: 0.5;
+    height: 5px;
+    border-radius: 10px;
+    left: 5.85em;
+    max-width: 30.3%;
+    pointer-events: none;
+}
+
+.durationTextContainer {
+    -webkit-display: flex;
+    display: flex;
+    font-size: 0.75em;
+}
+
+.video-wrapper.full {
+    max-width: 100%;
+}
+
+input[type=range].vidDuration,
+input[type=range].volumeBar {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    height: 6px;
+    border: 1px solid #44464a;
+    overflow: visible;
+}
+
+input[type=range].vidDuration {
+    width: 50%;
+    margin: 0 1em;
+}
+
+input[type=range].volumeBar {
+    display: none;
+}
+
+@media screen and (min-width: 568px) {
+    input[type=range].volumeBar {
+        display: block;
+        width: 10%;
+    }
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 20px;
+    background: #A27F48;
+    cursor: pointer;
+    margin-top: -0.25em;
+}
+
+input[type=range]::-moz-range-track {
+    height: 0.3125em;
+    background-color: #fff;
+    border: 1px solid #44464a;
+    border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: #7F7F7F;
+    height: 5px;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 20px;
+    background: #A27F48;
+    cursor: pointer;
+}
+
+input[type=range]:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    height: 0.3125em;
+    background: transparent;
+    border-color: transparent;
+    border: 1px solid #44464a;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #7F7F7F;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: white;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 20px;
+    background: #A27F48;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+@media screen and (min-width: 48rem) {
+    .video-controls {
+        height: 40px;
+    }
+    .fullscreen {
+        display: inline-block;
+    }
+    .video-controls__button>img {
+        width: 1em;
+        height: 1em;
+    }
+    .durationTextContainer {
+        font-size: 0.85em;
+        margin-left: 0.5em;
+    }
+}
+
+/* For FF only styles
+_::-moz-progress-bar,
+body:last-child .durationTextContainer {}
+*/
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+    .controls--right {
+        width: 32%;
+    }
+    input[type=range].vidDuration,
+    input[type=range].volumeBar {
+        height: auto;
+    }
+    .bufferBar {
+        margin-top: -0.25em;
+        height: 6px;
+    }
+}

@@ -1,0 +1,105 @@
+<div class="rps__mainContainer">
+    <div class="rps__welcomeCard">
+        <h1>Rock | Paper | Scissors</h1>
+        <h3 class="welcomeCard__text">A program that learns from (and adapts to) each move you make.</h3>
+        <div class="welcomeCard__button--container">
+            <button class="welcomeCard__button welcomeCard__button--next">Next</button>
+            <button class="welcomeCard__button welcomeCard__button--startWalkthrough">See how it works</button>
+        </div>
+    </div>
+
+    <div class="rps__gameBoard">
+        <div class="answerContainer">
+            <div class="answerContainer__category userAnswer">
+                <h2>Player</h2>
+                <div class="optionContainer">
+                    <div class="option userOption" id="userRock">
+                        <h3>Rock</h3>
+                    </div>
+                    <div class="option userOption" id="userPaper">
+                        <h3>Paper</h3>
+                    </div>
+                    <div class="option userOption" id="userScissors">
+                        <h3>Scissors</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="answerContainer__category result">
+                <h2>Round:
+                    <span class="rps__round"></span>
+                </h2>
+                <h2>Score:
+                    <span class="rps__score"></span>
+                </h2>
+                <button class="button__rps" id="displayStats">Statistics</button>
+                <button class="button__rps" id="viewWalkthrough">Walkthrough</button>
+
+            </div>
+
+            <div class="answerContainer__category compAnswer">
+                <h2>AI</h2>
+                <div class="optionContainer">
+                    <div class="option compOption" id="compRock">
+                        <h3>Rock</h3>
+                    </div>
+                    <div class="option compOption" id="compPaper">
+                        <h3>Paper</h3>
+                    </div>
+                    <div class="option compOption" id="compScissors">
+                        <h3>Scissors</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataContainer">
+            <div class="closeDataContainer">
+                <h3>X</h3>
+            </div>
+            <div class="col" id="col1">
+                <h3>Reaction to seeing Paper</h3>
+                <p>User chose rock:
+                    <span class="pdata pr"></span>
+                </p>
+                <p>User chose paper:
+                    <span class="pdata pp"></span>
+                </p>
+                <p>User chose scissors:
+                    <span class="pdata ps"></span>
+                </p>
+            </div>
+            <div class="col" id="col2">
+                <h3>Reaction to seeing Rock</h3>
+                <p>User chose rock:
+                    <span class="rdata rr"></span>
+                </p>
+                <p>User chose paper:
+                    <span class="rdata rp"></span>
+                </p>
+                <p>User chose scissors:
+                    <span class="rdata rs"></span>
+                </p>
+            </div>
+            <div class="col" id="col3">
+                <h3>Reaction to seeing Scissors</h3>
+                <p>User chose rock:
+                    <span class="sdata sr"></span>
+                </p>
+                <p>User chose paper:
+                    <span class="sdata sp"></span>
+                </p>
+                <p>User chose scissors:
+                    <span class="sdata ss"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rps__tooltip">
+        <h4 class="tooltip__text">Select Rock, Paper, or Scissors.</h4>
+        <div class="walkthroughButtons">
+            <button class="button__rps rps__walkthroughButton continueWalkthrough">Continue</button>
+            <button class="button__rps rps__walkthroughButton closeWalkthrough">Hide</button>
+        </div>
+    </div>
+</div>

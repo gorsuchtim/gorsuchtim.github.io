@@ -1,0 +1,58 @@
+.accWrap {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2em;
+    width: 100%;
+    height: 100%;
+}
+
+section.accordion {
+    width: 75%;
+}
+
+.accButton {
+    -webkit-display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accWrap button {
+    width: 100%;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9em;
+    text-transform: none;
+    text-decoration: none;
+    color: rgba(80, 80, 80, 0.8);
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    background-color: transparent;
+    padding: 2em;
+    cursor: pointer;
+}
+
+.accWrap button:hover {
+    background-color: rgba(220, 220, 220, 0.6);
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.accWrap .panel {
+    display: none;
+    width: 100%;
+    color: rgba(80, 80, 80, 0.8);
+    font-family: "Raleway", sans-serif;
+    padding: 2em 0;
+    font-size: 1em;
+}
+
+.accWrap .panel p {
+    padding: 0 2em;
+}
+
+@media only screen and (max-width: 767px) {
+    section.accordion {
+        width: 80%;
+    }
+}

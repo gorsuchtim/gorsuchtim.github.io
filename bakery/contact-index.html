@@ -1,0 +1,88 @@
+<div class="container-fluid" id="contactContainer" ng-show="nav.isPage(5)">
+	
+	<div class="row" id="contactHeader" style="background-image: url('images/slider4.jpg');">
+		<div class="overlay">
+			<div class="col-xs-12" id="contactTitle">				
+				<h3 class="text-center">Contact</h3>		
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<col-xs-12>
+			<h3 class="text-center">Let me know how I can help you</h3>
+		</col-xs-12>
+	</div>
+
+	<div class="row">
+		
+		<div class="col-xs-12">
+			<form name="contactForm" id="contactForm" novalidate>
+				
+				<fieldset class="form-group">
+					<select class="form-control center-block" required>
+						<option value="">I'm interested in...</option>
+						<option value="Cakes">Cakes</option>
+						<option value="Cupcakes">Cupcakes</option>
+						<option value="Cookies">Cookies</option>
+						<option value="Desserts">Desserts</option>					
+						<option value="Desserts">Something else</option>	
+					</select>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<textarea class="center-block" name="" id="userMessage" cols="50" rows="3" placeholder="Brief message"></textarea>
+				</fieldset>
+
+				<fieldset class="form-group">					
+					<input class="center-block" type="email" placeholder="Your email address">
+				</fieldset>
+
+				<fieldset class="form-group">					
+					<input class="center-block btn btn-lg" id="submitForm" type="submit" value="Submit your message">
+				</fieldset>
+
+			</form>
+
+
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h4 class="text-center">or reach me by email or phone</h4>
+		</div>
+	</div>
+
+	<div class="row text-center" id="contactOptions" ng-controller="ContactOptions as contact">		
+
+		<div class="col-xs-12">
+		
+			<ul class="nav nav-tabs nav-justified">
+				<li><img src="images/email.png" alt="" ng-mouseover="contact.option = 1"></li>
+				<li><img src="images/phone.png" alt="" ng-mouseover="contact.option = 2"></li>
+			</ul>
+			
+			<h4 ng-show="contact.option === 1">Justines@gmail.com</h4>	
+
+		
+			<h4 ng-show="contact.option === 2">314-123-4567</h4>
+		
+		</div>		
+	</div>
+
+	<div class="row text-center" id="socialRow">
+		<div class="col-xs-12">
+			<ul>
+				<li><a href="#"><img src="images/facebook.png" alt=""></a></li>
+				<li><a href="#"><img src="images/twitter.png" alt=""></a></li>
+				<li><a href="#"><img src="images/instagram.png" alt=""></a></li>
+				<li><a href="#"><img src="images/pinterest.png" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+</div>

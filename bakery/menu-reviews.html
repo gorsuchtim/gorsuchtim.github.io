@@ -1,0 +1,47 @@
+<div class="panel content" id="reviews" ng-show="menutab.isTab(3)">
+	
+	<!-- Look at past reviews -->
+
+	<blockquote ng-repeat="review in items.reviews">
+		<strong> {{ review.stars }} Stars</strong>
+
+		<p> {{ review.body }} </p>
+
+		<cite>- {{ review.author }} </cite>
+	</blockquote>
+
+	<!-- Live preview new review while typing it -->
+	<form name="reviewForm" id="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid &amp;&amp; reviewCtrl.addReview(items)" novalidate>
+
+	<blockquote>
+		<strong> {{ reviewCtrl.review.stars }} Stars</strong>
+
+		<p> {{ reviewCtrl.review.body }} </p>
+
+		<cite>- {{ reviewCtrl.review.author }} </cite>
+	</blockquote>
+
+
+	<!-- Create new review -->	
+		
+		<fieldset class="form-group">
+			<select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="stars" class="form-control" required>
+				<option value="">Rate this item</option>
+			</select>
+		</fieldset>
+
+		<fieldset class="form-group">
+			<textarea ng-model="reviewCtrl.review.body" cols="30" rows="5" placeholder="Type your review"></textarea>
+		</fieldset>
+
+		<fieldset class="form-group">
+			<input ng-model="reviewCtrl.review.author" type="email" placeholder="Your email address" class="ng-pristine ng-invalid" required>
+		</fieldset>
+
+		<fieldset class="form-group">
+			<input type="submit" value="Submit Review" class="btn btn-lg">
+		</fieldset>
+
+
+	</form>
+</div>

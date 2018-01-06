@@ -147,9 +147,9 @@ function init() {
 
     function moveContent(moveIn) { // dynamically shift code content according to what user selects to view     
         $('.portfolio__menu').fadeIn(); // fade in portfolio menu
-        $('.portfolio__container').addClass('offScreenLeft'); // move all portfolio containers out of view
+        $('.portfolio__container').addClass('offScreenLeft visuallyHidden'); // move all portfolio containers out of view
         setTimeout(function () {
-            $('.portfolio__container--' + moveIn + '').removeClass('offScreenLeft'); // move moveIn container in to view
+            $('.portfolio__container--' + moveIn + '').removeClass('offScreenLeft visuallyHidden'); // move moveIn container in to view
         }, 500);
 
         /*--------------------

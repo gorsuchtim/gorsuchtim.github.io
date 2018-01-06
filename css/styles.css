@@ -653,7 +653,6 @@ Utility classes
 
 .offScreenLeft {
     left: -100%;
-    /*display: none;*/
 }
 
 .highlightText {
@@ -674,6 +673,10 @@ Utility classes
 
 .allWhite {
     background-color: white;
+}
+
+.visuallyHidden {
+    visibility: hidden;
 }
 
 .hidden {

@@ -626,10 +626,6 @@ Utility classes
     color: rgba(80, 80, 80, 0.8);
 }
 
-.projectCard__demoButton {
-    padding: 0.75em;
-}
-
 .backgroundLeft {
     background-position: 0% center;
 }

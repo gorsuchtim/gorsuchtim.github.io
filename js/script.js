@@ -232,6 +232,7 @@ function init() {
                         }
                     });
                     sequenceFade('.portfolio__control', 'out'); // sequentially fade them in
+                    $('.portfolio__control--mobile').css('background-image', 'url("images/portfolioIcons/menu.png")');
                 }
                 if ($('.portfolio__container--projects').hasClass('offScreenLeft')) { // if projects container is not currently visible AND menu IS visible   
                     moveContent('projects'); // move projects container in to view

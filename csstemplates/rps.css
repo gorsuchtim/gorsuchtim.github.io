@@ -37,6 +37,7 @@ Welcome Card Container
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .rps__welcomeCard h3 {
@@ -171,29 +172,24 @@ Responsive styles
         align-items: center;
         justify-content: center;
     }
+    .rps__welcomeCard,
+    .dataContainer {
+        left: 1em;
+    }
+    .rps__gameBoard {
+        margin-left: 2em;
+    }
     .rps__welcomeCard h3 {
         font-size: 1em;
     }
     .answerContainer__category {
         margin: 1em;
     }
-    .rps__tooltip {
-        width: 0%;
-        padding: 1em;
-        border-left: none;
-        transition: all 0.25s linear;
-        -webkit-display: flex;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        text-align: left;
-        display: none;
-    }
     .optionContainer h3 {
         cursor: pointer;
         width: 1.5em;
         height: 1.5em;
-        padding: 1em;
+        padding: 1.5em;
     }
 }
 

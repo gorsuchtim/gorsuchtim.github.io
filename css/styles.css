@@ -479,8 +479,9 @@ Responsive styles
 ---------------------*/
 
 @media only screen and (max-width: 768px) {
-    .portfolio__button {
-        font-size: 0.9em;
+    .title__buttons .portfolio__button {
+        margin-top: 0.25em;
+        padding: 1.25em;
     }
     .dynamicBackground__text {
         font-size: 0.75em;

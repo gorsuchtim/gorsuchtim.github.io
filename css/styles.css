@@ -596,7 +596,7 @@ Utility classes
 -------------------------*/
 
 .portfolio__button {
-    padding: 0.75em;
+    padding: 1em;
     border-width: 1.5px;
     border-top-width: 1px;
     border-left-width: 1px;
@@ -624,6 +624,10 @@ Utility classes
     cursor: pointer;
     transition: all 0.2s ease;
     color: rgba(80, 80, 80, 0.8);
+}
+
+.projectCard__demoButton {
+    padding: 0.75em;
 }
 
 .backgroundLeft {

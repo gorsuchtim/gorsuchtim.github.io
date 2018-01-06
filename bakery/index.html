@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" ng-app="Justines">
 	<head>
@@ -102,4 +103,110 @@
 	
 
 	</body>
+=======
+<!DOCTYPE html>
+<html lang="en" ng-app="Justines">
+	<head>
+		<title>Home</title>
+		
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+		<meta name="description" content="160 chars describing site using keywords here">
+		<!-- 
+		<meta name="keywords" content="Photography, Portrait, St Louis, Wedding, Engagement, Student, Senior, Baby, Family, Professional">
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+		<meta name="author" content="Tim Gorsuch">
+
+		<!-- favicon icon - need to get actual image from Heather -->
+		<link rel="shortcut icon" href="http://www.picgifs.com/mini-graphics/mini-graphics/cake/mini-graphics-cake-076872.gif" type="image/x-icon">
+		<link rel="icon" href="http://www.picgifs.com/mini-graphics/mini-graphics/cake/mini-graphics-cake-076872.gif" type="image/x-icon">
+
+		<!-- fonts! -->
+		<link href='http://fonts.googleapis.com/css?family=Clicker+Script' rel='stylesheet' type='text/css'>		
+		<link href='http://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
+
+		<!-- css -->
+		<!-- Load online bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="">
+		
+	</head>
+
+	<body ng-controller="SiteNav as nav">
+
+	<div class="container-fluid" id="navigationMenu">			
+		<div class="row">			
+   
+			<nav class="col-sm-12 navMenu">
+				<ul>
+					
+					<img class="homeNavigation" src="images\home.png" alt="">
+					<li><a href="JavaScript:void(0)" ng-click="nav.setPage(1)">Home</a></li>	
+					
+					<img class="menuNavigation" src="images\menu.png" alt="">
+					<li><a href="JavaScript:void(0)" ng-click="nav.setPage(2)">Menu</a></li>	
+					
+					<img class="serviceNavigation" src="images\deliverypink.png" alt="">
+					<li><a href="JavaScript:void(0)" ng-click="nav.setPage(3)">Services</a></li>				
+					
+					<img class="aboutNavigation" src="images\chefhat.png" alt="">
+					<li><a href="JavaScript:void(0)" ng-click="nav.setPage(4)">About/Charity</a></li>		
+					
+					<img class="contactNavigation" src="images\contact1.png" alt="">
+					<li><a href="JavaScript:void(0)" ng-click="nav.setPage(5)">Contact</a></li>
+
+				</ul>
+			</nav>
+
+		</div> <!-- end row -->
+	</div> <!-- end navigationMenu -->	
+
+		<!-- Go to home page -->
+		<home></home>
+
+		<!-- Go to landing page for menu at menu-index.html -->
+		<menu-index></menu-index>			
+
+		<!-- Go to landing page for services -->
+		<services-index></services-index>	
+
+		<!-- Go to landing page for about/charity -->
+		<about-index></about-index>
+
+		<!-- Go to landing page for contact -->
+		<contact-index></contact-index>
+		
+
+	
+
+
+
+
+	<!-- Load online angular first -->
+	
+		<!-- Load local angular as backup -->
+		<script type="text/javascript"  src="angular.min.js"></script>
+	
+	<!-- Load online jquery first -->
+	<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+		<!-- Load local jquery file if online fails -->
+		<!-- <script type="text/javascript"  src="jquery-1.11.2.js"></script> -->
+
+		<!-- Load online bootstrap js -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+	<!-- Load local js files for site -->
+
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="directives.js"></script>
+
+	
+
+	</body>
+>>>>>>> 05950a30f063c88cc54f77822fac24e549fdc775
 </html>

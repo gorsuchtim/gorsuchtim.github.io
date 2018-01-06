@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Menu navigation index/landing page -->
 
 <div class="container-fluid" id="menu" ng-show="nav.isPage(2)" ng-controller="MenuNavigation as menu">
@@ -52,3 +53,59 @@
 	</div>
 
 </div>
+=======
+<!-- Menu navigation index/landing page -->
+
+<div class="container-fluid" id="menu" ng-show="nav.isPage(2)" ng-controller="MenuNavigation as menu">
+	
+	<div class="row" id="menuHeader" style="background-image: url('images/slider5.jpg');">
+		<div class="overlay">
+			<div class="col-sm-12" id="menuTitle">
+				<h3 class="text-center">Menu</h3>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" id="menuNavigation">
+	
+		<div class="col-xs-6 col-xs-offset-3 text-center">
+			<ul>
+				<li ng-class="{ active:menu.isMenu(1) }"><a href="JavaScript:void(0)" ng-click="menu.setMenu(1)">Cakes</a></li>
+				<li ng-class="{ active:menu.isMenu(2) }"><a href="JavaScript:void(0)" ng-click="menu.setMenu(2)">Cupcakes</a></li>
+				<li ng-class="{ active:menu.isMenu(3) }"><a href="JavaScript:void(0)" ng-click="menu.setMenu(3)">Cookies</a></li>
+				<li ng-class="{ active:menu.isMenu(4) }"><a href="JavaScript:void(0)" ng-click="menu.setMenu(4)">Desserts</a></li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<!-- Cake Menu -->	
+	<cake-menu></cake-menu>
+
+	<!-- Cupcake Menu -->
+	<cupcake-menu></cupcake-menu>
+
+	<!-- Cookie Menu -->
+	<cookie-menu></cookie-menu>
+
+	<!-- Dessert Menu -->
+	<dessert-menu></dessert-menu>
+
+	<div class="row" id="menuTease">
+		
+		<div class="col-xs-6" id="textTease">
+			<h4>Biscuit jelly jelly-o jelly cupcake chocolate bonbon croissant. Cake bear claw tiramisu. Oat cake jujubes bear claw jelly beans chupa chups cake. Sugar plum cotton candy sesame snaps toffee chocolate bar biscuit.</h4>
+			
+			<h5>Jelly-o croissant donut marzipan. Donut gingerbread wafer lollipop dragée sweet roll dragée. Marshmallow pie bonbon. Candy canes sugar plum dessert pie oat cake biscuit pudding ice cream chupa chups.</h5>
+
+			<button class="btn btn-lg center-block"><a href="JavaScript:void(0)">Contact me today</a></button>
+		</div>
+
+		<div class="col-xs-6">
+			<img src="http://www.bridalguide.com/sites/default/files/blog-images/bridal-buzz/mini-desserts/mini-desserts-berrytree-photography.jpg" class="center-block" alt="">
+		</div>
+
+	</div>
+
+</div>
+>>>>>>> 05950a30f063c88cc54f77822fac24e549fdc775

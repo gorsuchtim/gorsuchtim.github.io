@@ -236,7 +236,7 @@ $(document).ready(function () {
                 break;
             case 10:
                 tutorialCard = 10;
-                $('.tooltip__text').html('If the program finds a trend, as long as that trend continues, it ignores stored data and chooses in line with the trend.  Select Rock, Paper, or Scissors.');
+                $('.tooltip__text').html('If the program finds a trend it ignores stored data and chooses in line with the trend.  Select Rock, Paper, or Scissors.');
                 break;
             case 11:
                 tutorialCard = 11;
@@ -266,7 +266,7 @@ $(document).ready(function () {
                 break;
             case 14:
                 tutorialCard = 14;
-                $('.tooltip__text').html('The game itself may be boring but it serves as a good demonstration of how a site can leverage data and trends to process or provide custom information to the user.');
+                $('.tooltip__text').html('This game is just a simple demonstration of how we can leverage growing data and trends to provide custom information to users.');
                 break;
         }
     }

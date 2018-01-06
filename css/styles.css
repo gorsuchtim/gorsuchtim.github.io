@@ -124,7 +124,7 @@ Title container styles
     border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: transparent;
-    margin: 1em 0.5em;
+    /*margin: 1em 0.5em;*/
     cursor: pointer;
     transition: all 0.2s ease;
     color: rgba(80, 80, 80, 0.8);
@@ -149,7 +149,16 @@ Title container styles
 }
 
 .portfolio__text--title {
-    font-size: 1.28em;
+    font-size: 1.3em;
+}
+
+.portfolio__text--subtitle {
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+.title__buttons .portfolio__button {
+    margin: 0 0.5em;
 }
 
 

@@ -305,6 +305,10 @@ figure {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+.projectCard__demoButton {
+    margin-top: 0.5em;
+}
+
 
 /* Special class to show back of card on flip in IE.  Click event on .portfolio__projectCard toggles this class on/off */
 
@@ -481,9 +485,6 @@ Responsive styles
     .projectCard__demoButton {
         font-size: 1em;
     }
-    .projectCard__demoButton {
-        margin-top: 0.5em;
-    }
     .dynamicBackground__text {
         font-size: 0.75em;
     }
@@ -613,7 +614,7 @@ Utility classes
     color: rgba(80, 80, 80, 0.8);
 }
 
-.portfolio__container--projects button {
+.portfolio__container--projects button:not(.projectCard__demoButton) {
     padding: 0.5em;
     border-width: 1.5px;
     border-top-width: 1px;

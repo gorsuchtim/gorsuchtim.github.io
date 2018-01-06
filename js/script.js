@@ -231,6 +231,7 @@ function init() {
                             $('.portfolio__projectCard').eq(i).removeClass('flipped fullCard'); // and remove flipped and fullCard class to restore grid view to normal
                         }
                     });
+                    sequenceFade('.portfolio__control', 'out'); // sequentially fade them in
                 }
                 if ($('.portfolio__container--projects').hasClass('offScreenLeft')) { // if projects container is not currently visible AND menu IS visible   
                     moveContent('projects'); // move projects container in to view

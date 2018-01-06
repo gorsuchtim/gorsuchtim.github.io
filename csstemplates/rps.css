@@ -65,7 +65,7 @@ Tooltip Container
     cursor: pointer;
     transition: all 0.2s ease;
     color: rgba(80, 80, 80, 0.8);
-    margin-top: 1em;
+    margin: 1em 0;
     transition: all 0.25s linear;
 }
 
@@ -181,7 +181,8 @@ Responsive styles
     }
     .rps__tooltip {
         min-height: 8.25em;
-        margin-top: 2em;
+        margin-top: 1.25em;
+        padding: 0 3em;
     }
     .answerContainer__category {
         margin: 1em;

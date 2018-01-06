@@ -214,7 +214,7 @@ $(document).ready(function () {
             case 5:
                 tutorialCard = 5;
                 $('#displayStats').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Though probably random, your choice of ' + userChoice + 'is logged as a reaction to the AIs previous round choice.  Select Statistics to view how the data is stored.');
+                $('.tooltip__text').html('Though probably random, your choice of ' + userChoice + ' is logged as a reaction.  Select Statistics to view the data.');
                 break;
             case 6:
                 tutorialCard = 6;

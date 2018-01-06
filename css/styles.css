@@ -313,7 +313,7 @@ figure {
     -ms-backface-visibility: visible;
 }
 
-.portfolio__projectCard--backp:first-child {
+.portfolio__projectCard--back:first-child {
     font-weight: bold;
 }
 

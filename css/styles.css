@@ -284,6 +284,10 @@ figure {
     background-position: center;
 }
 
+.projectCard__demoButton {
+    margin-top: 0.5em;
+}
+
 .projectCard__buttonContainer {
     display: flex;
     margin-top: 0.5em;

@@ -663,6 +663,10 @@ Utility classes
     opacity: 1;
 }
 
+.allWhite {
+    background-color: white;
+}
+
 .hidden {
     display: none;
 }

@@ -12,7 +12,7 @@ html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.8);
 }
 
@@ -108,7 +108,7 @@ Background Image Info
     margin-left: 0.25em;
     border: none;
     cursor: pointer;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.35);
 }
 
@@ -119,6 +119,8 @@ Title container styles
 
 .portfolio__button {
     padding: 0.75em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
     border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: transparent;
@@ -240,7 +242,7 @@ Projects container styles
     perspective: 800px;
     transform-style: preserve-3d;
     transition: all 0.25s linear;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
 
@@ -392,7 +394,7 @@ Code Container
 
 .codeChoice {
     background-color: transparent;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     border: none;
     font-size: 0.85em;
     cursor: pointer;

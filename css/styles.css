@@ -276,8 +276,8 @@ figure {
     background-image: url('../images/portfolioIcons/predictiveIcon.svg');
 }
 
-.projectCard__frontButton--videoPlayer {
-    background-image: url('../images/portfolioIcons/videoPlayerIcon.svg');
+.projectCard__frontButton--form {
+    background-image: url('../images/portfolioIcons/formIcon.svg');
 }
 
 .projectCard__frontButton--menu {

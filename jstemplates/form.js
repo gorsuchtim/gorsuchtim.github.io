@@ -146,7 +146,6 @@ function checkField(id, userEntry, elementName) {
         $('#' + elementError + '').html('Please be sure to complete the ' + elementName + ' field.').addClass('warningText');
         $('#' + id + '').removeClass('successBorder').addClass('warningBorder');
     } else {
-
         switch (id) {
             case 'emailAddress':
                 var emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -172,7 +171,7 @@ function checkField(id, userEntry, elementName) {
                     $('#dobError').html('Unless you truly are from the future, please check your birth year.  Thanks!').addClass('warningText');
                 } else if (userAge < 18) {
                     $('#dob').removeClass('successBorder').addClass('warningBorder');
-                    $('#dobError').html('Remember, you need to be 18 or older to register').addClass('warningText');
+                    $('#dobError').html('This could be a warning if there is an age restriction to register').addClass('warningText');
                 } else {
                     $('#dob').removeClass('warningBorder').addClass('successBorder');
                     $('#dobError').html('Birthdate: <span class="requiredField">*</span>').removeClass('warningText');
@@ -207,25 +206,9 @@ function checkField(id, userEntry, elementName) {
                 break;
             case 'firstName':
             case 'lastName':
-            case 'address':
-            case 'city':
             case 'state':
                 $('#' + elementError + '').html(elementName + ': <span class="requiredField">*</span>').removeClass('warningText');
                 $('#' + id + '').removeClass('warningBorder').addClass('successBorder');
-                break;
-            case 'zip':
-                var numbersOnly = /[0-9]/;
-                if (numbersOnly.test(userEntry) && userEntry.length === 5) {
-                    $('#' + elementError + '').html(elementName + ': <span class="requiredField">*</span>')
-                        .removeClass('warningText');
-                    $('#' + id + '').removeClass('warningBorder').addClass('successBorder');
-                } else if (numbersOnly.test(userEntry) && userEntry.length < 5) {
-                    $('#' + elementError + '').html('Please enter all 5 digits of your zip code').addClass('warningText');
-                    $('#' + id + '').removeClass('successBorder').addClass('warningBorder');
-                } else if (numbersOnly.test(userEntry) && userEntry.length > 5) {
-                    $('#' + elementError + '').html('Please enter only 5 digits for your zip code').addClass('warningText');
-                    $('#' + id + '').removeClass('successBorder').addClass('warningBorder');
-                }
                 break;
         }
     }

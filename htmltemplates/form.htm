@@ -52,17 +52,6 @@
                 <span class="requiredField">*</span>
             </label>
             <input type="text" class="personalField" name="Last Name" id="lastName" onchange="checkField('lastName', this.value, 'Last Name');">
-
-            <label for="address" class="streetError" id="addressError">Address:
-                <span class="requiredField">*</span>
-            </label>
-            <input type="text" class="personalField" name="Address" id="address" onchange="checkField('address', this.value, 'Address');">
-
-            <label for="city" class="cityError" id="cityError">City:
-                <span class="requiredField">*</span>
-            </label>
-            <input type="text" class="personalField" name="City" id="city" onchange="checkField('city', this.value, 'City');">
-
             <label for="state" class="stateError" id="stateError">State:
                 <span class="requiredField">*</span>
             </label>
@@ -120,17 +109,12 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-
-            <label for="zip" class="zipError" id="zipError">Zip code:
-                <span class="requiredField">*</span>
-            </label>
-            <input type="text" class="personalField lastInput" name="Zip" id="zip" onchange="checkField('zip', this.value, 'Zip Code');">
         </div>
 
         <div class="Confirmation formPage">
-            <h3>Thanks for registering!</h3>
-            <h3>Submit your form or press back to review your information.</h3>
-            <button type="submit" class="formButton" value="Submit" id="submitButton">Submit</button>
+            <h3>A "Thanks for registering!" statement</h3>
+            <h3>This is just a simple form but a fun way to work with various validation types and progress animations</h3>
+            <h3>You can submit your form with a button below or press the "Previous" button to review your information.</h3>
         </div>
     </form>
 

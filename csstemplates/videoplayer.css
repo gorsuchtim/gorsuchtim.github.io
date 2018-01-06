@@ -1,25 +1,18 @@
 /*-------------------------------------
 Video content and controls
 ----------------------------------------*/
+
 .video-container {
     width: 90%;
     margin-top: 2em;
-    margin-left: 4em;    
+    margin-left: 4em;
     -webkit-display: flex;
     display: flex;
-}
-@media only screen and (max-width: 768px) {
-    .video-container {
-        flex-flow: column nowrap;
-    }
-    .video-wrapper {
-        margin-bottom: 1em;
-    }
 }
 
 .video-wrapper {
     width: 50%;
-    height: 100%;    
+    height: 100%;
     position: relative;
     max-width: 840px;
     cursor: pointer;
@@ -198,6 +191,7 @@ input[type=range]:focus::-ms-fill-upper {
         margin-left: 0.5em;
     }
 }
+
 
 /* For FF only styles
 _::-moz-progress-bar,

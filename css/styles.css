@@ -117,6 +117,23 @@ Background Image Info
 Title container styles
 ------------------------*/
 
+.portfolio__button {
+    padding: 0.75em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 0.25em;
+    background-color: transparent;
+    margin: 1em 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.portfolio__button:hover {
+    background-color: white;
+    border-color: rgba(0, 255, 0, 0.8);
+    color: rgba(80, 80, 80, 0.8);
+}
+
 .portfolio__container--title {
     top: 0;
     left: 0;
@@ -478,7 +495,7 @@ Responsive styles
 
 @media only screen and (max-width: 768px) {
     .portfolio__button {
-        padding: 1.5em;
+        font-size: 1.05em;
     }
     .dynamicBackground__text {
         font-size: 0.75em;
@@ -547,10 +564,6 @@ Responsive styles
     .dynamicBackground__text {
         margin-top: -0.15em;
     }
-    .portfolio__button {
-        padding: 1em;
-        font-size: 0.8em;
-    }
     /*-------------------
     Projects Container
     ------------------*/
@@ -589,23 +602,6 @@ Responsive styles
 /*-------------------------
 Utility classes
 -------------------------*/
-
-.portfolio__button {
-    padding: 0.75em;
-    border: 1px solid rgba(80, 80, 80, 0.8);
-    border-radius: 0.25em;
-    background-color: transparent;
-    margin: 1em 0.5em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: rgba(80, 80, 80, 0.8);
-}
-
-.portfolio__button:hover {
-    background-color: white;
-    border-color: rgba(0, 255, 0, 0.8);
-    color: rgba(80, 80, 80, 0.8);
-}
 
 .portfolio__container--projects button:not(.projectCard__demoButton) {
     padding: 0.75em;

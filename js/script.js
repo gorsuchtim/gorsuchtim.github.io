@@ -307,6 +307,7 @@ function init() {
     Projects container events|behaviors
     ---------------------------*/
     $('.portfolio__projectCard').click(function () { // flip portfolio cards when clicked
+        $(this).find('.portfolio__projectCard--front').toggleClass('hidden');
         if ($('.portfolio__wrap').hasClass('mobileView')) { // test for mobile behavior
             $('.portfolio__projectCard').not($(this)).hide(); // hide all cards except the clicked card
             $(this).toggleClass('flipped').find('.portfolio__projectCard--back').toggleClass('hidden'); // flip the clicked card

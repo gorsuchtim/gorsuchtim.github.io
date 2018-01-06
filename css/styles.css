@@ -593,9 +593,7 @@ Utility classes
 
 .portfolio__button {
     padding: 1em;
-    border-width: 1.5px;
-    border-top-width: 1px;
-    border-left-width: 1px;
+    border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: transparent;
     margin: 1em 0.5em;
@@ -605,10 +603,17 @@ Utility classes
 }
 
 .portfolio__button:hover {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+
+/*
+.portfolio__button:hover {
     background-color: white;
     border-color: rgba(0, 255, 0, 0.8);
     color: rgba(80, 80, 80, 0.8);
 }
+*/
 
 .portfolio__container--projects button:not(.projectCard__demoButton) {
     padding: 0.5em;

@@ -351,7 +351,7 @@ Demo container styles
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-image: url('../images/portfolioIcons/stlskyline.jpg');
+    /*background-image: url('../images/portfolioIcons/stlskyline.jpg');*/
     background-position: center center;
     background-size: cover;
     filter: grayscale(100%);

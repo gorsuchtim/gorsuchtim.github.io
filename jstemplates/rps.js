@@ -214,7 +214,7 @@ $(document).ready(function () {
             case 5:
                 tutorialCard = 5;
                 $('#displayStats').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Your choice of ' + userChoice + ', though probably random, is logged as a reaction to the AIs previous round choice of ' + cm1 + '.  Select Statistics to view how it is stored or select Continue to go to Round ' + (round + 1) + '.');
+                $('.tooltip__text').html('Though probably random, your choice of ' + userChoice + 'is logged as a reaction to the AIs previous round choice.  Select Statistics to view how the data is stored.');
                 break;
             case 6:
                 tutorialCard = 6;
@@ -223,11 +223,11 @@ $(document).ready(function () {
             case 7:
                 tutorialCard = 7;
                 $('.continueWalkthrough').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Last round the AI chose ' + cm1 + '.  So your choice of ' + userChoice + ' is logged as a reaction to ' + cm1 + '.  The program is storing your choices to better predict your next move.');
+                $('.tooltip__text').html('Last round the AI chose ' + cm1 + '.  The program is storing your choice of ' + userChoice + ' against ' + cm1 + ' to predict your next move.');
                 break;
             case 8:
                 tutorialCard = 8;
-                $('.tooltip__text').html('If you are most likely to select Paper after seeing Rock, the program will choose Scissors (since Scissors beats Paper).  Select Rock, Paper, or Scissors to continue.');
+                $('.tooltip__text').html('If you are most likely to select Paper after seeing Rock, the program chooses Scissors.  Select Rock, Paper, or Scissors.');
                 break;
             case 9:
                 tutorialCard = 9;
@@ -236,12 +236,12 @@ $(document).ready(function () {
                 break;
             case 10:
                 tutorialCard = 10;
-                $('.tooltip__text').html('If the program discovers a trend it, as long as that trend continues it will ignore historical data and make its choice in line with the trend.  Select Rock, Paper, or Scissors to continue');
+                $('.tooltip__text').html('If the program finds a trend, as long as that trend continues, it ignores stored data and chooses in line with the trend.  Select Rock, Paper, or Scissors.');
                 break;
             case 11:
                 tutorialCard = 11;
                 $('.continueWalkthrough').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Note the AIs choice of ' + compChoice + ' in response to your choice of ' + userChoice + '. Select Continue when you are ready to move to the final round of the walkthrough.');
+                $('.tooltip__text').html('Note the AIs choice of ' + compChoice + ' in response to your choice of ' + userChoice + '.');
                 break;
             case 12:
                 tutorialCard = 12;
@@ -262,11 +262,12 @@ $(document).ready(function () {
                         break;
                 }
                 $('.continueWalkthrough').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('The AI selected ' + compChoice + ' in this round because in the last round you saw ' + cm1 + '.  Historically your next choice has been ' + historicalTendency + '.  Select Continue to complete the walkthrough.');
+                $('.tooltip__text').html('The AI chose ' + compChoice + '.  In the last round you saw ' + cm1 + ' and your next choice has usually been ' + historicalTendency + '.');
                 break;
             case 14:
                 tutorialCard = 14;
-                $('.tooltip__text').html('Admittedly this game is boring - but - it is a good demonstration of how a site can use data and trends in order process or provide custom information to the user.');
+                $('.answerContainer').addClass('hidden');
+                $('.tooltip__text').html('The game itself may be boring but it serves as a good demonstration of how a site can leverage data and trends to process or provide custom information to the user.');
                 break;
         }
     }

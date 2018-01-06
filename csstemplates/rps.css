@@ -179,6 +179,7 @@ Responsive styles
         font-size: 1em;
     }
     .rps__tooltip {
+        min-height: 8.25em;
         margin-top: 2em;
     }
     .answerContainer__category {

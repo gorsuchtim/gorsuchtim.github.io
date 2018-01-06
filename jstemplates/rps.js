@@ -266,7 +266,6 @@ $(document).ready(function () {
                 break;
             case 14:
                 tutorialCard = 14;
-                $('.answerContainer').addClass('hidden');
                 $('.tooltip__text').html('The game itself may be boring but it serves as a good demonstration of how a site can leverage data and trends to process or provide custom information to the user.');
                 break;
         }

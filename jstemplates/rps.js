@@ -70,10 +70,10 @@ $(document).ready(function () {
         card++; // increase card as counter to determine which text shows on screen        
         switch (card) {
             case 1:
-                $('.welcomeCard__text').text('The AI records your historical and trending tendencies...');
+                $('.welcomeCard__text').text('The program reviews your previous turns and compares them against behavior trends...');
                 break;
             case 2:
-                $('.welcomeCard__text').text('...and determines its next best move to win');
+                $('.welcomeCard__text').text('...and leverages that data to determine its next best move to win');
                 $(this).css('background-color', 'rgba(80,80,80,0.8)').text('See how it works');
                 $(this).css('color', 'white');
                 break;
@@ -89,7 +89,7 @@ $(document).ready(function () {
         $('.rps__welcomeCard').fadeOut();
         card = 0;
         setTimeout(function () { // reset tutorial card to first card after 1s so it is after container fades out
-            $('.welcomeCard__text').text('A program with a (somewhat) advanced AI that "learns" from your every move'); // reset text for the welcomeCard
+            $('.welcomeCard__text').text('A program that records and adapts to data.'); // reset text for the welcomeCard
             $('.welcomeCard__button--next').css('background-color', 'transparent').text('Next'); // reset Next button text for welcomeCard
             $('.welcomeCard__button--next').css('color', 'rgba(80,80,80,0.8)'); // reset Next button colors for welcomeCard            
         }, 1000);

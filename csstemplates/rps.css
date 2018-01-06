@@ -30,7 +30,7 @@ Welcome Card Container
     top: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.95);
-    border: 2px solid rgba(80, 80, 80, 0.9);
+    border: 2px solid rgba(0, 255, 0, 0.8);
     border-radius: 5px;
     -webkit-display: flex;
     display: flex;
@@ -42,17 +42,6 @@ Welcome Card Container
 .rps__welcomeCard h3 {
     padding: 0 1em;
     margin: 1em;
-}
-
-.welcomeCard__button {
-    padding: 1em;
-    border: 1px solid rgba(80, 80, 80, 0.8);
-    border-radius: 0.25em;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: rgba(80, 80, 80, 0.8);
-    margin: 0.5em;
 }
 
 
@@ -69,7 +58,7 @@ Tooltip Container
 
 .rps__button {
     padding: 1em;
-    border: 1px solid rgba(80, 80, 80, 0.8);
+    border: 1px solid rgba(0, 255, 0, 0.8);
     border-radius: 0.25em;
     background-color: white;
     cursor: pointer;

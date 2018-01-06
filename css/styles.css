@@ -516,6 +516,9 @@ Responsive styles
     .projectCard__frontButton {
         background-size: 35%;
     }
+    .portfolio__projectCard--back {
+        font-size: 1.25em;
+    }
     .portfolio__control {
         opacity: 0;
         padding: 1.5em;

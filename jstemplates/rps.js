@@ -214,7 +214,7 @@ $(document).ready(function () {
             case 5:
                 tutorialCard = 5;
                 $('#displayStats').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Your choice of ' + userChoice + ' is logged as a reaction to the AIs previous round choice of ' + cm1 + '.  Select the Statistics button to view this data then select Continue below to move to Round ' + (round + 1) + '.');
+                $('.tooltip__text').html('Your choice of ' + userChoice + ', though probably random, is logged as a reaction to the AIs previous round choice of ' + cm1 + '.  Select Statistics to view how it is stored or select Continue to go to Round ' + (round + 1) + '.');
                 break;
             case 6:
                 tutorialCard = 6;
@@ -223,20 +223,20 @@ $(document).ready(function () {
             case 7:
                 tutorialCard = 7;
                 $('.continueWalkthrough').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('Now your choice of ' + userChoice + ' is logged as a reaction to ' + cm1 + '.  The AI is learning your tendencies by collecting and analyzing this data.  Select Continue below.');
+                $('.tooltip__text').html('Last round the AI chose ' + cm1 + '.  So your choice of ' + userChoice + ' is logged as a reaction to ' + cm1 + '.  The program is storing your choices to better predict your next move.');
                 break;
             case 8:
                 tutorialCard = 8;
-                $('.tooltip__text').html('The AI uses the collected data to predict your next move.  If you are most likely to select Paper after seeing Rock, the AI will choose Scissors.  Select Rock, Paper, or Scissors to continue.');
+                $('.tooltip__text').html('If you are most likely to select Paper after seeing Rock, the program will choose Scissors (since Scissors beats Paper).  Select Rock, Paper, or Scissors to continue.');
                 break;
             case 9:
                 tutorialCard = 9;
                 $('.continueWalkthrough').addClass('highlightContinue pulse');
-                $('.tooltip__text').html('The AI also watches for trends.  If your response to Paper has been Rock at least 3x in a row, the program will set Rock as a trend.  Select Continue to continue the walkthrough.');
+                $('.tooltip__text').html('The program also watches for trends.  If your response to Paper has been Rock at least 3x in a row, the program sets Rock as a trend.');
                 break;
             case 10:
                 tutorialCard = 10;
-                $('.tooltip__text').html('If the AI discovers a trend it will override the historical data, anticipate your trending behavior, and choose accordingly.  Select Rock, Paper, or Scissors to advance to the next round');
+                $('.tooltip__text').html('If the program discovers a trend it, as long as that trend continues it will ignore historical data and make its choice in line with the trend.  Select Rock, Paper, or Scissors to continue');
                 break;
             case 11:
                 tutorialCard = 11;
@@ -266,7 +266,7 @@ $(document).ready(function () {
                 break;
             case 14:
                 tutorialCard = 14;
-                $('.tooltip__text').html('While not an exact science, it is a lot of fun to think about the different ways to apply predictive modeling to applications.  Feel free to hide the tutorial and continue playing.');
+                $('.tooltip__text').html('Admittedly this game is boring - but - it is a good demonstration of how a site can use data and trends in order process or provide custom information to the user.');
                 break;
         }
     }

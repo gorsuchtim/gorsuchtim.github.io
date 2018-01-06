@@ -58,10 +58,6 @@ $(document).ready(function () {
                 value: 0
             }],
         };
-    var rps__score = $('.rps__score'); // identify score element
-    var score = 0; // set to numerical value
-    $(rps__score).text(score); // set element content to score value
-
     var rps__round = $('.rps__round'); // identify round element
     var round = 1; // set to numerical value
     $(rps__round).text(round); // set element content to round number
@@ -70,36 +66,22 @@ $(document).ready(function () {
     tutorialCard = 1; // and set the card number to 1
 
     var card = 0;
-    $('.welcomeCard__button').click(function () { // on clicking through introCard tutorial
-        if ($(this).hasClass('welcomeCard__button--next')) { // if user is clicking the next button            
-            card++; // increase card as counter to determine which text shows on screen        
-            switch (card) {
-                case 1:
-                    $('.welcomeCard__text').text('The AI leverages your historical and trending tendencies against you...');
-                    break;
-                case 2:
-                    $('.welcomeCard__text').text('...and determines its next best move to win');
-                    $(this).css('background-color', 'rgba(80,80,80,0.8)').text('Play game');
-                    $(this).css('color', 'white');
-                    break;
-                case 3: // on clicking Play game
-                    $('.rps__welcomeCard').fadeOut(); // fade out welcomeCardCard container
-                    $('.tooltip__container').fadeIn();
-                    $('#viewWalkthrough').show();
-                    card = 0; // reset card to 0 
-                    setTimeout(function () { // reset tutorial card to first card after 1s so it is after container fades out
-                        $('.welcomeCard__text').text('A program with a (somewhat) advanced AI that "learns" from your every move');
-                        $('.welcomeCard__button--next').css('background-color', 'transparent').text('Next');
-                        $('.welcomeCard__button--next').css('color', 'rgba(80,80,80,0.8)');
-                    }, 1000);
-                    break;
-            }
-        } else if ($(this).hasClass('welcomeCard__button--startWalkthrough')) { // if user is clicking the "See how it works" button
-            tutorialOn = true;
-            sequenceFade('.userOption h3', 'highlightUserAnswer', 100, 'add');
-            $('.rps__gameBoard').addClass('withTooltip'); // addClass to move gameBoard to 70% width            
-            $('.rps__tooltip').addClass('tooltip__on rps__flexContainer').show(); // set width of tooltip from 0% to 30%
-            closeWelcomeCard(); // fade out the welcome card
+    $('.welcomeCard__button').click(function () { // on clicking through introCard tutorial        
+        card++; // increase card as counter to determine which text shows on screen        
+        switch (card) {
+            case 1:
+                $('.welcomeCard__text').text('The AI records your historical and trending tendencies...');
+                break;
+            case 2:
+                $('.welcomeCard__text').text('...and determines its next best move to win');
+                $(this).css('background-color', 'rgba(80,80,80,0.8)').text('See how it works');
+                $(this).css('color', 'white');
+                break;
+            case 3: // on clicking Play game
+                tutorialOn = true;
+                sequenceFade('.userOption h3', 'highlightUserAnswer', 100, 'add');
+                closeWelcomeCard(); // fade out the welcome card                  
+                break;
         }
     });
 
@@ -113,22 +95,6 @@ $(document).ready(function () {
         }, 1000);
     }
 
-    $('.closeWalkthrough').click(function () { // on selecting to close the tooltip
-        $('.rps__tooltip').children().fadeOut(200); // fade out all text children of tooltip
-
-        setTimeout(function () { // wait 1.5s and reset gameboard to 100% width and tooltip to 0% width
-            $('.rps__gameBoard').removeClass('withTooltip');
-            $('.rps__tooltip').removeClass('tooltip__on');
-            $('.rps__tooltip').fadeOut(100);
-            $('#viewWalkthrough').fadeIn(250);
-        }, 250);
-
-        if (tutorialOn) {
-            tutorialOn = false;
-            setupNextRound();
-        }
-    });
-
     $('.userOption').click(function (e) {
         userResponse = e.currentTarget.id;
         if ($('.rps__selected').length === 0) {
@@ -141,26 +107,20 @@ $(document).ready(function () {
             } else { // if this is round 3 or beyond then we can start using collected reactionary data            
                 setTendencies();
             }
-            if (!tutorialOn) { // if tutorialOn is false then automatically set up the next round, otherwise rely on following tutorial instructions
-                setTimeout(function () {
-                    setupNextRound();
-                }, 1000);
-            }
         }
-        if (tutorialOn) {
-            if (tutorialCard === 1) {
-                changeTutorialCard(2);
-            } else if (tutorialCard === 4) {
-                changeTutorialCard(5);
-            } else if (tutorialCard === 6) {
-                changeTutorialCard(7);
-            } else if (tutorialCard === 8) {
-                changeTutorialCard(9);
-            } else if (tutorialCard === 10) {
-                changeTutorialCard(11);
-            } else if (tutorialCard === 12) {
-                changeTutorialCard(13);
-            }
+
+        if (tutorialCard === 1) {
+            changeTutorialCard(2);
+        } else if (tutorialCard === 4) {
+            changeTutorialCard(5);
+        } else if (tutorialCard === 6) {
+            changeTutorialCard(7);
+        } else if (tutorialCard === 8) {
+            changeTutorialCard(9);
+        } else if (tutorialCard === 10) {
+            changeTutorialCard(11);
+        } else if (tutorialCard === 12) {
+            changeTutorialCard(13);
         }
     });
 
@@ -226,14 +186,6 @@ $(document).ready(function () {
             changeTutorialCard(14);
         }
     });
-    $('#viewWalkthrough').click(function () {
-        tutorialCard = 1;
-        tutorialOn = true;
-        $('.tooltip__text').html('Select Rock, Paper, or Scissors.');
-        $('.rps__gameBoard').addClass('withTooltip'); // addClass to move gameBoard to 70% width            
-        $('.rps__tooltip').addClass('tooltip__on rps__flexContainer').show(); // set width of tooltip from 0% to 30%
-        $('.rps__tooltip, .walkthroughButtons').children().fadeIn().removeClass('highlightContinue pulse');
-    })
 
     function changeTutorialCard(card) {
         var userChoice = userResponse.substring(4);
@@ -499,14 +451,10 @@ $(document).ready(function () {
 
         if (result === 'user wins') { // if user wins
             $('.rps__selected').addClass('win');
-            score++; // increase score
         } else if (result === 'AI wins') { // if AI wins
             $('.rps__selected').addClass('lose');
-            score--; // decrease score
         } else if (result === 'Tie') { // if round is a tie
             $('.rps__selected').addClass('tie');
         }
-
-        $(rps__score).text(score); // update score element content
     }
 });

@@ -9,9 +9,16 @@
 }
 
 .rps__gameBoard {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     transition: all 0.25s linear;
 }
+
+
 /*----------------------
 Welcome Card Container
 --------------------*/
@@ -38,7 +45,7 @@ Welcome Card Container
 }
 
 .welcomeCard__button {
-    padding: 0.5em;
+    padding: 1em;
     border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: transparent;
@@ -48,35 +55,20 @@ Welcome Card Container
     margin: 0.5em;
 }
 
-.welcomeCard__button--container {
-    -webkit-display: flex;
-    display: flex;
-    flex-flow: column nowrap;
-}
+
 /*-------------------------
 Tooltip Container
 ------------------------*/
 
 .rps__tooltip {
-    width: 0%;
     padding: 1em;
-    border-left: 1px solid rgba(80, 80, 80, 0.25);
+    border-bottom: 1px solid rgba(80, 80, 80, 0.25);
+    text-align: center;
     transition: all 0.25s linear;
-    -webkit-display: flex;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    text-align: left;
-    display: none;
 }
 
-.walkthroughButtons {
-    -webkit-display: flex;
-    display: flex;
-}
-
-.button__rps {
-    padding: 0.5em;
+.rps__button {
+    padding: 1em;
     border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: white;
@@ -87,27 +79,7 @@ Tooltip Container
     transition: all 0.25s linear;
 }
 
-.rps__walkthroughButton {
-    padding: 0.5em;
-}
 
-.continueWalkthrough {
-    margin-right: 0.25em;
-}
-
-.rps__flexContainer {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-}
-
-.withTooltip {
-    width: 70%;
-}
-
-.tooltip__on {
-    width: 30%;
-}
 /*----------------------
 Game Board Container
 --------------------*/
@@ -163,17 +135,6 @@ Game Board Container
     border-bottom: 1px solid rgba(80, 80, 80, 0.25);
 }
 
-#viewWalkthrough {
-    display: none;
-}
-
-.grayBackground {
-    background-color: rgba(80, 80, 80, 0.8);
-    color: white;
-    border-color: white;
-    width: 75%;
-}
-
 .dataContainer {
     position: absolute;
     width: 100%;
@@ -200,6 +161,12 @@ Game Board Container
 .dataContainer .col {
     margin: 1.5em 0;
 }
+
+.tooltip__text {
+    color: rgba(0, 255, 0, 0.8);
+}
+
+
 /*--------------------------
 Responsive styles
 ---------------------*/
@@ -233,13 +200,6 @@ Responsive styles
         text-align: left;
         display: none;
     }
-    .tooltip__on {
-        width: 100%;
-        text-align: center;
-    }
-    .walkthroughButtons {
-        justify-content: center;
-    }
     .optionContainer h3 {
         cursor: pointer;
         width: 1.5em;
@@ -247,12 +207,15 @@ Responsive styles
         padding: 1em;
     }
 }
+
+
 /*------------------
 Utility Classes
 ------------------*/
 
 .hidden {
     opacity: 0;
+    visibility: hidden;
 }
 
 .rps__selected {
@@ -260,7 +223,7 @@ Utility Classes
 }
 
 .win {
-    background-color: green;
+    background-color: rgba(0, 255, 0, 0.8);
     color: white;
 }
 
@@ -275,7 +238,7 @@ Utility Classes
 }
 
 .highlightContinue {
-    background-color: rgba(80, 80, 80, 0.5);
+    background-color: rgba(0, 255, 0, 0.8);
     color: white;
 }
 

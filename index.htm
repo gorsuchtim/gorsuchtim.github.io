@@ -12,7 +12,6 @@
     <link rel="icon" href="images/gorsuchLogo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <!--<link rel="stylesheet" href="css/normalize.css">-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" id="dynamicCSS" href="">
 </head>
@@ -21,17 +20,16 @@
     <div class="portfolio__overlay portfolio__overlay--loader">
         <div class="loader spin"></div>
     </div>
-    <!--
-    <div class="portfolio__container--dynamicBackground">
-        <span class="dynamicBackground__text">St. Louis Skyline</span>
-        <button class="dynamicBackground__button portfolio__text--italic">(change image)</button>
-    </div>
--->
     <div class="portfolio__wrap">
         <div class="portfolio__container portfolio__container--title">
             <div class="portfolio__text--title">
-                <h1 class="portfolio__text--title">My name is Tim Gorsuch</h1>
-                <h4 class="portfolio__text--subtitle">I'm a web developer in St. Louis</h4>
+                <h1 class="portfolio__text--title">My name is
+                    <span class="portfolio__text--green">Tim Gorsuch</span>
+                </h1>
+                <h4 class="portfolio__text--subtitle">I'm a
+                    <span class="portfolio__text--green">web developer</span> in
+                    <span class="portfolio__text--green">St. Louis</span>
+                </h4>
             </div>
             <div class="title__buttons">
                 <button class="portfolio__button portfolio__button--profile">Profile</button>
@@ -49,11 +47,15 @@
             <div class="profile__content">
                 <ul class="profile__list profile__list--skills">
                     <li class="profile__list--item">
-                        <h4>Languages | frameworks</h4>
+                        <h4>
+                            <span class="portfolio__text--green">Languages | frameworks</span>
+                        </h4>
                         <p>HTML5 | CSS3 | Javascript | jQuery | ES6 | Angular | Sass | Grid | Bootstrap3</p>
                     </li>
                     <li class="profile__list--item">
-                        <h4>Noteable skills</h4>
+                        <h4>
+                            <span class="portfolio__text--green">Noteable skills</span>
+                        </h4>
                         <p>Agile-driven development</p>
                         <p>U|X designs -> deliverable code</p>
                         <p>W3C Accessibility support</p>
@@ -63,19 +65,25 @@
                 </ul>
                 <ul class="profile__list profile__list--career">
                     <li class="profile__list--item">
-                        <h4>2004-2015</h4>
+                        <h4>
+                            <span class="portfolio__text--green">2004-2015</span>
+                        </h4>
                         <p>Logistics planning and management</p>
                         <p class="portfolio__text--italic">Nov 2014: begin learning front-end development</p>
                         <p>Litigation support | Account management</p>
                     </li>
 
                     <li class="profile__list--item">
-                        <h4>April 2016 - present</h4>
+                        <h4>
+                            <span class="portfolio__text--green">April 2016 - present</span>
+                        </h4>
                         <p>Creative Developer/C|X Interaction Designer - Wells Fargo Advisors</p>
                     </li>
 
                     <li class="profile__list--item">
-                        <h4>Interests</h4>
+                        <h4>
+                            <span class="portfolio__text--green">Interests</span>
+                        </h4>
                         <p>Starting home improvement projects</p>
                         <p>Running</p>
                         <p>Family hiking/camping</p>
@@ -87,7 +95,9 @@
                 </ul>
                 <ul class="profile__list profile__list--contact">
                     <li class="profile__list--item">
-                        <h4>Contact</h4>
+                        <h4>
+                            <span class="portfolio__text--green">Contact</span>
+                        </h4>
                         <p>Please feel free to reach out to me at
                             <span class="portfolio__text--italic emailAddress">gorsuchtim@gmail.com</span>
                         </p>
@@ -219,11 +229,17 @@
         <button class="portfolio__control portfolio__control--projects" id="control__projects"></button>
         <button class="portfolio__control portfolio__control--source" id="control__source"></button>
     </div>
-
-    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
+
+<!--
+    <div class="portfolio__container--dynamicBackground">
+        <span class="dynamicBackground__text">St. Louis Skyline</span>
+        <button class="dynamicBackground__button portfolio__text--italic">(change image)</button>
+    </div>
+-->
+<!--<link rel="stylesheet" href="css/normalize.css">-->

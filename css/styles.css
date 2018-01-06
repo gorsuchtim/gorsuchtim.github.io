@@ -84,36 +84,6 @@ html {
 
 
 /*----------------------
-Background Image Info
--------------------------*/
-
-.portfolio__container--dynamicBackground {
-    -webkit-display: flex;
-    display: flex;
-    z-index: 5;
-    position: absolute;
-    top: 1em;
-    right: 1.5em;
-}
-
-.dynamicBackground__text {
-    margin-top: -0.15em;
-    color: rgba(80, 80, 80, 0.35);
-    font-size: 0.8em;
-}
-
-.dynamicBackground__button {
-    background-color: transparent;
-    margin-top: -0.21em;
-    margin-left: 0.25em;
-    border: none;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    color: rgba(80, 80, 80, 0.35);
-}
-
-
-/*----------------------
 Title container styles
 ------------------------*/
 
@@ -124,7 +94,6 @@ Title container styles
     border: 1px solid rgba(80, 80, 80, 0.8);
     border-radius: 0.25em;
     background-color: transparent;
-    /*margin: 1em 0.5em;*/
     cursor: pointer;
     transition: all 0.2s ease;
     color: rgba(80, 80, 80, 0.8);
@@ -247,7 +216,7 @@ Projects container styles
     opacity: 0;
     width: 33%;
     height: 33.5%;
-    box-shadow: 0px 1px 8px rgba(80, 80, 80, 0.15);
+    box-shadow: 0px 1px 1px rgba(0, 255, 0, 0.8);
     perspective: 800px;
     transform-style: preserve-3d;
     transition: all 0.25s linear;
@@ -659,6 +628,10 @@ Utility classes
     color: rgba(0, 255, 0, 0.8);
 }
 
+.portfolio__text--green {
+    color: rgba(0, 255, 0, 0.8);
+}
+
 .portfolio__text--italic {
     font-style: italic;
 }
@@ -682,3 +655,34 @@ Utility classes
 .hidden {
     display: none;
 }
+
+
+/*----------------------
+Background Image Info
+-------------------------
+
+.portfolio__container--dynamicBackground {
+    -webkit-display: flex;
+    display: flex;
+    z-index: 5;
+    position: absolute;
+    top: 1em;
+    right: 1.5em;
+}
+
+.dynamicBackground__text {
+    margin-top: -0.15em;
+    color: rgba(80, 80, 80, 0.35);
+    font-size: 0.8em;
+}
+
+.dynamicBackground__button {
+    background-color: transparent;
+    margin-top: -0.21em;
+    margin-left: 0.25em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(80, 80, 80, 0.35);
+}
+*/

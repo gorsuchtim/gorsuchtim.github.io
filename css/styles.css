@@ -495,11 +495,9 @@ Responsive styles
 ---------------------*/
 
 @media only screen and (max-width: 768px) {
-    /*
     .portfolio__button {
-        font-size: 1.05em;
+        font-size: 1em;
     }
-    */
     .dynamicBackground__text {
         font-size: 0.75em;
     }

@@ -7,7 +7,7 @@ function init() {
 
     /*----------------------------
     Events and behavior for setting background image
-    -----------------------------------*/
+    -----------------------------------
     var backgroundImages = ['arthill.jpg', 'bevo.jpg', 'buschstadium.jpg', 'insidearch.jpg', 'oldcourthouse.jpg', 'pageant.gif', 'powellhall.jpg', 'soulardmarket.jpg', 'stlskyline.jpg', 'towergrove.jpg', 'unionstation.jpg', 'voltron.jpeg', 'zoo.jpg'];
     var currentElement;
     var infoClick = false;
@@ -94,7 +94,7 @@ function init() {
         }
         $('.dynamicBackground__text').text(dynamicBackground__text);
     }
-
+    */
     /*----------------------------------------------------
     Test viewport size on page load: If mobile apply .mobileView    
     ------------------------------------------------------------*/

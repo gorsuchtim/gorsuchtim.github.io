@@ -74,7 +74,7 @@ $(document).ready(function () {
                 break;
             case 2:
                 $('.welcomeCard__text').text('...and leverages that data to determine its next best move to win');
-                $(this).css('background-color', 'rgba(80,80,80,0.8)').text('See how it works');
+                $(this).addClass('highlightContinue').text('See how it works');
                 $(this).css('color', 'white');
                 break;
             case 3: // on clicking Play game

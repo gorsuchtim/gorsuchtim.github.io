@@ -29,7 +29,7 @@ Welcome Card Container
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: white;
     border: 2px solid rgba(0, 255, 0, 0.8);
     border-radius: 5px;
     -webkit-display: flex;
@@ -163,7 +163,7 @@ Responsive styles
 
 @media only screen and (max-width: 768px) {
     .rps__mainContainer {
-        width: 80%;
+        width: 100%;
         margin: 1em auto;
         position: relative;
         -webkit-display: flex;
@@ -172,15 +172,14 @@ Responsive styles
         align-items: center;
         justify-content: center;
     }
-    .rps__welcomeCard,
-    .dataContainer {
-        left: 1em;
-    }
-    .rps__gameBoard {
-        margin-left: 2em;
+    .rps__welcomeCard {
+        border: none;
     }
     .rps__welcomeCard h3 {
         font-size: 1em;
+    }
+    .rps__tooltip {
+        margin-top: 2em;
     }
     .answerContainer__category {
         margin: 1em;

@@ -147,9 +147,9 @@ function init() {
 
     function moveContent(moveIn) { // dynamically shift code content according to what user selects to view     
         $('.portfolio__menu').fadeIn(); // fade in portfolio menu
-        $('.portfolio__container').addClass('offScreenTop'); // move all portfolio containers out of view
+        $('.portfolio__container').addClass('offScreenLeft'); // move all portfolio containers out of view
         setTimeout(function () {
-            $('.portfolio__container--' + moveIn + '').removeClass('offScreenTop'); // move moveIn container in to view
+            $('.portfolio__container--' + moveIn + '').removeClass('offScreenLeft'); // move moveIn container in to view
         }, 500);
 
         /*--------------------
@@ -202,8 +202,9 @@ function init() {
     $('.portfolio__control').click(function (e) {
         var clicked = e.currentTarget.id;
         if ($(this).attr('id') !== 'control__mobile') { // it not clicking on the mobile menu button
-            $('.portfolio__overlay--demo').removeClass('allWhite'); // remove allWhite from the demo overlay so show the arch again
+            $('.portfolio__overlay--demo').removeClass('allWhite'); // remove allWhite from the demo overlay so show the arch
         }
+
         switch (clicked) {
             case 'control__mobile':
                 if (!$('.portfolio__control').hasClass('showing')) { // if control tabs currently DONT have class showing
@@ -218,7 +219,7 @@ function init() {
                 moveContent('title'); // move in title container            
                 break;
             case 'control__profile':
-                if ($('.portfolio__container--profile').hasClass('offScreenTop')) { // if profile container is not currently visible AND menu IS visible 
+                if ($('.portfolio__container--profile').hasClass('offScreenLeft')) { // if profile container is not currently visible AND menu IS visible 
                     moveContent('profile'); // move profile container in to view                    
                 }
                 break;
@@ -231,7 +232,7 @@ function init() {
                         }
                     });
                 }
-                if ($('.portfolio__container--projects').hasClass('offScreenTop')) { // if projects container is not currently visible AND menu IS visible   
+                if ($('.portfolio__container--projects').hasClass('offScreenLeft')) { // if projects container is not currently visible AND menu IS visible   
                     moveContent('projects'); // move projects container in to view
                 }
                 break;

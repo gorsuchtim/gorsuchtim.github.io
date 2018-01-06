@@ -651,6 +651,11 @@ Utility classes
     display: none;
 }
 
+.offScreenLeft {
+    left: -100%;
+    /*display: none;*/
+}
+
 .highlightText {
     color: rgba(0, 255, 0, 0.8);
 }

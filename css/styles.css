@@ -480,7 +480,7 @@ Responsive styles
 
 @media only screen and (max-width: 768px) {
     .title__buttons .portfolio__button {
-        margin-top: 0.25em;
+        margin-top: 0.5em;
         padding: 1.25em;
     }
     .dynamicBackground__text {

@@ -12,7 +12,7 @@ html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.8);
 }
 
@@ -108,7 +108,7 @@ Background Image Info
     margin-left: 0.25em;
     border: none;
     cursor: pointer;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.35);
 }
 
@@ -116,6 +116,25 @@ Background Image Info
 /*----------------------
 Title container styles
 ------------------------*/
+
+.portfolio__button {
+    padding: 0.75em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 0.25em;
+    background-color: transparent;
+    margin: 1em 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(80, 80, 80, 0.8);
+}
+
+.portfolio__button:hover {
+    background-color: white;
+    border-color: rgba(0, 255, 0, 0.8);
+    color: rgba(80, 80, 80, 0.8);
+}
 
 .portfolio__container--title {
     top: 0;
@@ -223,7 +242,7 @@ Projects container styles
     perspective: 800px;
     transform-style: preserve-3d;
     transition: all 0.25s linear;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
 
@@ -334,7 +353,8 @@ Demo container styles
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-image: url('../images/portfolioIcons/stlskyline.jpg');
+    /*background-image: url('../images/portfolioIcons/stlskyline.jpg');*/
+    background-image: url('../images/portfolioIcons/stl_drawing.png');
     background-position: center center;
     background-size: cover;
     filter: grayscale(100%);
@@ -374,7 +394,7 @@ Code Container
 
 .codeChoice {
     background-color: transparent;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
     border: none;
     font-size: 0.85em;
     cursor: pointer;
@@ -478,7 +498,7 @@ Responsive styles
 
 @media only screen and (max-width: 768px) {
     .portfolio__button {
-        padding: 1.5em;
+        font-size: 0.9em;
     }
     .dynamicBackground__text {
         font-size: 0.75em;
@@ -496,7 +516,10 @@ Responsive styles
         margin-top: 1.5em;
     }
     .projectCard__frontButton {
-        background-size: 25%;
+        background-size: 35%;
+    }
+    .portfolio__projectCard--back {
+        font-size: 1.25em;
     }
     .portfolio__control {
         opacity: 0;
@@ -547,10 +570,6 @@ Responsive styles
     .dynamicBackground__text {
         margin-top: -0.15em;
     }
-    .portfolio__button {
-        padding: 1em;
-        font-size: 0.8em;
-    }
     /*-------------------
     Projects Container
     ------------------*/
@@ -589,23 +608,6 @@ Responsive styles
 /*-------------------------
 Utility classes
 -------------------------*/
-
-.portfolio__button {
-    padding: 0.75em;
-    border: 1px solid rgba(80, 80, 80, 0.8);
-    border-radius: 0.25em;
-    background-color: transparent;
-    margin: 1em 0.5em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: rgba(80, 80, 80, 0.8);
-}
-
-.portfolio__button:hover {
-    background-color: white;
-    border-color: rgba(0, 255, 0, 0.8);
-    color: rgba(80, 80, 80, 0.8);
-}
 
 .portfolio__container--projects button:not(.projectCard__demoButton) {
     padding: 0.75em;

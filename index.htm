@@ -8,29 +8,25 @@
     <meta name="description" content="Put content here">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="author" content="Tim Gorsuch">
-    <!-- favicon icon - -->
     <link rel="shortcut icon" href="images/gorsuchLogo.ico" type="image/x-icon">
     <link rel="icon" href="images/gorsuchLogo.ico" type="image/x-icon">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
-    <!-- Local stylesheet -->
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <!--<link rel="stylesheet" href="css/normalize.css">-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" id="dynamicCSS" href="">
-
 </head>
 
 <body>
     <div class="portfolio__overlay portfolio__overlay--loader">
         <div class="loader spin"></div>
     </div>
+    <!--
     <div class="portfolio__container--dynamicBackground">
         <span class="dynamicBackground__text">St. Louis Skyline</span>
         <button class="dynamicBackground__button portfolio__text--italic">(change image)</button>
     </div>
-
+-->
     <div class="portfolio__wrap">
         <div class="portfolio__container portfolio__container--title">
             <div class="portfolio__text--title">
@@ -45,8 +41,8 @@
         <div class="portfolio__container portfolio__container--profile offScreenTop">
             <div class="profile__heading">
                 <ul class="profile__categories--list">
-                    <li class="profile__categories--item" id="profileCategorySkills">Skills|Tools</li>
-                    <li class="profile__categories--item" id="profileCategoryCareer">Career|Interests</li>
+                    <li class="profile__categories--item" id="profileCategorySkills">Skills</li>
+                    <li class="profile__categories--item" id="profileCategoryCareer">Profile</li>
                     <li class="profile__categories--item" id="profileCategoryContact">Contact</li>
                 </ul>
             </div>
@@ -55,10 +51,6 @@
                     <li class="profile__list--item">
                         <h4>Languages | frameworks</h4>
                         <p>HTML5 | CSS3 | Javascript | jQuery | ES6 | Angular | Sass | Grid | Bootstrap3</p>
-                    </li>
-                    <li class="profile__list--item">
-                        <h4>Tools</h4>
-                        <p>Windows(OS) | WAMP | Bitnami | VSCode | Git | Prepros</p>
                     </li>
                     <li class="profile__list--item">
                         <h4>Noteable skills</h4>
@@ -83,7 +75,7 @@
                     </li>
 
                     <li class="profile__list--item">
-                        <h4>Interests | info</h4>
+                        <h4>Interests</h4>
                         <p>Starting home improvement projects</p>
                         <p>Running</p>
                         <p>Family hiking/camping</p>
@@ -110,7 +102,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--accordion"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Accordion</p>
+                    <h3>Accordion</h3>
                     <p>jquery | slideToggle</p>
                     <button class="portfolio__button projectCard__demoButton" id="accordion">Demo</button>
                 </figure>
@@ -120,7 +112,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--memory"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Memory</p>
+                    <h3>Memory</h3>
                     <p>3d transforms | animation</p>
                     <button class="portfolio__button projectCard__demoButton" id="memory">Demo</button>
                 </figure>
@@ -130,7 +122,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--rps"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Rock | Paper | Scissors</p>
+                    <h3>Rock | Paper | Scissors</h3>
                     <p>statistical predictive modeling</p>
                     <button class="portfolio__button projectCard__demoButton" id="rps">Demo</button>
                 </figure>
@@ -140,7 +132,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--videoPlayer"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Video Player</p>
+                    <h3>Video Player</h3>
                     <p>custom controls | a11y ready</p>
                     <button class="portfolio__button projectCard__demoButton" id="videoPlayer">Demo</button>
                 </figure>
@@ -150,7 +142,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--menu"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Complex Navigation Menu</p>
+                    <h3>Complex Navigation Menu</h3>
                     <p>accessible | responsive menu</p>
                     <button class="portfolio__button projectCard__demoButton" id="menu">Demo</button>
                 </figure>
@@ -160,7 +152,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--math"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Math Game</p>
+                    <h3>Math Game</h3>
                     <p>animation | timing events</p>
                     <button class="portfolio__button projectCard__demoButton" id="math">Demo</button>
                 </figure>
@@ -170,7 +162,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--cssVars"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>CSS Variable Playground</p>
+                    <h3>CSS Variable Playground</h3>
                     <p>using js to update css vars</p>
                     <button class="portfolio__button projectCard__demoButton" id="cssVars">Demo</button>
                 </figure>
@@ -180,7 +172,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--cookieCheck"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Cookie-Based Content Test</p>
+                    <h3>Cookie-Based Content Test</h3>
                     <p>setting|deleting cookies</p>
                     <button class="portfolio__button projectCard__demoButton" id="cookieCheck">Demo</button>
                 </figure>
@@ -190,7 +182,7 @@
                     <button class="projectCard__frontButton projectCard__frontButton--bakery"></button>
                 </figure>
                 <figure class="portfolio__projectCard--back hidden">
-                    <p>Bakery|Store Prototype</p>
+                    <h3>Bakery|Store Prototype</h3>
                     <p>angularJS | bootstrap3</p>
                     <a href="/bakery/index.html" target="_blank">View site</a>
                 </figure>

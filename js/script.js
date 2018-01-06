@@ -201,6 +201,9 @@ function init() {
     ---------------------------*/
     $('.portfolio__control').click(function (e) {
         var clicked = e.currentTarget.id;
+        if ($(this).attr('id') !== 'control__mobile') { // it not clicking on the mobile menu button
+            $('.portfolio__overlay--demo').removeClass('allWhite'); // remove allWhite from the demo overlay so show the arch again
+        }
         switch (clicked) {
             case 'control__mobile':
                 if (!$('.portfolio__control').hasClass('showing')) { // if control tabs currently DONT have class showing
@@ -334,6 +337,7 @@ function init() {
 
     $('.projectCard__demoButton').click(function (e) { // on clicking the demo button
         $('.portfolio__container--demo').css('z-index', '3'); // set z-index of demo container to 3 so user can interact with demo
+        $('.portfolio__overlay--demo').addClass('allWhite'); // set background of demo overlay to all white to block out portfolio background image
         projectChoice = e.currentTarget.id; // define ID of demo clicked
         stylesheet = 'csstemplates/' + projectChoice + '.css'; // combine with csstemplates string                
         moveContent('demo'); // move projects container out of view        

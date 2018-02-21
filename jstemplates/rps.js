@@ -75,7 +75,7 @@ $(document).ready(function () {
             case 2:
                 $('.welcomeCard__text').text('...and leverages that data to determine its next best move to win');
                 $(this).addClass('highlightContinue').text('See how it works');
-                $(this).css('color', 'white');
+                $(this).css('color', 'rgba(80,80,80,0.8)';
                 break;
             case 3: // on clicking Play game
                 tutorialOn = true;

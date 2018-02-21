@@ -266,7 +266,7 @@ $(document).ready(function () {
                 break;
             case 14:
                 tutorialCard = 14;
-                $('.tooltip__text').html('This is just a simple but interesting demo of how we can leverage growing data with trends to create more fluid or direct user experiences.');
+                $('.tooltip__text').html('This is a simple but interesting demo of how we can leverage growing data with trends to create more fluid or direct user experiences.');
                 break;
         }
     }

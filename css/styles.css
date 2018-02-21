@@ -152,7 +152,7 @@ Profile container styles
 
 .profile__categories--item {
     list-style: none;
-    margin-right: 1em;
+    margin-right: 2em;
     font-size: 1em;
     padding-bottom: 0.25em;
     cursor: pointer;
@@ -682,3 +682,4 @@ Background Image Info
     font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.35);
 }
+*/

@@ -624,6 +624,12 @@ Utility classes
     color: rgba(0, 255, 0, 0.8);
 }
 
+@media screen and (max-width: 768px) {
+    .portfolio__text--green {
+        text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.8);
+    }
+}
+
 .portfolio__text--italic {
     font-style: italic;
 }
@@ -676,4 +682,3 @@ Background Image Info
     font-family: 'Roboto', sans-serif;
     color: rgba(80, 80, 80, 0.35);
 }
-*/

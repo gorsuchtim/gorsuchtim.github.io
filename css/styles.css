@@ -571,9 +571,6 @@ Responsive styles
     .profile__list--item:not(:first-child) {
         margin-top: 1em;
     }
-    .profile__list--item h4 {
-        font-size: 1em;
-    }
     .profile__list--item p {
         font-size: 0.9em;
     }

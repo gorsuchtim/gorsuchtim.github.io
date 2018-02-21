@@ -222,7 +222,7 @@ Utility Classes
 
 .highlightContinue {
     background-color: rgba(0, 255, 0, 0.8);
-    color: white;
+    color: rgba(80, 80, 80, 0.8);
 }
 
 .highlightUserAnswer {

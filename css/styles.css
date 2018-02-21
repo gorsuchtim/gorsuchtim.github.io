@@ -118,7 +118,7 @@ Title container styles
 
 .portfolio__text--title {
     font-size: 1.3em;
-    letter-spacing: 0.015em;
+    letter-spacing: 0.025em;
 }
 
 .portfolio__text--subtitle {
@@ -180,7 +180,7 @@ Profile container styles
 }
 
 .profile__list--item p {
-    margin-bottom: 0.25em;
+    margin: 0.5em 0;
     font-size: 0.9em;
 }
 

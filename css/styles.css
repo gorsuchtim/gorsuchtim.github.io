@@ -35,7 +35,7 @@ html {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.9);
     transition: all 0.5s linear;
 }
 
@@ -82,7 +82,6 @@ html {
     }
 }
 
-
 /*----------------------
 Title container styles
 ------------------------*/
@@ -119,6 +118,7 @@ Title container styles
 
 .portfolio__text--title {
     font-size: 1.3em;
+    letter-spacing: 0.05em;
 }
 
 .portfolio__text--subtitle {
@@ -129,7 +129,6 @@ Title container styles
 .title__buttons .portfolio__button {
     margin: 0 0.5em;
 }
-
 
 /*--------------------------
 Profile container styles
@@ -193,7 +192,6 @@ Profile container styles
     display: flex;
     justify-content: flex-start;
 }
-
 
 /*-------------------------
 Projects container styles
@@ -306,7 +304,6 @@ figure {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-
 /* Special class to show back of card on flip in IE.  Click event on .portfolio__projectCard toggles this class on/off */
 
 .ieBackface {
@@ -322,7 +319,6 @@ figure {
     padding: 0 1em;
     text-align: center;
 }
-
 
 /*-------------------------
 Demo container styles
@@ -344,7 +340,6 @@ Demo container styles
     background-attachment: fixed;
     transition: all 0.25s linear;
 }
-
 
 /*----------------------------
 Code Container
@@ -394,7 +389,6 @@ Code Container
     display: none;
 }
 
-
 /*-----------------
 Source Code Textarea
 ---------------------*/
@@ -421,7 +415,6 @@ Source Code Textarea
     cursor: default;
     color: rgba(80, 80, 80, 0.8);
 }
-
 
 /*-------------------------
 Menu styles
@@ -473,7 +466,6 @@ Menu styles
     background-image: url('../images/portfolioIcons/control_source.svg');
 }
 
-
 /*--------------------------
 Responsive styles
 ---------------------*/
@@ -481,7 +473,7 @@ Responsive styles
 @media only screen and (max-width: 768px) {
     .title__buttons .portfolio__button {
         margin-top: 0.5em;
-        padding: 1.25em;
+        padding: 1em;
     }
     .dynamicBackground__text {
         font-size: 0.75em;
@@ -587,7 +579,6 @@ Responsive styles
     }
 }
 
-
 /*-------------------------
 Utility classes
 -------------------------*/
@@ -656,7 +647,6 @@ Utility classes
 .hidden {
     display: none;
 }
-
 
 /*----------------------
 Background Image Info

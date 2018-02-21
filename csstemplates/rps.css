@@ -1,6 +1,6 @@
 .rps__mainContainer {
-    width: 80%;
-    margin: 1em auto;
+    width: 100%;
+    margin-top: 1em;
     position: relative;
     -webkit-display: flex;
     display: flex;

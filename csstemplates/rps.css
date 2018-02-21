@@ -1,21 +1,11 @@
 .rps__mainContainer {
-    width: 100%;
-    margin-top: 1em;
+    width: 80%;
+    margin-top: 1em auto;
     position: relative;
     -webkit-display: flex;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-}
-
-.rps__gameBoard {
-    -webkit-display: flex;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    transition: all 0.25s linear;
 }
 
 /*----------------------
@@ -71,6 +61,13 @@ Tooltip Container
 /*----------------------
 Game Board Container
 --------------------*/
+
+.rps__gameBoard {
+    -webkit-display: flex;
+    display: flex;
+    flex-flow: column nowrap;   
+    transition: all 0.25s linear;
+}
 
 .answerContainer {
     -webkit-display: flex;
@@ -162,7 +159,8 @@ Responsive styles
 @media only screen and (max-width: 768px) {
     .rps__mainContainer {
         width: 100%;
-        margin: 1em auto;
+        margin-top: 1em;
+        padding: 0 1em;
         position: relative;
         -webkit-display: flex;
         display: flex;
@@ -184,11 +182,12 @@ Responsive styles
     .answerContainer__category {
         margin: 1em;
     }
+    
     .optionContainer h3 {
         cursor: pointer;
-        width: 1.5em;
-        height: 1.5em;
-        padding: 1.5em;
+        width: 1em;
+        height: 1em;
+        padding: 1em;
     }
 }
 

@@ -1,65 +1,57 @@
-<div class="video-container">
-    <div class="video-wrapper">
-        <!-- Video source: https://videos.pexels.com/popular-videos -->
-        <video class="video-content" poster="" width="840" tabindex="-1" controls="controls" id="video_walking">
-            <source src="images/videoPlayerAssets/video_walking.mp4" type="video/mp4">
-            <track kind="subtitles" label="English subtitles" src="" srclang="en">Your browser doesn't support HTML5 video tag.</video>
-        <div class="video-controls video-controls--hidden">
-            <button class="video-controls__button video-controls__button--play video-control" id="play">
-                <img alt="Play video" src="images/videoPlayerAssets/play_bar_icon.svg">
-            </button>
-            <div class="durationTextContainer">
-                <span class="vidDurationText video-control" id="current-video_walking">0:00</span> /
-                <span class="vidDurationText video-control" id="duration-video_walking">1:11</span>
-            </div>
-            <input aria-label="Video progress" class="vidDuration video-control vidDuration__seekBar" type="range" value="0" id="seekBar">
-            <div class="bufferBar video-control" id="bufferBar-video_walking"></div>
-            <button class="video-controls__button video-controls__button--volume video-control" aria-label="Volume press to mute" data-state="volume_full_bar_icon"
-                type="button" id="volumeButton">
-                <img alt="Volume press to mute" src="images/videoPlayerAssets/volume_full_bar_icon.svg">
-            </button>
-            <input aria-label="Volume Slider" class="volumeBar video-control" data-state="volume_full_bar_icon" max="1" min="0" step="0.01"
-                type="range" value="1" id="volumeBar">
-            <button class="video-controls__button video-controls__button--closedCaption video-control" aria-label="Show captions" data-state="subtitles"
-                type="button" id="subtitles">
-                <img alt="Show captions" src="images/videoPlayerAssets/closed_caption_bar_icon.svg">
-            </button>
-            <button class="video-controls__button video-controls__button--fullScreen video-control" data-state="go-fullscreen" type="button"
-                id="fs">
-                <img alt="Fullscreen" src="images/videoPlayerAssets/expand_bar_icon.svg">
-            </button>
-        </div>
-    </div>
-    <!-- Video source: https://videos.pexels.com/popular-videos -->
-    <!--
-    <div class="video-wrapper">        
-        <video class="video-content" poster="" width="840" tabindex="-1" controls="controls" id="video-working">
-            <source src="images/videoPlayerAssets/video_working.mp4" type="video/mp4">
-            <track kind="subtitles" label="English subtitles" src="" srclang="en">Your browser doesn't support HTML5 video tag.</video>
-        <div class="video-controls video-controls--hidden">
-            <button class="video-controls__button video-controls__button--play video-control" id="play">
-                <img alt="Play video" src="images/videoPlayerAssets/play_bar_icon.svg">
-            </button>
-            <div class="durationTextContainer">
-                <span class="vidDurationText video-control" id="current-video_working">0:00</span> /
-                <span class="vidDurationText video-control" id="duration-video_working">1:11</span>
-            </div>
-            <input aria-label="Video progress" class="vidDuration video-control vidDuration__seekBar" type="range" value="0" id="seekBar">
-            <div class="bufferBar video-control" id="bufferBar-video-working"></div>
-            <button class="video-controls__button video-controls__button--volume video-control" aria-label="Volume press to mute" data-state="volume_full_bar_icon"
-                type="button" id="volumeButton">
-                <img alt="Volume press to mute" src="images/videoPlayerAssets/volume_full_bar_icon.svg">
-            </button>
-            <input aria-label="Volume Slider" class="volumeBar video-control" data-state="volume_full_bar_icon" max="1" min="0" step="0.01"
-                type="range" value="1" id="volumeBar">
-            <button class="video-controls__button video-controls__button--closedCaption video-control" aria-label="Show captions" data-state="subtitles"
-                type="button" id="subtitles">
-                <img alt="Show captions" src="images/videoPlayerAssets/closed_caption_bar_icon.svg">
-            </button>
-            <button class="video-controls__button video-controls__button--fullScreen video-control" data-state="go-fullscreen" type="button"
-                id="fs">
-                <img alt="Fullscreen" src="images/videoPlayerAssets/expand_bar_icon.svg">
-            </button>
-        </div>
-    </div> -->
-</div>
+
+<body>
+     <!-- Video player: Modal trigger -->
+     <div class="page">
+          <div class="videoContainer">
+               <div class="videoContainer__subContainer modalContainer">
+                    <h3>This is the button to launch video modal:</h3>
+                    <button aria-haspopup="true" class="buttonPrimary buttonPrimary--white modal__trigger--video" role="button">
+                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="32" version="1.1" viewBox="0 0 32 32"
+                              width="32">
+                              <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13zM12 9l12 7-12 7z"></path>
+                         </svg> Watch Video
+                    </button>
+               </div>
+               <div class="videoContainer__subContainer">
+                    <h3>This is a video embedded on page: </h3>
+                    <div class="video-wrapper">
+                         <video class="video-content" controls="controls" poster="images/q3-generations_poster.jpg" tabindex="-1" width="840">
+                              <source src="videos/q3-generations.mp4" type="video/mp4"></source>
+                              <track kind="subtitles" label="English subtitles" src="videos/q3-generations.vtt" srclang="en"></track>
+                              Your browser does not support HTML5 video tag.
+                         </video>
+                         <div class="video-controls">
+                              <button class="video-controls__button video-controls__button--play video-control" id="play">
+                                   <img alt="Play video" src="images/play_bar_icon.svg" />
+                              </button>
+                              <div class="durationTextContainer">
+                                   <span class="vidDurationText video-control" id="current">0:00</span> /
+                                   <span class="vidDurationText video-control" id="duration">0:00</span>
+                              </div>
+                              <input aria-label="Video progress" class="vidDuration video-control vidDuration__seekBar" id="seekBar" type="range" value="0"
+                              />
+                              <div class="bufferBar video-control" id="bufferBar"></div>
+                              <button aria-label="Volume press to mute" class="video-controls__button video-controls__button--volume video-control" id="volume"
+                                   type="button">
+                                   <img alt="Volume press to mute" src="images/volume_full_bar_icon.svg" />
+                              </button>
+                              <input aria-label="Volume Slider" class="volumeBar video-control" id="volumeBar" type="range" min="0" max="1" step="0.01"
+                                   value="1" />
+                              <button aria-label="Show captions" class="video-controls__button video-controls__button--closedCaption video-control" data-state="subtitles"
+                                   id="subtitles" type="button">
+                                   <img alt="Show captions" src="images/closed_caption_bar_icon.svg" />
+                              </button>
+                              <button class="video-controls__button video-controls__button--fullScreen video-control" data-state="go-fullscreen" id="fs"
+                                   type="button">
+                                   <img alt="Fullscreen" src="images/expand_bar_icon.svg" />
+                              </button>
+                         </div>
+                         <p class="transcript">
+                              <a aria-label="Transcript pdf" class="transcriptLink" href="videos/q3-generations-transcript.pdf" target="_blank">Transcript PDF</a>
+                         </p>
+                    </div>
+               </div>
+
+
+          </div>
+     </div>

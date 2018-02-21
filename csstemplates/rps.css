@@ -18,7 +18,6 @@
     transition: all 0.25s linear;
 }
 
-
 /*----------------------
 Welcome Card Container
 --------------------*/
@@ -45,7 +44,6 @@ Welcome Card Container
     margin: 1em;
 }
 
-
 /*-------------------------
 Tooltip Container
 ------------------------*/
@@ -58,7 +56,8 @@ Tooltip Container
 }
 
 .rps__button {
-    padding: 1em;
+    padding: 1em 2em;
+    font-size: 1em;
     border: 1px solid rgba(0, 255, 0, 0.8);
     border-radius: 0.25em;
     background-color: white;
@@ -68,7 +67,6 @@ Tooltip Container
     margin: 1em 0;
     transition: all 0.25s linear;
 }
-
 
 /*----------------------
 Game Board Container
@@ -157,7 +155,6 @@ Game Board Container
     color: rgba(0, 255, 0, 0.8);
 }
 
-
 /*--------------------------
 Responsive styles
 ---------------------*/
@@ -194,7 +191,6 @@ Responsive styles
         padding: 1.5em;
     }
 }
-
 
 /*------------------
 Utility Classes

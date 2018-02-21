@@ -176,7 +176,7 @@ Profile container styles
 
 .profile__list--item h4 {
     border-bottom: 2px solid rgba(80, 80, 80, 0.15);
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 .profile__list--item p {
@@ -618,8 +618,7 @@ Utility classes
 }
 
 .portfolio__text--green {
-    /*color: rgba(0, 255, 0, 0.8);*/
-    color: orange;
+    color: rgba(0, 255, 0, 0.8);
 }
 
 @media screen and (max-width: 768px) {

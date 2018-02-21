@@ -181,7 +181,7 @@ $(document).ready(function () {
             setupNextRound();
             changeTutorialCard(12);
         } else if (tutorialCard === 13) {
-            $('.continueWalkthrough').hide();
+            $('.continueWalkthrough').removeClass('continueWalkthrough').addClass('portfolio__control--projects').text('Return to projects page');
             $('.closeWalkthrough').addClass('highlightContinue pulse');
             changeTutorialCard(14);
         }
@@ -268,6 +268,7 @@ $(document).ready(function () {
                 tutorialCard = 14;
                 $('.tooltip__text').html('This is a simple but interesting demo of how we can leverage growing data with trends to create more fluid or direct user experiences.');
                 break;
+                $('.returnToProjects').fadeIn();
         }
     }
 

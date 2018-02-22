@@ -1,6 +1,5 @@
 .rps__mainContainer {
-    width: 80%;
-    margin-top: 1em auto;
+    width: 100%;
     position: relative;
     -webkit-display: flex;
     display: flex;
@@ -15,12 +14,8 @@ Welcome Card Container
 .rps__welcomeCard {
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: white;
-    border: 2px solid rgba(0, 255, 0, 0.8);
-    border-radius: 5px;
+    height: 100%; 
+    background-color: white;   
     -webkit-display: flex;
     display: flex;
     flex-flow: column nowrap;

@@ -14,8 +14,8 @@ Welcome Card Container
 .rps__welcomeCard {
     position: absolute;
     width: 100%;
-    height: 100%; 
-    background-color: white;   
+    height: 100%;
+    background-color: white;
     -webkit-display: flex;
     display: flex;
     flex-flow: column nowrap;
@@ -60,7 +60,7 @@ Game Board Container
 .rps__gameBoard {
     -webkit-display: flex;
     display: flex;
-    flex-flow: column nowrap;   
+    flex-flow: column nowrap;
     transition: all 0.25s linear;
 }
 
@@ -77,26 +77,16 @@ Game Board Container
 
 .option {
     margin-top: 1em;
+    padding: 1em;
+    border: 1px solid rgba(80, 80, 80, 0.8);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .optionContainer {
     -webkit-display: flex;
     display: flex;
     flex-flow: column nowrap;
-}
-
-.optionContainer h3 {
-    cursor: pointer;
-    width: 2em;
-    height: 2em;
-    padding: 1em;
-    border: 1px solid rgba(80, 80, 80, 0.8);
-    border-radius: 50%;
-    -webkit-display: flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s linear;
 }
 
 .userOption h3 {
@@ -177,13 +167,12 @@ Responsive styles
     .answerContainer__category {
         margin: 1em;
     }
-    
     .optionContainer h3 {
-            cursor: pointer;
-    width: 1em;
-    height: 1em;
-    padding: 1.75em;
-    font-size: 1em;
+        cursor: pointer;
+        width: 1em;
+        height: 1em;
+        padding: 1.75em;
+        font-size: 1em;
     }
 }
 

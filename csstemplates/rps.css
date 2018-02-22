@@ -71,10 +71,6 @@ Game Board Container
     text-align: center;
 }
 
-.answerContainer__category {
-    margin: 1em 2em;
-}
-
 .option {
     margin-top: 1em;
     padding: 1em;

@@ -129,7 +129,7 @@ Game Board Container
     margin: 1.5em 0;
 }
 
-.tooltip__text {
+.tooltip__text--advance {
     color: rgba(0, 255, 0, 0.8);
 }
 

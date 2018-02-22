@@ -142,23 +142,6 @@ Responsive styles
 ---------------------*/
 
 @media only screen and (max-width: 768px) {
-    .rps__mainContainer {
-        width: 100%;
-        margin-top: 1em;
-        padding: 0 1em;
-        position: relative;
-        -webkit-display: flex;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: center;
-    }
-    .rps__welcomeCard {
-        border: none;
-    }
-    .rps__welcomeCard h3 {
-        font-size: 1em;
-    }
     .rps__tooltip {
         min-height: 8.25em;
         margin-top: 1.25em;
@@ -166,13 +149,6 @@ Responsive styles
     }
     .answerContainer__category {
         margin: 1em;
-    }
-    .optionContainer h3 {
-        cursor: pointer;
-        width: 1em;
-        height: 1em;
-        padding: 1.75em;
-        font-size: 1em;
     }
 }
 

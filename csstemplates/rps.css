@@ -67,7 +67,6 @@ Game Board Container
 .answerContainer {
     -webkit-display: flex;
     display: flex;
-    justify-content: center;
     text-align: center;
 }
 

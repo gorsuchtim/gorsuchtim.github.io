@@ -1,20 +1,6 @@
 'use strict'
 
-function startFlash() {
-  var randomNumber = animateTiles.getRandomNumber(tiles);
-  var randomTile = animateTiles.getRandomTile(randomNumber);
-  var colorsArray = ['red', 'green', 'blue', 'orange', 'yellow'];
-  var randomColor = animateTiles.getRandomNumber(colorsArray);
-  animateTiles.addColorClass(randomTile, colorsArray[randomColor]);
 
-  // use 825 for bach
-  // use 425.531914893617 for figaro or 851.063829787234
-
-  setTimeout(() => {
-    animateTiles.removeColorClass(randomTile, colorsArray[randomColor]);
-    startFlash();
-  }, 925);
-}
 
 
 var animateTiles = {
@@ -105,17 +91,66 @@ tiles.forEach((tile) => {
   });
 });
 
+function startFlash() {
+  var randomNumber = animateTiles.getRandomNumber(tiles);
+  var randomTile = animateTiles.getRandomTile(randomNumber);
+  var colorsArray = ['red', 'green', 'blue', 'orange', 'yellow'];
+  var randomColor = animateTiles.getRandomNumber(colorsArray);
+  animateTiles.addColorClass(randomTile, colorsArray[randomColor]);
+
+  // use 825 for bach
+  // use 425.531914893617 for figaro or 851.063829787234
+
+  setTimeout(() => {
+    animateTiles.removeColorClass(randomTile, colorsArray[randomColor]);
+    startFlash();
+  }, bpm[1]);
+}
+
+// Input Events
+// input on change get its value
+var songChoice = document.querySelector('.songChoice');
+songChoice.addEventListener('change', function () {
+  var choice = songChoice.value;
+  setBPM(choice);
+  setSong(choice);
+});
+
+// Set BPM events
+// On load run setBPM with default
+var bpm = []; // 2 values.  try/catch settimeout & startFlash settimeout
+setBPM('figaro');
+
+function setBPM(choice) {
+  bpm = '';
+  if (choice === 'figaro') {
+    bpm = [1100, 925];
+  } else if (choice === 'bach') {
+    bpm = [1150, 825];
+  }
+}
 // Audio Events
+function setSong(choice) {
+  audio.pause();
+  if (choice === 'figaro') {
+    audio.setAttribute('src', 'audio/figaro.mp3');
+  } else if (choice === 'bach') {
+    audio.setAttribute('src', 'audio/bach.m4a');
+  }
+}
+
 var audio = document.querySelector('.audio__player');
 var playButton = document.querySelector('.play');
 playButton.addEventListener('click', function () {
+
+
   // use 1250 for bach
-  // use 1100 for figaro
+  // use 1100, 925 for figaro
   try {
     audio.play();
     setTimeout(() => {
       startFlash();
-    }, 1100);
+    }, bpm[0]);
   } catch (ev) {
     console.log(ev);
   }
@@ -127,6 +162,8 @@ pause.addEventListener('click', function () {
 });
 
 /*
+ need to create input box to choose bach or mozart
+ need to dynamically pass timeouts for start and switch lights to equal bpm and rests for each song
  Algorithm for off-beat/synchronized patters
 Set a syncro counter at 0 on page load.  When the game loads, each tile flash increases syncro++
 Always when syncro is at no less than 10 and no more than 20 run the offbeat program

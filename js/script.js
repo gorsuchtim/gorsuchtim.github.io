@@ -35,20 +35,44 @@ var animateTiles = {
 }
 var gamePlay = {
   score: 0,
+  streak: 0,
   checkForColor(tile) {
     if (tile.classList.length === 2) {
       gamePlay.score++;
+      gamePlay.streak++;
+      gamePlay.checkStreakBonus(gamePlay.streak);
       return tile;
     } else {
-      if (gamePlay.score > 0) {
-        //gamePlay.score--;
-      }
+      gamePlay.streak = 0;
     }
   },
+  checkStreakBonus(streak) {
+    if (streak === 2) {
+      gamePlay.score += 10;
+    } else if (streak === 10) {
+      gamePlay.score += 20;
+    } else if (streak === 20) {
+      gamePlay.score += 40;
+    } else if (streak === 50) {
+      gamePlay.score += 100;
+    }
+  },
+  showStreak(streak) {
+    streak.classList.add('animateScore');
+    setTimeout(function () {
+      streak.classList.remove('animateScore');
+    }, 500);
+  },
   updateScoreElements() {
+    titleScore.textContent = String(`Points: ${gamePlay.score}`);
+    titleStreak.textContent = String(`Streak: ${gamePlay.streak}`);
     var gameBoardScores = [].slice.call(document.querySelectorAll('.score'));
     gameBoardScores.forEach(function (gameBoardScore) {
       gameBoardScore.textContent = String(gamePlay.score);
+    });
+    var gameBoardStreaks = [].slice.call(document.querySelectorAll('.streak'));
+    gameBoardStreaks.forEach(function (gameBoardStreak) {
+      gameBoardStreak.textContent = String(gamePlay.streak);
     });
   },
   highlightTile(tile, score) {
@@ -60,10 +84,10 @@ var gamePlay = {
     }, 500);
   },
 }
-// have to set the text of the score in all scores
-
 
 var tiles = [].slice.call(document.querySelectorAll('.tile'));
+var titleScore = document.querySelector('.score--title');
+var titleStreak = document.querySelector('.streak--title');
 // Click event for tiles
 tiles.forEach((tile) => {
   tile.addEventListener('click', function () {
@@ -74,11 +98,15 @@ tiles.forEach((tile) => {
     // Flash the points, set lite brite glow if check is true
     if (check) {
       gamePlay.highlightTile(tile, tile.firstElementChild);
+      if (gamePlay.streak === 5 || gamePlay.streak === 10 || gamePlay.streak === 20 || gamePlay.streak === 50) {
+        gamePlay.showStreak(tile.firstElementChild.nextElementSibling);
+      }
     }
   });
 });
-var audio = document.querySelector('.audio__player');
 
+// Audio Events
+var audio = document.querySelector('.audio__player');
 var playButton = document.querySelector('.play');
 playButton.addEventListener('click', function () {
   // use 1250 for bach
@@ -97,3 +125,13 @@ var pause = document.querySelector('.pause');
 pause.addEventListener('click', function () {
   audio.pause()
 });
+
+/*
+ Algorithm for off-beat/synchronized patters
+Set a syncro counter at 0 on page load.  When the game loads, each tile flash increases syncro++
+Always when syncro is at no less than 10 and no more than 20 run the offbeat program
+Off beat program should determine to override the once per beat pattern and flash the tiles at intervals
+and 1 and 2 and or 1e and a 2e and a ... for x number of offbeats, all in one special color (neon?) 
+when the player hits 1 individually it counts for 2 or 3 points.  if he hits all of the synchros without missing one
+then he gets like a 10 point bonus?
+ */

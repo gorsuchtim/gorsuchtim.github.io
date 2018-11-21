@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-  <title>Color Tap 1.2!</title>
+
+<head>
+  <title>Color Tap 1.3!</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
@@ -23,19 +24,19 @@
   </div>-->
     <div class="wrap__title">
       <button class="play">PLAY</button>
-      <h1 class="yesText">0</h1>
       <button class="pause">PAUSE</button>
+      <!-- Put a  non fading score up top? -->
     </div>
     <div class="wrap__tiles">
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
+      <div class="tile"><span class="score hidden"></span></div>
     </div>
   </div>
   <!--<audio class="audio__player" src="audio/bach.m4a"></audio>-->
@@ -43,247 +44,5 @@
   <script type="text/javascript " src="js/jquery-3.2.1.min.js "></script>
   <script type="text/javascript " src="js/script.js "></script>
 </body>
-<!--
-<head>
-    <title>Tim Gorsuch | St. Louis</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="author" content="Tim Gorsuch">
-    <link rel="shortcut icon" href="images/gorsuchLogo.ico" type="image/x-icon">
-    <link rel="icon" href="images/gorsuchLogo.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" id="dynamicCSS" href="">
-</head>
-
-<body>
-    <div class="portfolio__overlay portfolio__overlay--loader">
-        <div class="loader spin"></div>
-    </div>
-    <div class="portfolio__wrap">
-        <div class="portfolio__container portfolio__container--title">
-            <div class="portfolio__text--title">
-                <h1 class="portfolio__text--title">My name is
-                    <span class="portfolio__text--green">Tim Gorsuch</span>
-                </h1>
-                <h4 class="portfolio__text--subtitle">I'm a
-                    <span class="portfolio__text--green">web developer</span> in
-                    <span class="portfolio__text--green">St. Louis</span>
-                </h4>
-            </div>
-            <div class="title__buttons">
-                <button class="portfolio__button portfolio__button--profile">Profile</button>
-                <button class="portfolio__button portfolio__button--projects">Projects</button>
-            </div>
-        </div>
-        <div class="portfolio__container portfolio__container--profile visuallyHidden offScreenLeft">
-            <div class="profile__heading">
-                <ul class="profile__categories--list">
-                    <li class="profile__categories--item" id="profileCategorySkills">Skills</li>
-                    <li class="profile__categories--item" id="profileCategoryCareer">Profile</li>
-                    <li class="profile__categories--item" id="profileCategoryContact">Contact</li>
-                </ul>
-            </div>
-            <div class="profile__content">
-                <ul class="profile__list profile__list--skills">
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">Languages | frameworks</span>
-                        </h4>
-                        <p>HTML5 | CSS3 | Javascript | jQuery | ES6 | Angular | Sass | Grid | Bootstrap3</p>
-                    </li>
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">Noteable skills</span>
-                        </h4>
-                        <p>Agile-driven development</p>
-                        <p>U|X designs -> deliverable code</p>
-                        <p>W3C Accessibility support</p>
-                        <p>Mobile-first &amp; responsive development</p>
-                        <p>Developing | testing cross-browser|device</p>
-                    </li>
-                </ul>
-                <ul class="profile__list profile__list--career">
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">2004-2015</span>
-                        </h4>
-                        <p>Logistics planning and management</p>
-                        <p class="portfolio__text--italic">Nov 2014: begin learning front-end development</p>
-                        <p>Litigation support | Account management</p>
-                    </li>
-
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">April 2016 - present</span>
-                        </h4>
-                        <p>Creative Developer/C|X Interaction Designer - Wells Fargo Advisors</p>
-                    </li>
-
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">Interests</span>
-                        </h4>
-                        <p>Starting home improvement projects</p>
-                        <p>Running</p>
-                        <p>Family hiking/camping</p>
-                        <p>Reading</p>
-                        <p>Retro console &amp; pc gaming</p>
-                        <p>Classical piano</p>
-                        <p>Weekend breakfast-making</p>
-                    </li>
-                </ul>
-                <ul class="profile__list profile__list--contact">
-                    <li class="profile__list--item">
-                        <h4>
-                            <span class="portfolio__text--green">Contact</span>
-                        </h4>
-                        <p>Please feel free to reach out to me at
-                            <span class="portfolio__text--italic emailAddress">gorsuchtim@gmail.com</span>
-                        </p>
-                        <p>I'll reply to you as soon as possible. Thanks!</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="portfolio__container portfolio__container--projects visuallyHidden offScreenLeft">
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--accordion"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Accordion</h3>
-                    <p>jquery | slideToggle</p>
-                    <button class="portfolio__button projectCard__demoButton" id="accordion">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--memory"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Memory</h3>
-                    <p>3d transforms | animation</p>
-                    <button class="portfolio__button projectCard__demoButton" id="memory">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--rps"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Rock | Paper | Scissors</h3>
-                    <p>statistical predictive modeling</p>
-                    <button class="portfolio__button projectCard__demoButton" id="rps">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--form"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Form | Progress Bar</h3>
-                    <p>custom form | progress bar | a11y ready</p>
-                    <button class="portfolio__button projectCard__demoButton" id="form">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--menu"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Complex Navigation Menu</h3>
-                    <p>accessible | responsive menu</p>
-                    <button class="portfolio__button projectCard__demoButton" id="menu">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--math"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Math Game</h3>
-                    <p>animation | timing events</p>
-                    <button class="portfolio__button projectCard__demoButton" id="math">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--cssVars"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>CSS Variable Playground</h3>
-                    <p>using js to update css vars</p>
-                    <button class="portfolio__button projectCard__demoButton" id="cssVars">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--cookieCheck"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Cookie-Based Content Test</h3>
-                    <p>setting|deleting cookies</p>
-                    <button class="portfolio__button projectCard__demoButton" id="cookieCheck">Demo</button>
-                </figure>
-            </div>
-            <div class="portfolio__projectCard">
-                <figure class="portfolio__projectCard--front">
-                    <button class="projectCard__frontButton projectCard__frontButton--bakery"></button>
-                </figure>
-                <figure class="portfolio__projectCard--back hidden">
-                    <h3>Bakery|Store Prototype</h3>
-                    <p>angularJS | bootstrap3</p>
-                    <a href="/bakery/index.html" target="_blank">View site</a>
-                </figure>
-            </div>
-        </div>
-        <div class="portfolio__container--demo">
-            <div class="portfolio__overlay portfolio__overlay--demo"></div>
-            <div class="portfolio__container--code offScreenTop">
-                <div class="codeWrap">
-                    <div class="mobileCodeClose">X</div>
-                    <ul class="codeChoiceTabs">
-                        <li>
-                            <button class="codeChoice codeChoice__highlight" id="html">HTML</button>
-                        </li>
-                        <li>
-                            <button class="codeChoice" id="css">CSS</button>
-                        </li>
-                        <li>
-                            <button class="codeChoice" id="js">Javascript</button>
-                        </li>
-                    </ul>
-                    <div class="sourceCode">
-                        <textarea name="codeDisplay" class="codeDisplay"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio__menu">
-        <button class="portfolio__control portfolio__control--mobile" id="control__mobile"></button>
-        <button class="portfolio__control portfolio__control--home" id="control__home"></button>
-        <button class="portfolio__control portfolio__control--profile" id="control__profile"></button>
-        <button class="portfolio__control portfolio__control--projects" id="control__projects"></button>
-        <button class="portfolio__control portfolio__control--source" id="control__source"></button>
-    </div>
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-</body>
--->
 
 </html>
-
-<!--
-    <div class="portfolio__container--dynamicBackground">
-        <span class="dynamicBackground__text">St. Louis Skyline</span>
-        <button class="dynamicBackground__button portfolio__text--italic">(change image)</button>
-    </div>
--->
-<!--<link rel="stylesheet" href="css/normalize.css">-->

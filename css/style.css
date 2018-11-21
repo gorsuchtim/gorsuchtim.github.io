@@ -19,13 +19,12 @@ body {
 
 .wrap__tiles {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: 80vh;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  background-color: rgba(100, 100, 100, 1);
+  background-color: rgba(50, 50, 50, 1);
 }
 
 /* Tile Styles */
@@ -33,7 +32,7 @@ body {
   position: relative;
   width: 4em;
   height: 4em;
-  border-radius: 50%;
+  border-radius: 40%;
   margin: 1em;
   border: 6px double white;
   transition: transform 0.05s ease-in-out;

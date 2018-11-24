@@ -57,7 +57,7 @@ function beatOrSync() {
   } else {
     setTimeout(function () {
       syncFlash();
-    }, bpm[1] * 0.5);
+    }, bpm[1] * 0.75);
   }
 }
 function resetCounts() {

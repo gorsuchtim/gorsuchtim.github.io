@@ -1,135 +1,172 @@
 'use strict'
 
-
-
-
-var animateTiles = {
-  getRandomNumber(arr) {
-    var randomNumber = Math.floor(arr.length * Math.random());
-    return randomNumber;
-  },
-  getRandomTile() {
-    var tile = tiles[Math.floor(Math.random() * tiles.length)];
-    return tile;
-  },
-  addColorClass(tile, color) {
-    tile.classList.add(color);
-  },
-  removeColorClass(tile, color) {
-    tile.classList.remove(color);
-  },
-}
-var gamePlay = {
-  score: 0,
-  streak: 0,
-  checkForColor(tile) {
-    if (tile.classList.length === 2) {
-      gamePlay.score++;
-      gamePlay.streak++;
-      gamePlay.checkStreakBonus(gamePlay.streak);
-      return tile;
-    } else {
-      gamePlay.streak = 0;
-    }
-  },
-  checkStreakBonus(streak) {
-    if (streak === 2) {
-      gamePlay.score += 10;
-    } else if (streak === 10) {
-      gamePlay.score += 20;
-    } else if (streak === 20) {
-      gamePlay.score += 40;
-    } else if (streak === 50) {
-      gamePlay.score += 100;
-    }
-  },
-  showStreak(streak) {
-    streak.classList.add('animateScore');
-    setTimeout(function () {
-      streak.classList.remove('animateScore');
-    }, 500);
-  },
-  updateScoreElements() {
-    titleScore.textContent = String(`Points: ${gamePlay.score}`);
-    titleStreak.textContent = String(`Streak: ${gamePlay.streak}`);
-    var gameBoardScores = [].slice.call(document.querySelectorAll('.score'));
-    gameBoardScores.forEach(function (gameBoardScore) {
-      gameBoardScore.textContent = String(gamePlay.score);
-    });
-    var gameBoardStreaks = [].slice.call(document.querySelectorAll('.streak'));
-    gameBoardStreaks.forEach(function (gameBoardStreak) {
-      gameBoardStreak.textContent = String(gamePlay.streak);
-    });
-  },
-  highlightTile(tile, score) {
-    tile.classList.add('lit');
-    score.classList.add('animateScore');
-    setTimeout(function () {
-      tile.classList.remove('lit');
-      score.classList.remove('animateScore');
-    }, 500);
-  },
-}
-
+// Page elements
 var tiles = [].slice.call(document.querySelectorAll('.tile'));
 var titleScore = document.querySelector('.score--title');
 var titleStreak = document.querySelector('.streak--title');
-// Click event for tiles
+var gameBoardScores = [].slice.call(document.querySelectorAll('.score'));
+var gameBoardStreaks = [].slice.call(document.querySelectorAll('.streak'));
+
+// Dynamic variables
+var score = 0;
+var streak = 0;
+var syncLength = undefined;
+var startSync = undefined;
+var syncCount = 0;
+var beatCount = 0;
+
+// Global functions
+function countDownStart() {
+  classSwap(document.querySelector('.wrap__timer'), 'hidden');
+  timer.timedCount();
+  setTimeout(function () {
+    classSwap(document.querySelector('.wrap__timer'), 'hidden');
+    beatFlash();
+  }, 5000 + bpm[0]); // set as 5000 + bpm[0]?
+}
+function clearClass(elements, className) {
+  elements.forEach((element) => {
+    element.classList.remove(className);
+  });
+}
+function createRandomNumber(max, min) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+function classSwap(element, className) {
+  return element.classList.toggle(className);
+}
+function checkForClass(element, className) {
+  element.classList.contains(className) ? true : false;
+}
+function randomizeSyncVars(v, max, min) {
+  v = createRandomNumber(max, min);
+  return v;
+}
+function checkSyncCount() {
+  // if syncCount is reset to 0 then set goal and length
+  if (beatCount === 0) {
+    startSync = randomizeSyncVars(startSync, 20, 10);
+    syncLength = randomizeSyncVars(syncLength, 12, 3);
+  }
+}
+function beatOrSync() {
+  if (beatCount < startSync) {
+    setTimeout(function () {
+      beatFlash();
+    }, bpm[1]);
+  } else {
+    setTimeout(function () {
+      syncFlash();
+    }, bpm[1] * 0.5);
+  }
+}
+function resetCounts() {
+  syncCount = 0;
+  beatCount = 0;
+}
+function lightTile(color) {
+  var randomNumber = createRandomNumber(tiles.length, 0);
+  var litTile = classSwap(tiles[randomNumber], color);
+}
+
+// THE FIRST TIME SYNCFLASH RUNS HAS TO BE AT THE SAME TIMEOUT AS BEAT FLASH?
+function beatFlash() {
+  clearClass(tiles, 'neon--blue');
+  clearClass(tiles, 'lit--green');
+  checkSyncCount();
+  beatCount++;
+  lightTile('neon--blue');
+  console.log(beatCount, startSync, 'running beatflash');
+  beatOrSync();
+}
+function syncFlash() {
+  clearClass(tiles, 'neon--blue');
+  clearClass(tiles, 'lit--green');
+  if (syncCount < syncLength) {
+    syncCount++;
+    lightTile('lit--green');
+    console.log(syncCount, syncLength, 'running syncflash');
+    beatOrSync();
+  } else {
+    resetCounts();
+    beatFlash();
+  }
+}
+function checkStreakBonus(streak) {
+  if (streak === 10) {
+    score += 10;
+  } else if (streak === 20) {
+    score += 20;
+  } else if (streak === 50) {
+    score += 50;
+  } else if (streak === 100) {
+    score += 100;
+  }
+}
+function updateScoreElements() {
+  titleScore.textContent = String(`Points: ${score}`);
+  titleStreak.textContent = String(`Streak: ${streak}`);
+  var gameBoardScores = [].slice.call(document.querySelectorAll('.score'));
+  gameBoardScores.forEach(function (gameBoardScore) {
+    gameBoardScore.textContent = String(score);
+  });
+  var gameBoardStreaks = [].slice.call(document.querySelectorAll('.streak'));
+  gameBoardStreaks.forEach(function (gameBoardStreak) {
+    gameBoardStreak.textContent = String(streak);
+  });
+}
+function checkForColor(tile) {
+  if (tile.classList.length === 2) {
+    score++;
+    streak++;
+    checkStreakBonus(streak);
+    return tile;
+  } else {
+    streak = 0;
+  }
+}
+function showStreak(streak) {
+  streak.classList.add('animateScore');
+  setTimeout(function () {
+    streak.classList.remove('animateScore');
+  }, 500);
+}
+function highlightTile(tile, score) {
+  tile.classList.add('lit--blue');
+  score.classList.add('animateScore');
+  setTimeout(function () {
+    tile.classList.remove('lit--blue');
+    score.classList.remove('animateScore');
+  }, 500);
+}
+// Tile click events
 tiles.forEach((tile) => {
   tile.addEventListener('click', function () {
     // Check to see if the clicked tile has color and increment/decrement gameplay.score
-    var check = gamePlay.checkForColor(tile);
+    var check = checkForColor(tile);
     // Update the html .score spans
-    gamePlay.updateScoreElements();
+    updateScoreElements();
     // Flash the points, set lite brite glow if check is true
     if (check) {
-      gamePlay.highlightTile(tile, tile.firstElementChild);
-      if (gamePlay.streak === 5 || gamePlay.streak === 10 || gamePlay.streak === 20 || gamePlay.streak === 50) {
-        gamePlay.showStreak(tile.firstElementChild.nextElementSibling);
+      highlightTile(tile, tile.firstElementChild);
+      if (streak === 10 || streak === 20 || streak === 50) {
+        showStreak(tile.firstElementChild.nextElementSibling);
       }
     }
   });
 });
-
-function startFlash() {
-  var randomNumber = animateTiles.getRandomNumber(tiles);
-  var randomTile = animateTiles.getRandomTile(randomNumber);
-  var colorsArray = ['red', 'green', 'blue', 'orange', 'yellow'];
-  var randomColor = animateTiles.getRandomNumber(colorsArray);
-  animateTiles.addColorClass(randomTile, colorsArray[randomColor]);
-
-  // use 825 for bach
-  // use 425.531914893617 for figaro or 851.063829787234
-
-  setTimeout(() => {
-    animateTiles.removeColorClass(randomTile, colorsArray[randomColor]);
-    startFlash();
-  }, bpm[1]);
-}
-
-// Input Events
-// input on change get its value
+// Play button event
+var playButton = document.querySelector('.play');
+playButton.addEventListener('click', function () {
+  countDownStart();
+});
+// Audio events
 var songChoice = document.querySelector('.songChoice');
 songChoice.addEventListener('change', function () {
   var choice = songChoice.value;
-  setBPM(choice);
   setSong(choice);
+  setBPM(choice);
 });
-
-// Set BPM events
-// On load run setBPM with default
-var bpm = []; // 2 values.  try/catch settimeout & startFlash settimeout
-setBPM('figaro');
-
-function setBPM(choice) {
-  bpm = '';
-  if (choice === 'figaro') {
-    bpm = [1100, 925];
-  } else if (choice === 'bach') {
-    bpm = [1150, 825];
-  }
-}
-// Audio Events
 function setSong(choice) {
   audio.pause();
   if (choice === 'figaro') {
@@ -138,37 +175,14 @@ function setSong(choice) {
     audio.setAttribute('src', 'audio/bach.m4a');
   }
 }
-
-var audio = document.querySelector('.audio__player');
-var playButton = document.querySelector('.play');
-playButton.addEventListener('click', function () {
-
-
-  // use 1250 for bach
-  // use 1100, 925 for figaro
-  try {
-    audio.play();
-    setTimeout(() => {
-      startFlash();
-    }, bpm[0]);
-  } catch (ev) {
-    console.log(ev);
+var bpm = []; // 2 values.  try/catch settimeout & beatFlash settimeout
+setBPM('figaro'); // page load, load figaro by default
+function setBPM(choice) {
+  // bpm[0] is delay to start actual song after countdown.  bpm[1] is actual bpm of song offset by transition timing
+  bpm = '';
+  if (choice === 'figaro') {
+    bpm = [1100, 925];
+  } else if (choice === 'bach') {
+    bpm = [1150, 825];
   }
-});
-
-var pause = document.querySelector('.pause');
-pause.addEventListener('click', function () {
-  audio.pause()
-});
-
-/*
- need to create input box to choose bach or mozart
- need to dynamically pass timeouts for start and switch lights to equal bpm and rests for each song
- Algorithm for off-beat/synchronized patters
-Set a syncro counter at 0 on page load.  When the game loads, each tile flash increases syncro++
-Always when syncro is at no less than 10 and no more than 20 run the offbeat program
-Off beat program should determine to override the once per beat pattern and flash the tiles at intervals
-and 1 and 2 and or 1e and a 2e and a ... for x number of offbeats, all in one special color (neon?) 
-when the player hits 1 individually it counts for 2 or 3 points.  if he hits all of the synchros without missing one
-then he gets like a 10 point bonus?
- */
+}

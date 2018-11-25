@@ -58,7 +58,7 @@ body {
   border-radius: 40%;
   margin: 1em;
   border: 6px double white;
-  transition: transform 0.05s ease-in-out;
+  transition: transform 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28)
 }
 
 .timer {
@@ -95,40 +95,23 @@ body {
   box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
 }
 
-.lit--green {
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00;
+.lit--purple {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #BE27CF, 0 0 70px #BE27CF, 0 0 80px #BE27CF, 0 0 100px #BE27CF, 0 0 150px #BE27CF;
 }
 
 .neon--blue {
   border-color: #228DFF;
 }
 
-.neon--green {
-  border-color: #B6FF00;
+.neon--purple {
+  border-color: #BE27CF;
 }
 
 .getBig {
   transform: scale(1.2);
+  /*transform: scale3d(1.35, 1.35, 0.3);*/
 }
 
-/* Animations */
-/*
-@keyframes liteBrite--blue {
-  0% {
-    box-shadow: none;
-  }
-
-  50% {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
-    
-}
-
-100% {
-  box-shadow: none;  
-}
-}
-
-*/
 @keyframes flashScore {
   0% {
     opacity: 0;

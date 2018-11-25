@@ -1,7 +1,7 @@
 
 var timer = {
   t: '',
-  counter: 5,
+  counter: 3,
   timer_is_on: 0,
   timedCount: function () {
     document.querySelector('.timer').innerHTML = timer.counter;
@@ -9,10 +9,13 @@ var timer = {
     timer.counter--;
     timer.t = setTimeout(function () {
       timer.timedCount();
-    }, 1000);
+    }, music.bpm[1]); // timer counts down at speed of song's bpm
     // if timer hits 0
-    if (timer.counter < 0) {
-      timer.stopCount();
+    if (timer.counter < 1) {
+      setTimeout(function () {
+        timer.stopCount();
+      }, 500);
+
     }
   },
   startCount: function () {
@@ -23,7 +26,7 @@ var timer = {
   },
   stopCount: function () {
     clearTimeout(timer.t);
-    timer.counter = 5;
+    timer.counter = 3;
     timer.timer_is_on = 0;
   }
 };

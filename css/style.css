@@ -47,7 +47,7 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #2B2129, #2B2129 60%, #7435F2);
+  background: linear-gradient(135deg, #2B2129, #2B2129 60%, #228DFF);
 }
 
 /* Tile Styles */

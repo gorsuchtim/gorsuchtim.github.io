@@ -17,7 +17,7 @@ var music = {
     }
   },
 }
-// add neon shadow on highlighting tile and add scaling on tapping
+
 var elements = {
   tiles: [].slice.call(document.querySelectorAll('.tile')),
   titleScore: document.querySelector('.score--title'),
@@ -188,3 +188,11 @@ elements.songChoice.addEventListener('change', function () {
   music.setBPM(choice);
 });
 music.setBPM('synth1'); // page load, load figaro by default
+
+/*
+need to add extra points (2x) for hitting the sync flashes
+add bonus 25+ points or 50+ if you hit all of them
+maybe that should be like 10 x syncLength so if SL is 8 then it would be 80 bonus points
+need a stop button 
+need to tell flash functions to stop after audio.duration
+*/

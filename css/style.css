@@ -58,7 +58,6 @@ body {
   border-radius: 40%;
   margin: 1em;
   border: 6px double white;
-  transition: transform 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28)
 }
 
 .timer {
@@ -84,12 +83,7 @@ body {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 55px #228DFF, 0 0 75px #228DFF;
 }
 
-/* Animations */
-.animateScore {
-  -webkit-animation: flashScore 0.75s ease-in-out 1;
-  -moz-animation: flashScore 0.75s ease-in-out 1;
-  animation: flashScore 0.75s ease-in-out 1;
-}
+
 
 .lit--blue {
   box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
@@ -107,9 +101,49 @@ body {
   border-color: #BE27CF;
 }
 
+/* Animations */
+.changeColor--blue {
+  -webkit-animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  -moz-animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+}
+
+.changeColor--purple {
+  -webkit-animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  -moz-animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+}
+
+.animateScore {
+  -webkit-animation: flashScore 0.75s ease-in-out 1;
+  -moz-animation: flashScore 0.75s ease-in-out 1;
+  animation: flashScore 0.75s ease-in-out 1;
+}
+
 .getBig {
-  transform: scale(1.2);
-  /*transform: scale3d(1.35, 1.35, 0.3);*/
+  -webkit-animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  -moz-animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+}
+
+@keyframes changeBackground--blue {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: #228DFF
+  }
+}
+
+@keyframes changeBackground--purple {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: #BE27CF
+  }
 }
 
 @keyframes flashScore {
@@ -125,6 +159,16 @@ body {
   100% {
     opacity: 0;
     transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
   }
 }
 

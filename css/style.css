@@ -7,27 +7,66 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background: #63D0FF;
   overflow: hidden;
 }
 
 /* Button Styles */
 .button {
   background-color: transparent;
-  border: 1px solid #228DFF;
+  border: 1px solid white;
   border-radius: 10%;
   padding: 0.5em;
-  color: rgba(50, 50, 50, 1);
+  color: white;
+  cursor: pointer;
 }
 
-/* Wrap Styles */
+/* Wrap styles */
+.animatedBackground__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.animatedBackground__img1--clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /*height: 500px;*/
+  height: 56vh;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/bg-clouds2-tinypng.png") repeat-x 0 bottom #ACE6FF;
+  -webkit-transform: translate3d(0, 0, 0.01);
+  transform: translate3d(0, 0, 0.01);
+}
+
+.wrap__gameBoard {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .wrap__title {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: white;
 }
 
-.wrap__timer {
-  z-index: 2;
+.wrap__tiles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.wrap__timer,
+.wrap__syncStreakScore {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -40,16 +79,6 @@ body {
   color: white;
 }
 
-.wrap__tiles {
-  width: 100vw;
-  height: 80vh;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #2B2129, #2B2129 60%, #228DFF);
-}
-
 /* Tile Styles */
 .tile {
   position: relative;
@@ -57,11 +86,16 @@ body {
   height: 4em;
   border-radius: 40%;
   margin: 1em;
-  border: 6px double white;
+  box-shadow: 0 0 10px rgb(170, 170, 170), 0 0 10px lightgray, 0 0 20px lightgray, 0 0 50px lightgray, 0 0 10px lightgray, 0 0 0 lightgray, 0 0 0px lightgray, 0 0 10px lightgray
 }
 
 .timer {
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #5aff18, 0 0 35px #5aff18, 0 0 40px #5aff18, 0 0 50px #5aff18, 0 0 75px #5aff18;
+}
+
+.syncStreakScore {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #5aff18, 0 0 35px #5aff18, 0 0 40px #5aff18, 0 0 50px #5aff18, 0 0 75px #5aff18;
+  opacity: 0.9;
 }
 
 .score {
@@ -83,50 +117,75 @@ body {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 55px #228DFF, 0 0 75px #228DFF;
 }
 
-
+.lit--white {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white, 0 0 150px white;
+}
 
 .lit--blue {
+  border-color: #228DFF;
   box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
 }
 
-.lit--purple {
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #BE27CF, 0 0 70px #BE27CF, 0 0 80px #BE27CF, 0 0 100px #BE27CF, 0 0 150px #BE27CF;
-}
-
-.neon--blue {
-  border-color: #228DFF;
-}
-
-.neon--purple {
-  border-color: #BE27CF;
+.lit--green {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #5aff18, 0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18, 0 0 150px #5aff18;
 }
 
 /* Animations */
+
+.changeColor--white {
+  -webkit-animation: changeColor--white 0.2s ease-in-out 1;
+  -moz-animation: changeColor--white 0.2s ease-in-out 1;
+  animation: changeColor--white 0.2s ease-in-out 1;
+}
+
 .changeColor--blue {
-  -webkit-animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  -moz-animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  animation: changeBackground--blue 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+  -webkit-animation: changeColor--blue 0.2s ease-in-out 1;
+  -moz-animation: changeColor--blue 0.2s ease-in-out 1;
+  animation: changeColor--blue 0.2s ease-in-out 1;
 }
 
-.changeColor--purple {
-  -webkit-animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  -moz-animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  animation: changeBackground--purple 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+.changeColor--green {
+  -webkit-animation: changeColor--green 0.2s ease-in-out 1;
+  -moz-animation: changeColor--green 0.2s ease-in-out 1;
+  animation: changeColor--green 0.2s ease-in-out 1;
 }
 
-.animateScore {
+.flashScore {
   -webkit-animation: flashScore 0.75s ease-in-out 1;
   -moz-animation: flashScore 0.75s ease-in-out 1;
   animation: flashScore 0.75s ease-in-out 1;
 }
 
-.getBig {
-  -webkit-animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  -moz-animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
-  animation: pulse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+.neonFlash--green {
+  -webkit-animation: neonFlash--green 0.25s ease-in-out 1;
+  -moz-animation: neonFlash--green 0.25s ease-in-out 1;
+  animation: neonFlash--green 0.25s ease-in-out 1;
+  box-shadow: 0 0 10px #5aff18, 0 0 20px #5aff18, 0 0 30px #5aff18, 0 0 40px #5aff18, 0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18, 0 0 150px #5aff18;
 }
 
-@keyframes changeBackground--blue {
+@-webkit-keyframes neonFlash--green {
+  /*
+  from {
+    border-radius: 30%;
+  }
+
+  to {
+    border-radius: 0%;
+  }
+  */
+}
+
+@keyframes changeColor--white {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes changeColor--blue {
   from {
     background-color: transparent;
   }
@@ -136,14 +195,49 @@ body {
   }
 }
 
-@keyframes changeBackground--purple {
+@keyframes changeColor--green {
   from {
     background-color: transparent;
   }
 
   to {
-    background-color: #BE27CF
+    background-color: #5aff18
   }
+}
+
+/* From animate.css */
+@keyframes shake {
+
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation: shake 0.35s ease-in-out 1;
+  -moz-animation: shake 0.35s ease-in-out 1;
+  animation: shake 0.35s ease-in-out 1;
+  -webkit-animation-name: shake;
+  animation-name: shake;
 }
 
 @keyframes flashScore {
@@ -159,16 +253,6 @@ body {
   100% {
     opacity: 0;
     transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.25);
   }
 }
 

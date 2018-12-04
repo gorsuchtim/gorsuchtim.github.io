@@ -2,48 +2,61 @@
 <html>
 
 <head>
-  <title>Color Tap 1.5!</title>
+  <title>Color Tap!</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <meta name="author" content="Tim Gorsuch">
+  <!-- favicon icon 
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <link rel="icon" href="" type="image/x-icon">
+   -->
+
   <!-- css -->
   <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
+  <div class="animatedBackground__wrapper">
+    <div class="animatedBackground__img1--clouds">
+      <div class="wrap__gameBoard">
+        <div class="wrap__timer hidden">
+          <h1 class="timer">3</h1>
+        </div>
+        <div class="wrap__syncStreakScore hidden">
+          <h1 class="syncStreakScore"></h1>
+        </div>
+        <div class="wrap__title">
+          <button class="button play">PLAY</button>
+          <button class="button pause">PAUSE</button>
+          <span class="score--title">0</span><span> | </span><span class="streak--title">0</span>
+        </div>
+        <div class="wrap__tiles">
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+          <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="animatedBackground__img2--grass"></div>-->
+  </div>
 
-  <div class="wrap__main">
-    <div class="wrap__title">
-      <button class="button play">PLAY</button>
-      <button class="button pause">PAUSE</button>
-      <select name="songChoice" class="songChoice" id="">
-        <option value="synth1">Synth1</option>
-        <option value="figaro">Mozart</option>
-        <option value="bach">Bach</option>
-      </select>
-      <span class="score--title">0</span><span> | </span><span class="streak--title">0</span>
-    </div>
-    <div class="wrap__timer hidden">
-      <h1 class="timer">3</h1>
-    </div>
-    <div class="wrap__tiles">
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-      <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-    </div>
-  </div>  
+
+  <!--<audio class="audio__player" src="audio/bach.m4a"></audio>-->
   <audio class="audio__player" src="audio/synth1.mp3"></audio>
-  <script type="text/javascript " src="js/timer.js "></script>  
+  <script type="text/javascript " src="js/timer.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <script type="text/javascript " src="js/scrollAnimation.js "></script>
   <script type="text/javascript " src="js/script.js "></script>
+  <!--<script type="text/javascript " src="js/script1.4.js "></script>-->
 
 </body>
 

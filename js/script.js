@@ -1,29 +1,36 @@
-
+'use strict'
 /*
 BUGS!
-
-
-after syncFlash runs there is one flash with no color and then it goes to beatflash or there is a 1 beat delay in going back to beatflash
-
 scores flash up and leave too fast
 
 need to look at timecode properties to see if there is a trigger when play() executes and what other properties exist to help w/
 flashing on the beat
 
 IDEAS
-keep track of how many syncflash length is and how many of syncflashes were hit and as you hit more in a row
-do some cool biggering animation and at the last one do something awesome like flash the screen or something
-and add a bonus of 50 or 100 points or something
+
+
+/* 
+if you're on streak with syncstreakcount then the border should be neon red of the tile you hit - keep purple background but neon-red the border and then when you hit the final one BAMthey all go neon for 1 beat and you choose
+
+hey maybe take advantage of the blank tile after sync runs.
+      after you hit them all turn all neon red or red or red or something and "hide" some kind of prize behind
+      one of them and the user taps any tile and if he hits one that's not the prize then all tiles turn red but if he hits
+      the one with the prize then abracadabra something something - stop for a mini - game ? like slot machine style
+      create these hidden bonuses in patterns that can be recognized like where the prize is going to be
+      either draws something or is a secret code like toprow 2 midrow 1 nextrow 4 bottomrow 2
+      have a set number of streaks per game and at the end of the game if you've hit them all and memorized where the prize was then you can enter that code in offgame screen to get a new song? or to be able to pick a new genre and unlock songs in that genre?
+
 */
 
 var elements = {
+  tileWrap: document.querySelector('.wrap__tiles'),
   tiles: [].slice.call(document.querySelectorAll('.tile')),
   titleScore: document.querySelector('.score--title'),
   titleStreak: document.querySelector('.streak--title'),
   playButton: document.querySelector('.play'),
   gameBoardScores: [].slice.call(document.querySelectorAll('.score')),
   gameBoardStreaks: [].slice.call(document.querySelectorAll('.streak')),
-  songChoice: document.querySelector('.songChoice'),
+  syncStreakScore: document.querySelector('.wrap__syncStreakScore'),
   wrapTimer: document.querySelector('.wrap__timer'),
 }
 var dynamic = {
@@ -32,65 +39,69 @@ var dynamic = {
   syncLength: 0,
   startSync: 0,
   syncCount: 0,
+  syncStreakCount: 0,
   beatCount: 0,
 }
 var music = {
   audio: document.querySelector('.audio__player'),
-  bpm: [],
-  setSong(choice) {
-    audio.pause();
-    audio.setAttribute('src', `audio/${choice}.mp3`);
-  },
-  setBPM(choice) {
-    // bpm[0] is delay to start actual song after countdown.  bpm[1] is actual bpm of song offset by transition timing
-    music.bpm = '';
-    if (choice === 'synth1') {
-      // synth1 is 120bpm
-      music.bpm = [1500, 880];
-    } else if (choice === 'bach') {
-      music.bpm = [1150, 825];
-    }
-  },
+  bpm: [1500, 880],
 }
-
 var utilities = {
-  checkForMatch(currentNumber, randomNumber) {
-    if (currentNumber === randomNumber) {
-      randomNumber = utilities.createRandomNumber(elements.tiles.length, 0);
-      utilities.checkForMatch(currentNumber, randomNumber);
+  classAdd(elements, ...className) {
+    if (elements.length) {
+      elements.forEach((element) => {
+        element.classList.add(...className);
+      });
     } else {
-      animations.beatOrSync(randomNumber);
+      elements.classList.add(...className);
     }
   },
   classCheck(element, className) {
-    //element.classList.contains(className) ? true : false;
-    if (element.classList.contains(className) === true) {
+    if (element.classList.contains(className)) {
       return true;
     } else {
       return false;
     }
   },
-  classClear(elements) {
-    elements.forEach((element) => {
-      element.classList = element.classList[0];
-    });
+  classRemove(elements, ...className) {
+    if (elements.length) {
+      elements.forEach((element) => {
+        element.classList.remove(...className);
+      });
+    } else {
+      elements.classList.remove(...className);
+    }
   },
   classSwap(element, className) {
-    // find out how to use spread so we can pass both classes to classSwap as ...className
-    return element.classList.toggle(className);
+    element.classList.toggle(className);
   },
-  classSwapDelay(element, className, speed) {
-    element.classList.add(className);
-    setTimeout(() => {
-      element.classList.remove(className);
-    }, speed);
-  },
-  createRandomNumber(max, min, v, currentNum) {
-    if (v) {
-      return v = Math.floor(Math.random() * (max - min) + min);
+  classSwapDelay(elements, speed, ...className) {
+    if (elements.length) {
+      elements.forEach((element) => {
+        element.classList.add(...className);
+        setTimeout(() => {
+          element.classList.remove(...className);
+        }, speed)
+      });
     } else {
-      return Math.floor(Math.random() * (max - min) + min);
+      elements.classList.add(...className);
+      setTimeout(() => {
+        elements.classList.remove(...className);
+      }, speed)
     }
+  },
+  createRandomNumber(max, min, currentNumber) {
+    var newNumber = Math.floor(Math.random() * (max - min) + min);
+    if (currentNumber !== undefined) {
+      if (newNumber === currentNumber) {
+        newNumber = utilities.createRandomNumber(
+          elements.tiles.length,
+          0,
+          currentNumber
+        );
+      }
+    }
+    return newNumber;
   },
   getIndexByClass(elements, className) {
     var index;
@@ -100,36 +111,68 @@ var utilities = {
       }
     });
     return index;
-  },
-}
-
-var animations = {
-  beatOrSync(randomNumber) {
+  }
+};
+var gamePlay = {
+  beatOrSync() {
     if (dynamic.beatCount < dynamic.startSync || dynamic.beatCount === 0) {
-      setTimeout(() => {
-        animations.beatFlash(randomNumber);
-      }, music.bpm[1]);
+      return true;
     } else {
-      setTimeout(() => {
-        animations.syncFlash(randomNumber);
-      }, music.bpm[1] * 0.75);
+      return false;
     }
   },
-  beatFlash(randomTile) {
-    utilities.classClear(elements.tiles);
-    gamePlay.checkSyncCount();
-    dynamic.beatCount++;
-    // find out how to use spread so we can pass both classes to classSwap as ...className
-    utilities.classSwap(elements.tiles[randomTile], 'lit--blue');
-    utilities.classSwap(elements.tiles[randomTile], 'beatFlash');
-    console.log(elements.tiles[randomTile]);
-    gamePlay.setNumbers('lit--blue');
+  getCurrentTile() {
+    var current = utilities.getIndexByClass(elements.tiles, 'lit--white') || utilities.getIndexByClass(elements.tiles, 'lit--green');
+    if (current === undefined) {
+      current = utilities.createRandomNumber(elements.tiles.length, 0);
+    }
+    return current;
   },
-  changeBackground(tile) {
+  reRun(speed) {
+    setTimeout(() => {
+      init.run();
+    }, speed);
+  },
+  resetBeatCount() {
+    if (dynamic.syncCount === dynamic.syncLength) {
+      dynamic.beatCount = 0;
+      dynamic.syncCount = 0;
+    }
+  },
+  resetSyncCounts() {
+    if (dynamic.beatCount === 0) {
+      dynamic.startSync = utilities.createRandomNumber(15, 5); //20, 5
+      dynamic.syncLength = utilities.createRandomNumber(12, 3); // 12, 3
+      dynamic.syncStreakCount = 0;
+    }
+  },
+  setSyncTime() {
+    // create random timing of sync rhythm using create random
+    // should always be faster than bpm?  or slower and faster?
+    // to test, set to either 0.85,0.75,0.65, 0.5
+    // maybe max then is 0.85 and min is 0.5
+    // where do we set this up so it doesn't create the random number with each syncFlash? or do we want it to do that?!?
+    dynamic.syncTiming = utilities.createRandomNumber(0.85, 0.5);
+    return dynamic.syncTiming;
+  },
+};
+var animations = {
+  beat(tile) {
+    utilities.classAdd(elements.tiles[tile], 'lit--white');
+    dynamic.beatCount++;
+    gamePlay.reRun(music.bpm[1]);
+  },
+  sync(tile) {
+    utilities.classAdd(elements.tiles[tile], 'lit--green');
+    if (dynamic.syncCount < dynamic.syncLength) {
+      dynamic.syncCount++;
+    }
+    gamePlay.reRun(music.bpm[1] * 0.75);
+  },
+  changeTileBackground(tile) {
     var color;
-    tile.classList.contains('beatFlash') ? color = 'blue' : color = 'purple';
-    utilities.classSwapDelay(tile, `changeColor--${color}`, 250);
-    console.log(tile);
+    tile.classList.contains('lit--white') ? color = 'white' : color = 'green';
+    utilities.classSwapDelay(tile, 250, `changeColor--${color}`);
   },
   startCountdown() {
     setTimeout(() => {
@@ -139,61 +182,40 @@ var animations = {
     }, 1100);
     setTimeout(() => {
       utilities.classSwap(elements.wrapTimer, 'hidden');
-      gamePlay.setNumbers();
+      init.run();
     }, 3000 + music.bpm[0]);
   },
-  syncFlash(randomTile) {
-    utilities.classClear(elements.tiles);
-    if (dynamic.syncCount < dynamic.syncLength) {
-      dynamic.syncCount++;
-      utilities.classSwap(elements.tiles[randomTile], 'lit--purple');
-      utilities.classSwap(elements.tiles[randomTile], 'syncFlash');
-      console.log(elements.tiles[randomTile]);
-    } else {
-      gamePlay.resetCounts();
-    }
-    gamePlay.setNumbers('lit--purple');
-  },
-}
+};
 
-var gamePlay = {
-  checkForColor(tile) {
-    var check = utilities.classCheck(tile, 'lit--blue') || utilities.classCheck(tile, 'lit--purple');
-    if (check) {
-      gamePlay.increaseScore(tile);
-      gamePlay.streakBonus(tile);
-      gamePlay.updateScoreElements();
-      animations.changeBackground(tile);
-      utilities.classSwapDelay(tile.firstElementChild, 'animateScore', 250);
-    } else {
-      dynamic.streak = 0;
-      // use rightAnswer to add negative animation on the tap?
-    }
-  },
+var score = {
   increaseScore(tile) {
-    var hasSync = utilities.classCheck(tile, 'syncFlash');
-    hasSync ? dynamic.score = dynamic.score + 3 : dynamic.score++;
-    dynamic.streak++;
-  },
-  resetCounts() {
-    dynamic.syncCount = 0;
-    dynamic.beatCount = 0;
-  },
-  checkSyncCount() {
-    if (dynamic.beatCount === 0) {
-      dynamic.startSync = utilities.createRandomNumber(20, 10, dynamic.startSync);
-      dynamic.syncLength = utilities.createRandomNumber(12, 3, dynamic.syncLength);
+    var hasSync = utilities.classCheck(tile, 'lit--green');
+    if (hasSync) {
+      dynamic.score += 3;
+      score.trackSyncStreak(tile);
+    } else {
+      dynamic.score++;
     }
-  },
-  setNumbers(className) {
-    var currentElement = utilities.getIndexByClass(elements.tiles, className);
-    var randomNumber = utilities.createRandomNumber(elements.tiles.length, 0);
-    utilities.checkForMatch(currentElement, randomNumber);
+    dynamic.streak++;
   },
   streakBonus(tile) {
     if (dynamic.streak % 10 === 0) {
       dynamic.score += dynamic.streak;
-      utilities.classSwapDelay(tile.firstElementChild.nextElementSibling, 'animateScore', 250);
+      utilities.classSwapDelay(tile.firstElementChild.nextElementSibling, 250, 'flashScore');
+    }
+  },
+  trackSyncStreak(tile) {
+    dynamic.syncStreakCount++;
+    if (dynamic.syncStreakCount === dynamic.syncCount) {
+      utilities.classSwapDelay(tile, 250, 'lit--blue');
+      if (dynamic.syncStreakCount === dynamic.syncLength) {
+        dynamic.score += dynamic.syncLength * 10;
+        elements.syncStreakScore.firstElementChild.textContent = String(`+${dynamic.syncLength * 10}!`);
+        utilities.classRemove(elements.syncStreakScore, 'hidden');
+        setTimeout(() => {
+          utilities.classAdd(elements.syncStreakScore, 'hidden');
+        }, 750);
+      }
     }
   },
   updateScoreElements() {
@@ -208,16 +230,53 @@ var gamePlay = {
       gameBoardStreak.textContent = String(dynamic.streak);
     });
   },
+};
+
+var userAction = {
+  checkForColor(tile) {
+    var check = utilities.classCheck(tile, 'lit--white') || utilities.classCheck(tile, 'lit--green');
+    if (check) {
+      score.increaseScore(tile);
+      score.streakBonus(tile);
+      score.updateScoreElements();
+      utilities.classSwapDelay(tile.firstElementChild, 250, 'flashScore');
+      animations.changeTileBackground(tile);
+    } else {
+      dynamic.streak = 0;
+      dynamic.syncStreakCount = 0;
+      elements.titleStreak.textContent = String(`Streak: ${dynamic.streak}`);
+      utilities.classSwapDelay(tile, 2000, 'shake');
+    }
+  }
+};
+var events = {
+  setEvents() {
+    elements.tiles.forEach((tile) => {
+      tile.addEventListener('click', function () {
+        userAction.checkForColor(tile);
+      });
+    });
+    elements.playButton.addEventListener('click', function () {
+      animations.startCountdown();
+      //init.run();
+    });
+  }
+};
+var init = {
+  run() {
+    var currentNumber = gamePlay.getCurrentTile();
+    var randomNumber = utilities.createRandomNumber(elements.tiles.length, 0, currentNumber);
+    gamePlay.resetBeatCount();
+    gamePlay.resetSyncCounts();
+    utilities.classRemove(elements.tiles, 'lit--white', 'lit--green');
+    var beatOrSync = gamePlay.beatOrSync();
+    beatOrSync ? animations.beat(randomNumber) : animations.sync(randomNumber);
+  },
+};
+
+// On page load
+try {
+  events.setEvents();
+} catch (ev) {
+  console.log('error occured: ' + ev);
 }
-// Tile click event
-elements.tiles.forEach((tile) => {
-  tile.addEventListener('click', function () {
-    gamePlay.checkForColor(tile);
-  });
-});
-// Play button event
-elements.playButton.addEventListener('click', function () {
-  animations.startCountdown();
-});
-music.setBPM('synth1'); // page load, load figaro by default
-//gamePlay.setNumbers();

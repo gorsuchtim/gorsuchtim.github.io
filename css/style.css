@@ -1,328 +1,336 @@
 * {
-margin: 0; 
-padding: 0;    
--webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
-html, body {
-width: 100%;
-height: 100%;
-overflow: hidden;
-background-color:black;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
 }
 
 /* Wrap Styles */
 .wrap {
-width: 100%;
-height: 100%;
-position: absolute;
-top: 0;
-left: 0;
-transition: all 0.3s ease-in-out;
-z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
 }
 
 .wrap--app {
-position: relative;
+  position: relative;
 }
 .wrap--blocks {
-z-index: 1;
-position: relative;
+  z-index: 1;
+  position: relative;
 }
 .overlay--blocks {
-    /*
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(255,255,255,0.8);
-z-index: 2;
-*/
+  /*
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  */
 }
 
 .wrap__config {
-color: white;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* Button Styles */
 .button {
-background-color: white;
-border: 1px solid gray;
-border-radius: 10px;
-padding: 1em 1.5em;
-cursor: pointer;
-color: gray;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 1em 1.5em;
+  cursor: pointer;
+  color: gray;
 }
 .button--setup {
-margin-top: 1em;    
-transition: opacity 0.5s ease-in-out
+  margin-top: 1em;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Setup Text Styles */
 .wrap__title--text {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .setup__text {
-opacity: 0;
-font-size: 2em;
-margin-right: 0.25em;
-transition: all 0.5s ease-in-out;
-text-shadow: 1px 10px 10px rgba(80, 80, 80, 0.8);
--webkit-display: flex;
-display: flex;   
+  opacity: 0;
+  font-size: 2em;
+  margin-right: 0.25em;
+  transition: all 0.5s ease-in-out;
+  text-shadow: 1px 10px 10px rgba(80, 80, 80, 0.8);
+  -webkit-display: flex;
+  display: flex;
 }
 
 /* Block Styles */
 .block {
-position: absolute;
-width: 2em;
-height: 2em;
-border: 1px solid white;
-background-color: gray;
-opacity: 0;
-transform: scale(1);
-transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1px solid white;
+  background-color: gray;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Gameboard Styles */
 .wrap__gameBoard--buttons {
-color: gray;
-display: flex;
-justify-content: space-around;
-align-items: center;
-color: white; 
+  color: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
 }
 .wrap__timer,
 .wrap__syncStreakScore {
-position: absolute;
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100vw;
-height: 100%;
-top: 0;
-left: 0;
-font-size: 3em;
-color: white;
-z-index: 5;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 3em;
+  color: white;
+  z-index: 5;
 }
 
 /* Tile Styles */
 .wrap__gameBoard--tiles {
-position: absolute;
-top: 2em;
-left: 0;
-width: 100%;
-height: 100%;
-display: flex;
-flex-flow: row wrap;
-justify-content: center;
-align-items: center;
+  position: absolute;
+  top: 2em;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .tile {
-position: relative;
-margin: 1em;
-width: 4em;
-height: 4em;
-border-radius: 40%;  
-cursor: pointer;
-background: rgba(255, 255, 255, 0.5);
-box-shadow: 0 0 10px rgb(170, 170, 170), 0 0 10px lightgray, 0 0 20px lightgray, 0 0 50px lightgray, 0 0 10px lightgray, 0 0 0 lightgray, 0 0 0px lightgray, 0 0 10px lightgray
+  position: relative;
+  margin: 1em;
+  width: 4em;
+  height: 4em;
+  border-radius: 40%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  /*box-shadow: 0 0 10px rgb(170, 170, 170), 0 0 10px lightgray,
+    0 0 20px lightgray, 0 0 50px lightgray, 0 0 10px lightgray, 0 0 0 lightgray,
+    0 0 0px lightgray, 0 0 10px lightgray; */
 }
 
 /* Score & Streak Styles */
 .score {
-position: absolute;
-bottom: -2em;
-right: 0;
-font-size: 1em;
-transition: transform 0.05s ease-in-out;
-color: white;
+  position: absolute;
+  bottom: -2em;
+  right: 0;
+  font-size: 1em;
+  transition: transform 0.05s ease-in-out;
+  color: white;
 }
 
 .streak {
-position: absolute;
-bottom: -1.5em;
-right: -1.5em;
-font-size: 2em;
-transition: transform 0.05s ease-in-out;
-color: white;
-text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 55px #228DFF, 0 0 75px #228DFF;
+  position: absolute;
+  bottom: -1.5em;
+  right: -1.5em;
+  font-size: 2em;
+  transition: transform 0.05s ease-in-out;
+  color: white;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #228dff, 0 0 30px #228dff,
+    0 0 40px #228dff, 0 0 55px #228dff, 0 0 75px #228dff;
 }
 
 /* Animation Styles */
 .falling {
--webkit-animation: falling 1s ease-in-out 1;
-animation: falling 1s ease-in-out 1;
+  -webkit-animation: falling 1s ease-in-out 1;
+  animation: falling 1s ease-in-out 1;
 }
 
 @-webkit-keyframes falling {
-from {
-transform: scale(1);
-}
+  from {
+    transform: scale(1);
+  }
 
-to {
-transform: scale(-1.5);
-}
+  to {
+    transform: scale(-1.5);
+  }
 }
 
 .lit--white {
-box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white, 0 0 150px white;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px white,
+    0 0 70px white, 0 0 80px white, 0 0 100px white, 0 0 150px white;
 }
 
 .lit--blue {
-border-color: #228DFF;
-box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  border-color: #228dff;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+    0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
 }
-.lit--blue-timer {   
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
-  }
+.lit--blue-timer {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+    0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+}
 .lit--green {
-box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #5aff18, 0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18, 0 0 150px #5aff18;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #5aff18,
+    0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18, 0 0 150px #5aff18;
 }
 .changeColor--white {
--webkit-animation: changeColor--white 0.2s ease-in-out 1;
--moz-animation: changeColor--white 0.2s ease-in-out 1;
-animation: changeColor--white 0.2s ease-in-out 1;
+  -webkit-animation: changeColor--white 0.2s ease-in-out 1;
+  -moz-animation: changeColor--white 0.2s ease-in-out 1;
+  animation: changeColor--white 0.2s ease-in-out 1;
 }
 
 .changeColor--blue {
--webkit-animation: changeColor--blue 0.2s ease-in-out 1;
--moz-animation: changeColor--blue 0.2s ease-in-out 1;
-animation: changeColor--blue 0.2s ease-in-out 1;
+  -webkit-animation: changeColor--blue 0.2s ease-in-out 1;
+  -moz-animation: changeColor--blue 0.2s ease-in-out 1;
+  animation: changeColor--blue 0.2s ease-in-out 1;
 }
 
 .changeColor--green {
--webkit-animation: changeColor--green 0.2s ease-in-out 1;
--moz-animation: changeColor--green 0.2s ease-in-out 1;
-animation: changeColor--green 0.2s ease-in-out 1;
+  -webkit-animation: changeColor--green 0.2s ease-in-out 1;
+  -moz-animation: changeColor--green 0.2s ease-in-out 1;
+  animation: changeColor--green 0.2s ease-in-out 1;
 }
 
 .flashScore {
--webkit-animation: flashScore 0.75s ease-in-out 1;
--moz-animation: flashScore 0.75s ease-in-out 1;
-animation: flashScore 0.75s ease-in-out 1;
+  -webkit-animation: flashScore 0.75s ease-in-out 1;
+  -moz-animation: flashScore 0.75s ease-in-out 1;
+  animation: flashScore 0.75s ease-in-out 1;
 }
 
 .neonFlash--green {
--webkit-animation: neonFlash--green 0.25s ease-in-out 1;
--moz-animation: neonFlash--green 0.25s ease-in-out 1;
-animation: neonFlash--green 0.25s ease-in-out 1;
-box-shadow: 0 0 10px #5aff18, 0 0 20px #5aff18, 0 0 30px #5aff18, 0 0 40px #5aff18, 0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18, 0 0 150px #5aff18;
+  -webkit-animation: neonFlash--green 0.25s ease-in-out 1;
+  -moz-animation: neonFlash--green 0.25s ease-in-out 1;
+  animation: neonFlash--green 0.25s ease-in-out 1;
+  box-shadow: 0 0 10px #5aff18, 0 0 20px #5aff18, 0 0 30px #5aff18,
+    0 0 40px #5aff18, 0 0 70px #5aff18, 0 0 80px #5aff18, 0 0 100px #5aff18,
+    0 0 150px #5aff18;
 }
 
 @keyframes changeColor--white {
-from {
-background-color: transparent;
-}
+  from {
+    background-color: transparent;
+  }
 
-to {
-background-color: white;
-}
+  to {
+    background-color: white;
+  }
 }
 
 @keyframes changeColor--blue {
-from {
-background-color: transparent;
-}
+  from {
+    background-color: transparent;
+  }
 
-to {
-background-color: #228DFF
-}
+  to {
+    background-color: #228dff;
+  }
 }
 
 @keyframes changeColor--green {
-from {
-background-color: transparent;
-}
+  from {
+    background-color: transparent;
+  }
 
-to {
-background-color: #5aff18
-}
+  to {
+    background-color: #5aff18;
+  }
 }
 
 /* From animate.css */
 @keyframes shake {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 
-from,
-to {
--webkit-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
-}
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
 
-10%,
-30%,
-50%,
-70%,
-90% {
--webkit-transform: translate3d(-10px, 0, 0);
-transform: translate3d(-10px, 0, 0);
-}
-
-20%,
-40%,
-60%,
-80% {
--webkit-transform: translate3d(10px, 0, 0);
-transform: translate3d(10px, 0, 0);
-}
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
 }
 
 .shake {
--webkit-animation: shake 0.35s ease-in-out 1;
--moz-animation: shake 0.35s ease-in-out 1;
-animation: shake 0.35s ease-in-out 1;
--webkit-animation-name: shake;
-animation-name: shake;
+  -webkit-animation: shake 0.35s ease-in-out 1;
+  -moz-animation: shake 0.35s ease-in-out 1;
+  animation: shake 0.35s ease-in-out 1;
+  -webkit-animation-name: shake;
+  animation-name: shake;
 }
 
 @keyframes flashScore {
-0% {
-opacity: 0;
-}
+  0% {
+    opacity: 0;
+  }
 
-50% {
-opacity: 1;
-transform: scale(2);
-}
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
 
-100% {
-opacity: 0;
-transform: scale(1);
-}
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }
 
 /* Utility Classes */
 .offscreen--left {
-left: -1000px;
+  left: -1000px;
 }
 
 .offscreen--top {
-top: -1000px;
+  top: -1000px;
 }
 
 .hidden {
-display: none;
+  display: none;
 }
 
 .clear {
-opacity: 0;
+  opacity: 0;
 }
 
 .show {
-opacity: 0.8;
+  opacity: 0.8;
 }
 .text--end {
-margin-right: 1em;
+  margin-right: 1em;
 }
-.text--flipped {  
-transform: scale(-1, 1);
+.text--flipped {
+  transform: scale(-1, 1);
 }

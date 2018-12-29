@@ -2,7 +2,7 @@
 have background of title and setup screens, tiles on the screen, dropping off in the background
 use our function for setting blocks and create an animation that shows and turns the letters for the game in the same time it takes to draw blocks to the screen
  */
-'use strict'
+'use strict';
 
 /* ***************** */
 // Variables
@@ -25,10 +25,8 @@ var elements = {
   syncStreakScore: document.querySelector('.wrap__syncStreakScore'),
   wrapTimer: document.querySelector('.wrap__timer'),
   windowWidth: window.innerWidth,
-  windowHeight: window.innerHeight,
-
-  //area: elements.windowWidth * elements.windowHeight,
-}
+  windowHeight: window.innerHeight
+};
 var blockElements = {
   xPos: 0,
   yPos: 0,
@@ -37,10 +35,10 @@ var blockElements = {
   allBlocks: [],
   fallenBlocks: [],
   replacedBlocks: [],
-  blockTimeoutSpeed: 0,
-  area: elements.windowWidth * elements.windowHeight,
-}
+  blockTimeoutSpeed: 0
+};
 var dynamic = {
+  blocksToDrop: 1,
   score: 0,
   streak: 0,
   syncLength: 0,
@@ -48,8 +46,8 @@ var dynamic = {
   syncCount: 0,
   syncStreakCount: 0,
   beatCount: 0,
-  pauseFlag: false,
-}
+  pauseFlag: false
+};
 var blockElements = {
   xPos: 0,
   yPos: 0,
@@ -57,21 +55,19 @@ var blockElements = {
   allBlocksHeight: 0,
   allBlocks: [],
   fallenBlocks: [],
-  replacedBlocks: [],
-  blockTimeoutSpeed: 0,
-  area: elements.windowWidth * elements.windowHeight,
-}
+  replacedBlocks: []
+};
 var music = {
   audio: document.querySelector('.audio__player'),
-  bpm: [1500, 880],
-}
+  bpm: [1500, 880]
+};
 
 /* ****************** */
 // Utility Functions
 var utilities = {
   classAdd(elements, ...className) {
     if (elements.length) {
-      elements.forEach((element) => {
+      elements.forEach(element => {
         element.classList.add(...className);
       });
     } else {
@@ -87,7 +83,7 @@ var utilities = {
   },
   classRemove(elements, ...className) {
     if (elements.length) {
-      elements.forEach((element) => {
+      elements.forEach(element => {
         element.classList.remove(...className);
       });
     } else {
@@ -99,17 +95,17 @@ var utilities = {
   },
   classSwapDelay(elements, speed, ...className) {
     if (elements.length) {
-      elements.forEach((element) => {
+      elements.forEach(element => {
         element.classList.add(...className);
         setTimeout(() => {
           element.classList.remove(...className);
-        }, speed)
+        }, speed);
       });
     } else {
       elements.classList.add(...className);
       setTimeout(() => {
         elements.classList.remove(...className);
-      }, speed)
+      }, speed);
     }
   },
   createRandomNumber(max, min, currentNumber) {
@@ -134,22 +130,21 @@ var utilities = {
     });
     return index;
   },
-  resize() {
-    elements.windowWidth = window.innerWidth;
-    elements.windowHeight = window.innerHeight;
-    elements.area = elements.windowWidth * elements.windowHeight;
-  },
   sequenceFade(element, style, speed, directive) {
     if (directive === 'add') {
       $(element).each(function (i) {
         setTimeout(function () {
-          $(element).eq(i).addClass(style);
+          $(element)
+            .eq(i)
+            .addClass(style);
         }, speed * (i + 1));
       });
     } else if (directive === 'remove') {
       $(element).each(function (i) {
         setTimeout(function () {
-          $(element).eq(i).removeClass(style);
+          $(element)
+            .eq(i)
+            .removeClass(style);
         }, speed * (i + 1));
       });
     } else {
@@ -161,7 +156,8 @@ var utilities = {
       el.setAttribute(key, attrs[key]);
     }
   },
-  shuffleArray(array) { // Randomize array element order in-place: Durstenfeld shuffle algorithm.         
+  shuffleArray(array) {
+    // Randomize array element order in-place: Durstenfeld shuffle algorithm.
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var temp = array[i];
@@ -189,7 +185,9 @@ var animations = {
   },
   changeTileBackground(tile) {
     var color;
-    tile.classList.contains('lit--white') ? color = 'white' : color = 'green';
+    tile.classList.contains('lit--white')
+      ? (color = 'white')
+      : (color = 'green');
     utilities.classSwapDelay(tile, 250, `changeColor--${color}`);
   },
   startCountdown() {
@@ -201,9 +199,9 @@ var animations = {
     setTimeout(() => {
       utilities.classSwap(elements.wrapTimer, 'hidden');
       init.run();
-      removeBlocks(blockElements.allBlocks[0]);
+      blocks.removeBlocks(blockElements.allBlocks[0]);
     }, 3000 + music.bpm[0]);
-  },
+  }
 };
 
 /* ***************** */
@@ -217,12 +215,15 @@ var gamePlay = {
     }
   },
   gameOver() {
+    dynamic.pauseFlag = true;
     console.log('game over, loser');
     // game over needs to reset score and streak, pauseFlag, empty arrays (allblocks, fallenblocks)
     // reset all variables in blockElements and dynamic
   },
   getCurrentTile() {
-    var current = utilities.getIndexByClass(elements.tiles, 'lit--white') || utilities.getIndexByClass(elements.tiles, 'lit--green');
+    var current =
+      utilities.getIndexByClass(elements.tiles, 'lit--white') ||
+      utilities.getIndexByClass(elements.tiles, 'lit--green');
     if (current === undefined) {
       current = utilities.createRandomNumber(elements.tiles.length, 0);
     }
@@ -254,7 +255,7 @@ var gamePlay = {
     // where do we set this up so it doesn't create the random number with each syncFlash? or do we want it to do that?!?
     dynamic.syncTiming = utilities.createRandomNumber(0.85, 0.5);
     return dynamic.syncTiming;
-  },
+  }
 };
 
 /* ***************** */
@@ -263,19 +264,24 @@ var score = {
   increaseScore(tile) {
     var hasSync = utilities.classCheck(tile, 'lit--green');
     if (hasSync) {
-      dynamic.score += 3;
-      blocks.replaceBlocks(3);
+      //dynamic.score += 3;
+      blocks.replaceBlocks(3); // test: give back 3 blocks for every sync hit but only increase score by 1 to help adjust balance between falling blocks and what we can replace
       score.trackSyncStreak(tile);
     } else {
-      dynamic.score++;
+      //dynamic.score++;
       blocks.replaceBlocks(1);
     }
+    dynamic.score++;
     dynamic.streak++;
   },
   streakBonus(tile) {
     if (dynamic.streak % 10 === 0) {
       dynamic.score += dynamic.streak;
-      utilities.classSwapDelay(tile.firstElementChild.nextElementSibling, 250, 'flashScore');
+      utilities.classSwapDelay(
+        tile.firstElementChild.nextElementSibling,
+        250,
+        'flashScore'
+      );
     }
   },
   trackSyncStreak(tile) {
@@ -284,8 +290,11 @@ var score = {
       utilities.classSwapDelay(tile, 250, 'lit--blue');
       if (dynamic.syncStreakCount === dynamic.syncLength) {
         dynamic.score += dynamic.syncLength * 10;
-        blocks.replaceBlocks(10);
-        elements.syncStreakScore.firstElementChild.textContent = String(`+${dynamic.syncLength * 10}!`);
+        //blocks.replaceBlocks(10); replace 10 blocks if they nail the sync
+        blocks.replaceBlocks(dynamic.syncLength * 10); // replace synclength * 10 worth of blocks when they nail the sync
+        elements.syncStreakScore.firstElementChild.textContent = String(
+          `+${dynamic.syncLength * 10}!`
+        );
         utilities.classRemove(elements.syncStreakScore, 'hidden');
         setTimeout(() => {
           utilities.classAdd(elements.syncStreakScore, 'hidden');
@@ -305,13 +314,46 @@ var score = {
       gameBoardStreak.textContent = String(dynamic.streak);
     });
   },
+  checkBlocksToSend() {
+    if (dynamic.score >= 20) {
+      dynamic.blocksToDrop = Math.floor(dynamic.score / 10);
+    }
+    var arr = [];
+    // before we send this we have to verify that there are enough blocks in blockElements.allBlocks to pull from or we get an error and break the game
+    if (dynamic.blocksToDrop === 1) {
+      blocks.removeBlocks(blockElements.allBlocks[0]);
+    } else {
+      for (var i = 0; i < dynamic.blocksToDrop; i++) {
+        arr.push(blockElements.allBlocks[i]);
+      }
+      blocks.removeBlocks(...arr);
+    }
+  },
+  verifyBlocksExist() {
+    if (dynamic.score >= 20) {
+      dynamic.blocksToDrop = Math.floor(dynamic.score / 10);
+    }
+    var arr = [];
+    if (blockElements.allBlocks.length === 1 || dynamic.blocksToDrop === 1) {
+      blocks.removeBlocks(blockElements.allBlocks[0]);
+    } else if (blockElements.allBlocks.length >= dynamic.blocksToDrop) {
+      for (var i = 0; i < dynamic.blocksToDrop; i++) {
+        arr.push(blockElements.allBlocks[i]);
+      }
+      blocks.removeBlocks(...arr);
+    } else {
+      gamePlay.gameOver();
+    }
+  }
 };
 
 /* ***************** */
 // User action-related Functions
 var userAction = {
   checkForColor(tile) {
-    var check = utilities.classCheck(tile, 'lit--white') || utilities.classCheck(tile, 'lit--green');
+    var check =
+      utilities.classCheck(tile, 'lit--white') ||
+      utilities.classCheck(tile, 'lit--green');
     if (check) {
       score.increaseScore(tile);
       score.streakBonus(tile);
@@ -323,53 +365,18 @@ var userAction = {
       dynamic.syncStreakCount = 0;
       elements.titleStreak.textContent = String(`Streak: ${dynamic.streak}`);
       utilities.classSwapDelay(tile, 2000, 'shake');
-      if (blockElements.allBlocks.length >= 3) {
-        removeBlocks(blockElements.allBlocks[0], blockElements.allBlocks[1], blockElements.allBlocks[2]);
-      }
     }
   }
 };
 
-//blockElements.blockTimeoutSpeed
-// Why does this not work as a method of the var blocks object??
-function removeBlocks(...blocks) {
-  if (blockElements.allBlocks.length) { // only drop blocks if blocks exist
-    var len = blocks.length;
-    blockElements.fallenBlocks.push(...blocks);
-    utilities.classAdd(blocks, 'falling');
-    utilities.classRemove(blocks, 'show');
-    blockElements.allBlocks.splice(0, len);
-    if (!dynamic.pauseFlag) { // if not paused
-      if (blocks.length === 1) { // so there is no repeat of dropping 3 on a wrong hit
-        setTimeout(function () {
-          removeBlocks(blockElements.allBlocks[0]);
-        }, 500);
-      }
-    }
-  } else { // if no more blocks run game over
-    gamePlay.gameOver();
-  }
-}
-
 /* ***************** */
 // Block Falling Functions
 var blocks = {
-  setBlockFallSpeed(totalBlocks) {
-    var duration = music.audio.duration
-    // by the end of song, if nothing is done by user all blocks will have fallen by 0
-    // to make it end by half song length, * blocks per second by 2?
-    var blocksPerSecond = (totalBlocks / duration) * 2;
-    var timeoutSpeed = 1000 / blocksPerSecond;
-    return timeoutSpeed;
-  },
-  increaseBlockFallSpeed() {
-
-  },
   setBlocks(container) {
     var block = document.createElement('div');
     utilities.setAttributes(block, {
       class: 'block show',
-      style: `top: ${blockElements.yPos}px; left: ${blockElements.xPos}px`,
+      style: `top: ${blockElements.yPos}px; left: ${blockElements.xPos}px`
     });
     blockElements.allBlocks.push(block);
 
@@ -394,38 +401,68 @@ var blocks = {
       }, 0);
     } else {
       utilities.shuffleArray(blockElements.allBlocks);
-      blockElements.blockTimeoutSpeed = blocks.setBlockFallSpeed(blockElements.allBlocks.length);
       //animations.startCountdown();
+    }
+  },
+  removeBlocks(...blocks) {
+    if (blockElements.allBlocks.length) {
+      // only drop blocks if blocks exist
+      var len = blocks.length;
+      blockElements.fallenBlocks.push(...blocks);
+      utilities.classAdd(blocks, 'falling');
+      utilities.classRemove(blocks, 'show');
+      blockElements.allBlocks.splice(0, len);
+      if (!dynamic.pauseFlag) {
+        // if not paused, see what the points are and drop blocks accordingly
+        setTimeout(function () {
+          //score.checkBlocksToSend();
+          score.verifyBlocksExist();
+        }, music.bpm[1]); // set at bpm instead of based on 2mins now that number of blocks that falls is based on points
+        //blockElements.blockTimeoutSpeed
+      }
+    } else {
+      // if no more blocks run game over
+      gamePlay.gameOver();
     }
   },
   replaceBlocks(repScore) {
     // set repscore in beatflash and sync flash and sync streak bonus!
+    blockElements.replacedBlocks = []; // empty blockElements.replacedBlocks from previous replacement
     if (blockElements.fallenBlocks.length >= 1) {
       for (var i = 0; i < repScore; i++) {
         blockElements.replacedBlocks.push(blockElements.fallenBlocks[0]);
         blockElements.fallenBlocks.shift();
       }
-      utilities.classRemove(blockElements.replacedBlocks, 'falling');
-      utilities.classAdd(blockElements.replacedBlocks, 'show');
-      blockElements.allBlocks.push(blockElements.replacedBlocks);
+      blockElements.replacedBlocks.forEach(function (block) {
+        utilities.classRemove(block, 'falling');
+        utilities.classAdd(block, 'show');
+        blockElements.allBlocks.push(block);
+      });
     }
   }
-}
+};
 
 /* ***************** */
 // Mission Control
 var init = {
   run() {
-    if (!dynamic.pauseFlag) { // this stops it at the right time
+    if (!dynamic.pauseFlag) {
+      // this stops it at the right time
       var currentNumber = gamePlay.getCurrentTile();
-      var randomNumber = utilities.createRandomNumber(elements.tiles.length, 0, currentNumber);
+      var randomNumber = utilities.createRandomNumber(
+        elements.tiles.length,
+        0,
+        currentNumber
+      );
       gamePlay.resetBeatCount();
       gamePlay.resetSyncCounts();
       utilities.classRemove(elements.tiles, 'lit--white', 'lit--green');
       var beatOrSync = gamePlay.beatOrSync();
-      beatOrSync ? animations.beat(randomNumber) : animations.sync(randomNumber);
+      beatOrSync
+        ? animations.beat(randomNumber)
+        : animations.sync(randomNumber);
     }
-  },
+  }
 };
 
 /* ***************** */
@@ -452,33 +489,23 @@ var events = {
         }, 500);
       });
     });
-    elements.tiles.forEach((tile) => {
+    elements.tiles.forEach(tile => {
       tile.addEventListener('click', function () {
         userAction.checkForColor(tile);
       });
     });
     elements.placeButton.addEventListener('click', function () {
-      // blocks.setBlocks('.wrap__blocks');
-      // animations.startCountdown();
-      // use the block placement as the countdown
       animations.startCountdown();
-      //init.run();
-    });
-    elements.removeButton.addEventListener('click', function () {
-      removeBlocks(blockElements.allBlocks[0]);
-    });
-    elements.replaceButton.addEventListener('click', function () {
-      blocks.replaceBlocks(1);
+      // blocks.removeBlocks(blockElements.allBlocks[0]);
+      // init.run();
     });
     elements.pauseButton.addEventListener('click', function () {
       dynamic.pauseFlag = !dynamic.pauseFlag;
       if (dynamic.pauseFlag === false) {
         init.run();
-        removeBlocks(blockElements.allBlocks[0]);
+        blocks.removeBlocks(blockElements.allBlocks[0]);
       }
     });
-    window.addEventListener('resize', utilities.resize);
-
   }
 };
 
@@ -497,3 +524,25 @@ try {
 
 
 */
+/* if user hits wrong tile
+ // if (blockElements.allBlocks.length >= 3) {
+      //   removeBlocks(
+      //     blockElements.allBlocks[0],
+      //     blockElements.allBlocks[1],
+      //     blockElements.allBlocks[2]
+      //   );
+      // } */
+
+/*
+variable in var blocks:  blockTimeoutSpeed: 0,
+// placed in setblocks in the else: blockElements.blockTimeoutSpeed = blocks.setBlockFallSpeed(
+        blockElements.allBlocks.length
+      );
+       setBlockFallSpeed(totalBlocks) {
+    // var duration = music.audio.duration; use in production
+    // rate = distance/time.  in our test distance is the number of blocks that have to fall and time is how many seconds that they have available to fall
+    var time = 120; // testing w/out audio file default duration 2mins: CONVERT TO SECONDS FROM MS (120,000) because we are dropping at 1bps and we want to find the speed there
+    var rate = totalBlocks / time;
+    var timeoutSpeed = 1000 / rate; // divide by 1000 to put back into milliseconds for timeout
+    return timeoutSpeed;
+  },*/

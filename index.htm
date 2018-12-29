@@ -2,14 +2,14 @@
 <html>
 
 <head>
-  <title>Pixels2</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <meta name="author" content="Tim Gorsuch">
+  <title>ColorTap!</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Tim Gorsuch" />
   <!-- css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -29,40 +29,60 @@
         <span class="setup__text setup__text--title text--flipped">p</span>
         <span class="setup__text setup__text--title text--flipped">!</span>
       </div>
-      <button class="button button--setup button--toSetup clear">To Setup</button>
+      <button class="button button--setup button--toSetup clear">
+        To Setup
+      </button>
     </div>
     <div class="wrap wrap__config wrap__config--setup offscreen--left">
       <h2>hi i'm wrap--setup</h2>
-      <div class="button button--setup button--toStart">To Gameboard</div>
+      <button class="button button--setup dropSpeed">Speed</button><button class="button button--setup tilesFall">Tiles</button>
+      <button class="button button--setup button--toStart">
+        To Gameboard
+      </button>
     </div>
     <div class="wrap wrap__gameBoard offscreen--left">
       <div class="wrap__gameBoard--buttons">
         <button class="place">place</button>
-        <button class="remove">remove</button>
-        <button class="replace">replace</button>
         <button class="pause">pause</button>
         <h4 class="score--title">Score: 0</h4>
         <h4 class="streak--title">Streak: 0</h4>
       </div>
       <div class="wrap__timer hidden">
-        <h1 class="timer">3</h1>
+        <h1 class="timer lit--blue-timer">3</h1>
       </div>
       <div class="wrap__syncStreakScore hidden">
         <h1 class="syncStreakScore"></h1>
       </div>
       <div class="wrap__gameBoard--tiles">
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
-        <div class="tile"><span class="score clear"></span><span class="streak clear"></span></div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
+        <div class="tile">
+          <span class="score clear"></span><span class="streak clear"></span>
+        </div>
       </div>
     </div>
-
     <div class="wrap wrap--gameOver offscreen--top">
       <h2>hi im wrap game over</h2>
     </div>

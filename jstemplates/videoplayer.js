@@ -19,7 +19,11 @@ function setAttributes(el, attrs) {
 
 var videoPlayer = {
     videoAriaSwitch: function (element, state) {
-        element.setAttribute('aria-label', state);
+        if (element.classList.contains('video-controls__button--play')) {
+            element.setAttribute('aria-label', state);
+        } else {
+            element.setAttribute('aria-label', state);
+        }
         element.firstElementChild.setAttribute('alt', state);
     },
     createModal: function () {
@@ -61,7 +65,7 @@ var videoPlayer = {
         }
 
         // Set keydown|tab events for all modal video transcripts
-        var modalVideoTranscript = $('.transcript--modal').children();
+        var modalVideoTranscript = $('.transcript').children();
         for (var i = 0; i < modalVideoTranscript.length; i++) {
             modalVideoTranscript[i].addEventListener('keydown', function (ev) {
                 if (!ev.shiftKey && ev.which === 9) {
@@ -108,7 +112,7 @@ var videoPlayer = {
             modalVideoSource.captions +
             '"srclang="en"></track>Your browser does not support HTML5 video tag.</video><div class="video-controls"><div class="sr-text" id="playbtn">Press to play</div><button aria-describedby="playbtn-' +
             modalVideoSource.id +
-            '" class="video-controls__button video-controls__button--play video-control" id="play" aria-label="Play video"><img alt="Play video" src="images/play_bar_icon.svg" /></button><div class="durationTextContainer"><span class="vidDurationText video-control" id="current">0:00</span> /<span class="vidDurationText video-control" id="duration">0:00</span></div><input aria-label="Video progress" class="vidDuration video-control vidDuration__seekBar" id="seekBar" type="range" value="0"/><div class="bufferBar video-control" id="bufferBar"></div><button aria-label="Volume press to mute" class="video-controls__button video-controls__button--volume video-control" id="volume" type="button"><img alt="Volume press to mute" src="images/volume_full_bar_icon.svg" /></button><input aria-label="Volume Slider" class="volumeBar video-control" id="volumeBar" max="1" min="0" step="0.01" type="range" value="1" /><button aria-label="Show captions" class="video-controls__button video-controls__button--closedCaption video-control" data-state="subtitles"id="subtitles" type="button"><img alt="Show captions" src="images/closed_caption_bar_icon.svg" /></button><button class="video-controls__button video-controls__button--fullScreen video-control" data-state="go-fullscreen" id="fs" type="button"><img alt="Fullscreen" src="images/expand_bar_icon.svg" /></button></div></div><p class="transcript transcript--modal"><a aria-label="Transcript pdf" class="transcriptLink" href="' +
+            '" class="video-controls__button video-controls__button--play video-control" id="play" aria-label="Play video"><img alt="Play video" src="images/play_bar_icon.svg" /></button><div class="durationTextContainer"><span class="vidDurationText video-control" id="current">0:00</span> /<span class="vidDurationText video-control" id="duration">0:00</span></div><input aria-label="Video progress" class="vidDuration video-control vidDuration__seekBar" id="seekBar" type="range" value="0"/><div class="bufferBar video-control" id="bufferBar"></div><button aria-label="Volume press to mute" class="video-controls__button video-controls__button--volume video-control" id="volume" type="button"><img alt="Volume press to mute" src="images/volume_full_bar_icon.svg" /></button><input aria-label="Volume Slider" class="volumeBar video-control" id="volumeBar" max="1" min="0" step="0.01" type="range" value="1" /><button aria-label="Show captions" class="video-controls__button video-controls__button--closedCaption video-control" data-state="subtitles"id="subtitles" type="button"><img alt="Show captions" src="images/closed_caption_bar_icon.svg" /></button><button class="video-controls__button video-controls__button--fullScreen video-control" data-state="go-fullscreen" id="fs" type="button"><img alt="Fullscreen" src="images/expand_bar_icon.svg" /></button></div></div><p class="transcript"><a aria-label="Transcript pdf" class="transcriptLink" href="' +
             modalVideoSource.transcript + '" target="_blank">Transcript PDF</a></p>';
         $('.modal__video').attr('aria-labelledby', 'play-' + modalVideoSource.id).append(video);
     },
@@ -180,6 +184,7 @@ var videoPlayer = {
                 var fullScreenButton = document.getElementById('fs-' + target);
                 var vidDuration = 0;
                 var hoverFlag = false;
+
                 /*------------------------
                     Video wrapper click event
                 -------------------------*/
@@ -479,7 +484,6 @@ var videoPlayer = {
                         } else if (video.msRequestFullscreen) {
                             video.parentElement.msRequestFullscreen();
                         }
-                        $('.video-controls__button--play').focus();
                     }
                 });
             } else { // if not using the new video player

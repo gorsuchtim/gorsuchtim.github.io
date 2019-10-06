@@ -37,7 +37,7 @@ function portfolioInit() {
 
   /*-------------------------------
     Background image events and behaviors
-    --------------------------------*/
+    --------------------------------
   var infoButton = document.querySelector(".portfolio__button--info");
   infoButton.addEventListener("click", function() {
     $(".text__background--options").fadeToggle(); // toggle fade image info text
@@ -159,6 +159,7 @@ function portfolioInit() {
     }
     $(".text__background--title").text(backgroundTitle__text);
   }
+  */
 
   /*------------------------
     Global function declarations

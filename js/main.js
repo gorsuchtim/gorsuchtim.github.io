@@ -200,12 +200,13 @@ function portfolioInit() {
 
         /*--------------------
         Conditionals
-        -----------------*/
+        -----------------
   if (moveIn !== "demo") {
     // if moveIn is NOT demo
     $(".portfolio__container--demo").css("z-index", "1"); // reset z-index of demo container to 1
     emptyDemoContainer(); // empty the demo container
   }
+  */
 
   /*-----------------------
     Custom container behaviors

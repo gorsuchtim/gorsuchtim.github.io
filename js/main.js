@@ -191,22 +191,31 @@ function portfolioInit() {
         $('#html').addClass('ccActive tabHighlightA'); // reset default code container view to add highlight to html element
     }
 
-    function moveContent(moveIn) { // dynamically shift code content according to what user selects to view     
-        $('.portfolio__container--menu').fadeIn(); // fade in portfolio menu
-        $('.portfolio__container').addClass('offScreenTop').addClass('hidden__none'); // move all portfolio containers out of view
-        setTimeout(function () {
-            $('.portfolio__container--' + moveIn + '').removeClass('offScreenTop hidden__none'); // move moveIn container in to view
-        }, 500);
-
         /*--------------------
         Conditionals
-        -----------------
-  if (moveIn !== "demo") {
-    // if moveIn is NOT demo
-    $(".portfolio__container--demo").css("z-index", "1"); // reset z-index of demo container to 1
-    emptyDemoContainer(); // empty the demo container
+        -----------------*/
+
+  function moveContent(moveIn) {
+    // dynamically shift code content according to what user selects to view
+    $(".portfolio__container--menu").fadeIn(); // fade in portfolio menu
+    $(".portfolio__container")
+      .addClass("offScreenTop")
+      .addClass("hidden__none"); // move all portfolio containers out of view
+    setTimeout(function() {
+      $(".portfolio__container--" + moveIn + "").removeClass(
+        "offScreenTop hidden__none"
+      ); // move moveIn container in to view
+    }, 500);
+
+    /*--------------------
+    Conditionals
+    -----------------*/
+    if (moveIn !== "demo") {
+      // if moveIn is NOT demo
+      $(".portfolio__container--demo").css("z-index", "1"); // reset z-index of demo container to 1
+      emptyDemoContainer(); // empty the demo container
+    }
   }
-  */
 
   /*-----------------------
     Custom container behaviors
